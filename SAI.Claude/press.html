@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Press — Student Athletes of Israel</title>
+<meta name="description" content="News coverage, founder commentary, media kit, and press contact for Student Athletes of Israel." />
+<meta name="theme-color" content="#001A5C" />
+<link rel="icon" type="image/png" href="sai-logo-navy.png" />
+<link rel="apple-touch-icon" href="sai-logo-navy.png" />
+<link rel="canonical" href="https://studentathletes.org.il/press" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Student Athletes of Israel" />
+<meta property="og:title" content="Press — Student Athletes of Israel" />
+<meta property="og:description" content="News coverage, founder commentary, media kit, and press contact for Student Athletes of Israel." />
+<meta property="og:image" content="https://studentathletes.org.il/hero-bg.png" />
+<meta property="og:url" content="https://studentathletes.org.il/press" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="sai.css" />
+<style>
+  /* Press page-specific styles */
+
+  /* HERO */
+  .page-hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 10rem 2rem 6rem; background-image: linear-gradient(160deg, rgba(255,255,255,0.86) 0%, rgba(10,20,40,0.70) 45%, rgba(255,255,255,0.92) 100%), url('press-athlete-portrait.webp'); background-size: cover; background-position: center 40%; position: relative; overflow: hidden; }
+  .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 50% 45%, rgba(255,255,255,0.45) 0%, transparent 75%); }
+  .page-hero-content { position: relative; z-index: 1; max-width: 700px; }
+  .page-hero-eyebrow { font-family: 'Heebo', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 1rem; }
+  .page-hero-eyebrow::before, .page-hero-eyebrow::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .page-hero h1 { font-family: 'Heebo', sans-serif; font-weight: 900; font-size: clamp(4rem, 10vw, 8rem); text-transform: uppercase; line-height: 0.9; color: var(--deep-navy); }
+  .page-hero h1 em { font-family: 'Heebo', sans-serif; font-style: italic; color: var(--gold); font-size: 0.85em; }
+  .page-hero p { font-size: 1.05rem; color: rgba(26,26,26,0.65); line-height: 1.8; max-width: 520px; margin: 2rem auto 0; }
+
+  /* PRESS GRID */
+  .press-section { padding: 7rem 4rem; max-width: 1200px; margin: 0 auto; border-top: 1px solid var(--border); }
+  .press-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+  .press-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem; position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; text-decoration: none; display: block; color: inherit; }
+  .press-card:hover { border-color: rgba(212,162,74,0.4); transform: translateY(-3px); }
+  .press-outlet { font-family: 'Heebo', sans-serif; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+  .press-outlet::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .press-headline { font-family: 'Heebo', sans-serif; font-weight: 700; font-size: 1.1rem; line-height: 1.2; text-transform: uppercase; color: var(--deep-navy); margin-bottom: 0.8rem; }
+  .press-excerpt { font-size: 0.85rem; color: var(--grey); line-height: 1.6; margin-bottom: 1rem; }
+  .press-date { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(92,100,112,0.6); font-family: 'Heebo', sans-serif; font-weight: 600; }
+  .press-card::after { content: '\2192'; position: absolute; bottom: 1.8rem; right: 1.8rem; font-size: 1rem; color: var(--gold); opacity: 0; transition: opacity 0.2s, transform 0.2s; }
+  .press-card:hover::after { opacity: 1; transform: translateX(3px); }
+  .press-placeholder { border: 1px dashed rgba(212,162,74,0.2); background: rgba(15,22,40,0.4); }
+  .press-placeholder .press-outlet, .press-placeholder .press-headline { opacity: 0.4; }
+  .press-placeholder .press-excerpt { font-style: italic; }
+
+  /* MEDIA KIT + PITCH — side-by-side row */
+  .press-cta-row {
+    border-top: 1px solid var(--border);
+    background: var(--navy2);
+    padding: 5rem 4rem;
+  }
+  .press-cta-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2rem; align-items: stretch;
+  }
+  .media-kit, .pitch-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2.4rem 2rem;
+    display: flex; flex-direction: column;
+  }
+  .media-kit h2, .pitch-section h2 {
+    font-family: 'Heebo', sans-serif; font-weight: 900;
+    font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+    text-transform: uppercase; line-height: 1; margin-bottom: 1rem;
+    color: var(--deep-navy);
+  }
+  .media-kit h2 em, .pitch-section h2 em {
+    font-family: 'Heebo', sans-serif; font-style: italic;
+    color: var(--gold); font-size: 0.9em;
+  }
+  .media-kit p, .pitch-section p {
+    font-family: 'Assistant', sans-serif;
+    font-size: 0.96rem; color: rgba(26,26,26,0.75);
+    line-height: 1.7; margin-bottom: 1.2rem;
+  }
+  .media-kit .btn-primary, .pitch-section .btn-primary {
+    align-self: flex-start;
+    margin-top: auto;
+  }
+  .kit-assets { display: flex; flex-direction: column; gap: 0.6rem; margin: 0.6rem 0 1.4rem; }
+  .kit-asset { background: var(--navy2); border: 1px solid var(--border); border-radius: 3px; padding: 0.75rem 0.9rem; display: flex; align-items: center; gap: 0.8rem; font-size: 0.82rem; color: rgba(26,26,26,0.75); }
+  .kit-asset-icon { flex-shrink: 0; display: flex; align-items: center; }
+  .kit-asset-icon .icon { width: 1.2rem; height: 1.2rem; }
+  .kit-asset-label { font-family: 'Heebo', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.1rem; }
+  @media (max-width: 760px) {
+    .press-cta-grid { grid-template-columns: 1fr; }
+    .press-cta-row { padding: 4rem 1.5rem; }
+  }
+
+  .footer-social { display: flex; gap: 0.8rem; align-items: center; justify-content: center; margin: 1rem 0 1.4rem; }
+  .social-icon { display: flex; align-items: center; justify-content: center; width: 2.2rem; height: 2.2rem; border: 1px solid var(--border); border-radius: 3px; color: var(--grey); text-decoration: none; transition: color 0.2s, border-color 0.2s, background 0.2s; }
+  .social-icon:hover { color: var(--gold); border-color: var(--gold); background: rgba(212,162,74,0.08); }
+
+  @media (max-width: 900px) {
+    .press-section, .pitch-section { padding: 5rem 1.5rem; }
+    .press-grid { grid-template-columns: 1fr; }
+    .media-kit-inner { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+  }
+</style>
+</head>
+<body data-whatsapp="972548184327">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <a class="nav-logo" href="index.html" aria-label="SAI home">
+    <img class="nav-logo-img" src="sai-logo-navy.png" alt="" width="36" height="36" decoding="async"><div class="nav-wordmark">
+      <span class="nav-wordmark-sai">SAI</span>
+      <span class="nav-wordmark-sub">Student Athletes of Israel</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">Mission</a></li>
+    <li><a href="index.html#two-paths">Our Model</a></li>
+    <li><a href="index.html#timeline">Our Progress</a></li>
+    <li><a href="index.html#partners">Partners</a></li>
+    <li><a href="apply.html">Apply</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="press.html" class="active">Press</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://www.instagram.com/studentathletesofisrael/" target="_blank" rel="noopener" aria-label="SAI on Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/student-athletes-of-israel/" target="_blank" rel="noopener" aria-label="SAI on LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.27 2.36 4.27 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+    </a>
+  </div>
+  <a href="donate.html" class="nav-cta">Invest</a>
+  <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+  </button>
+</nav>
+<aside class="nav-mobile-menu" id="nav-mobile-menu">
+  <a href="index.html#about">Mission</a>
+  <a href="index.html#two-paths">Our Model</a>
+  <a href="index.html#timeline">Our Progress</a>
+  <a href="index.html#partners">Partners</a>
+  <a href="apply.html">Apply</a>
+  <a href="faq.html">FAQ</a>
+  <a href="press.html">Press</a>
+  <a href="donate.html">Invest</a>
+</aside>
+
+<main id="main">
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Media &amp; Press</div>
+    <h1>SAI in the <em>Press</em></h1>
+    <p>Coverage of Israel's student athlete movement — from founding to national expansion. For media inquiries, contact our team directly.</p>
+  </div>
+</div>
+
+<!-- PRESS ARTICLES -->
+<section class="press-section">
+  <div class="section-tag">Coverage</div>
+  <h2 class="section-title">Latest <em>stories</em></h2>
+  <div class="press-grid">
+
+    <a class="press-card" href="https://www.biu.ac.il/en/article/584276" target="_blank" rel="noopener">
+      <div class="press-outlet">Bar-Ilan University</div>
+      <div class="press-headline">Bar-Ilan Launches Excellence Program for Olympic Athletes</div>
+      <div class="press-excerpt">A pioneering initiative developed with the Olympic Committee enables elite Israeli athletes to pursue full academic degrees while competing at the highest international level. The first athlete selected: world champion sailor Shahar Tibi.</div>
+      <div class="press-date">February 11, 2026</div>
+    </a>
+
+    <a class="press-card press-placeholder" href="#" target="_blank">
+      <div class="press-outlet">The Jerusalem Post</div>
+      <div class="press-headline">SAI Launches First Cohort of Student Athletes at Bar-Ilan</div>
+      <div class="press-excerpt">Ten Olympic and Paralympic athletes will enroll at Bar-Ilan University this fall under a pioneering dual-track program that could soon expand to multiple campuses nationwide.</div>
+      <div class="press-date">Coming &middot; 2026</div>
+    </a>
+
+    <a class="press-card press-placeholder" href="#" target="_blank">
+      <div class="press-outlet">Ynet Sports</div>
+      <div class="press-headline">The Program Changing What It Means to Be an Israeli Athlete</div>
+      <div class="press-excerpt">Student Athletes of Israel is betting that the country's Olympic future depends not just on training facilities — but on giving champions a life after sport that starts while they compete.</div>
+      <div class="press-date">Coming &middot; 2026</div>
+    </a>
+
+    <a class="press-card press-placeholder" href="#" target="_blank">
+      <div class="press-outlet">Haaretz</div>
+      <div class="press-headline">Inside Israel's First Olympic Scholarship Framework</div>
+      <div class="press-excerpt">With a landmark MOU signed at Bar-Ilan University, SAI is creating the infrastructure Israeli Olympic athletes have always lacked — and the timing couldn't be more important.</div>
+      <div class="press-date">Coming &middot; 2026</div>
+    </a>
+
+    <a class="press-card press-placeholder" href="#" target="_blank">
+      <div class="press-outlet">Times of Israel</div>
+      <div class="press-headline">Meet the Athletes Who Will Change Israeli Sport Forever</div>
+      <div class="press-excerpt">Cohort 1 of the Student Athletes of Israel program represents something unprecedented: a generation of champions who won't have to choose between Olympic glory and a university degree.</div>
+      <div class="press-date">Coming &middot; 2026</div>
+    </a>
+
+    <a class="press-card press-placeholder" href="#" target="_blank">
+      <div class="press-outlet">Walla! Sport</div>
+      <div class="press-headline">The Framework That Could Transform Israeli Olympians</div>
+      <div class="press-excerpt">SAI's hakalot model gives university athletes the flexibility to train and compete at the highest level — a systemic shift that could redefine Israel's standing in global sport.</div>
+      <div class="press-date">Coming &middot; 2026</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- MEDIA KIT + PITCH (side-by-side) -->
+<div class="press-cta-row">
+  <div class="press-cta-grid">
+
+    <!-- Media Kit -->
+    <div class="media-kit">
+      <div class="section-tag">For Journalists</div>
+      <h2>Media <em>kit</em> &amp; assets</h2>
+      <p>Everything you need to cover SAI accurately and compellingly — brand assets, athlete photos, organizational background, and key statistics.</p>
+      <div class="kit-assets">
+        <div class="kit-asset">
+          <span class="kit-asset-icon"><svg class="icon icon-gold" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></span>
+          <div><span class="kit-asset-label">Brand Logos</span>SAI logos in PNG, SVG, and EPS — light and dark</div>
+        </div>
+        <div class="kit-asset">
+          <span class="kit-asset-icon"><svg class="icon icon-gold" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span>
+          <div><span class="kit-asset-label">Athlete Photography</span>High-res photos of Cohort 1 athletes (on request)</div>
+        </div>
+        <div class="kit-asset">
+          <span class="kit-asset-icon"><svg class="icon icon-gold" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+          <div><span class="kit-asset-label">Fact Sheet</span>Key statistics, program overview, organizational background</div>
+        </div>
+        <div class="kit-asset">
+          <span class="kit-asset-icon"><svg class="icon icon-gold" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></span>
+          <div><span class="kit-asset-label">Interview Requests</span>Access to SAI leadership and athlete spokespeople</div>
+        </div>
+      </div>
+      <a class="btn-primary" href="index.html#contact">Request Media Kit &rarr;</a>
+    </div>
+
+    <!-- Pitch Us -->
+    <section class="pitch-section">
+      <div class="section-tag">Got a Story?</div>
+      <h2>Pitch us a <em>story</em></h2>
+      <p>Covering Israeli sport, higher education, or the intersection of athletics and society? We'd love to work with you. Reach out with your angle and we'll connect you with the right people.</p>
+      <p style="font-size:0.85rem; color:rgba(92,100,112,0.85);">Direct enquiries: <a href="mailto:press@studentathletes.org.il" style="color:var(--gold); text-decoration:none;">press@studentathletes.org.il</a></p>
+      <div class="footer-social">
+        <a class="social-icon" href="https://www.instagram.com/studentathletesofisrael/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a class="social-icon" href="https://www.linkedin.com/company/student-athletes-of-israel/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+      </div>
+      <a class="btn-primary" href="index.html#contact">Get in Touch &rarr;</a>
+    </section>
+
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <img class="footer-seal" src="sai-logo-navy.png" alt="Student Athletes of Israel" width="120" height="120" loading="lazy" decoding="async">
+  <div class="footer-wordmark">Student Athletes of Israel</div>
+  <div class="footer-wordmark" lang="he" dir="rtl" style="font-size:1rem;color:var(--tekhelet);margin-bottom:.6rem;letter-spacing:0">סטודנטים ספורטאים בישראל</div>
+  <div class="footer-sub">Train &middot; Study &middot; Champion</div>
+  <ul class="footer-links">
+    <li><a href="index.html#about">Mission</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="press.html">Press</a></li>
+    <li><a href="donate.html">Invest</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">&copy; <span data-year>2026</span> Student Athletes of Israel. All rights reserved.</div>
+</footer>
+<script src="sai.js"></script>
+
+</body>
+</html>
+                                                                                                                              

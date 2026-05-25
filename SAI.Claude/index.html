@@ -1,0 +1,2164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Student Athletes of Israel — Train. Study. Champion.</title>
+<meta name="description" content="Israel's first structured framework for Olympic and Paralympic athletes pursuing higher education. Train at world-class levels, study at Bar-Ilan, represent your country." />
+<meta name="theme-color" content="#001A5C" />
+<link rel="icon" type="image/png" href="sai-logo-navy.png" />
+<link rel="apple-touch-icon" href="sai-logo-navy.png" />
+<link rel="canonical" href="https://studentathletes.org.il/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Student Athletes of Israel" />
+<meta property="og:title" content="Student Athletes of Israel — Train. Study. Champion." />
+<meta property="og:description" content="Israel's first structured framework for Olympic and Paralympic athletes pursuing higher education. Train at world-class levels, study at Bar-Ilan, represent your country." />
+<meta property="og:image" content="https://studentathletes.org.il/hero-bg.png" />
+<meta property="og:url" content="https://studentathletes.org.il/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="sai.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "Student Athletes of Israel",
+  "alternateName": "SAI",
+  "url": "https://studentathletes.org.il/",
+  "logo": "https://studentathletes.org.il/assets/sai-logo-seal.png",
+  "description": "Israel's first structured framework supporting Olympic and Paralympic athletes pursuing higher education at Bar-Ilan University.",
+  "email": "info@studentathletes.org.il",
+  "areaServed": "IL",
+  "sameAs": []
+}
+</script>
+<style>
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    padding-top: 7rem;       /* clears the fixed nav */
+    padding-bottom: 4rem;
+    position: relative; overflow: hidden;
+    background: var(--navy);
+  }
+  @media (max-width: 760px) {
+    #home { padding-top: 5.5rem; padding-bottom: 3rem; }
+  }
+  .hero-photo {
+    position: absolute; inset: 0;
+    overflow: hidden;
+  }
+  .hero-frame {
+    position: absolute; inset: 0;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.28s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: opacity;
+  }
+  .hero-frame.is-active { opacity: 1; }
+  /* The final frame (original hero) gets a longer settle + slow ken-burns */
+  .hero-frame.f5 {
+    transition: opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1),
+                transform 14s ease-out;
+    transform: scale(1.04);
+  }
+  .hero-frame.f5.is-active { transform: scale(1.0); }
+  .hero-frame.f1 { background-image: url('hero-1.webp'); }
+  .hero-frame.f2 { background-image: url('hero-2.webp'); }
+  .hero-frame.f3 { background-image: url('hero-4.webp'); }
+  .hero-frame.f4 { background-image: url('hero-3.webp'); }
+  .hero-frame.f5 { background-image: url('hero-bg.webp'); }
+  /* Mobile: replace f5 (the settled image) with the mobile-optimized crop */
+  @media (max-width: 760px) {
+    .hero-frame.f5 { background-image: url('mobile-hero.webp'); background-position: center top; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-frame { transition: opacity 0.001ms !important; transform: none !important; }
+  }
+  /* Multi-layer overlay: darkens image enough for white text to pop */
+  /* Deep-navy overlay so headlines read on photography; matches brand-book
+     "Tekhelet Blue dominant interface" while keeping photo cinematic. */
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(0,26,92,0.30) 0%, rgba(0,26,92,0.10) 40%, rgba(0,26,92,0.55) 100%),
+      linear-gradient(to right, rgba(0,26,92,0.22) 0%, transparent 45%, rgba(0,26,92,0.22) 100%);
+    z-index: 1;
+  }
+  /* Subtle vignette */
+  .hero-vignette {
+    position: absolute; inset: 0; z-index: 2;
+    background: radial-gradient(ellipse 90% 90% at 50% 50%, transparent 55%, rgba(0,26,92,0.35) 100%);
+  }
+  /* SAI logo intro overlay — full-page navy curtain that dissolves to reveal the site */
+  .hero-intro-logo {
+    position: fixed; inset: 0; z-index: 10000;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--deep-navy);
+    opacity: 1;
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .hero-intro-stack {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 1.6rem;
+    opacity: 0;
+    transform: scale(0.94);
+    transition: opacity 0.55s ease, transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1);
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+  .hero-intro-logo img {
+    width: clamp(220px, 32vw, 380px);
+    height: auto;
+    filter: drop-shadow(0 12px 36px rgba(0,0,0,0.45));
+  }
+  .hero-intro-wordmark {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1rem, 1.6vw, 1.4rem);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--victory-gold);
+    line-height: 1;
+  }
+  .hero-intro-logo.lit .hero-intro-stack { opacity: 1; transform: scale(1); }
+  .hero-intro-logo.gone { opacity: 0; }
+  .hero-intro-logo.removed { display: none; }
+  @media (max-width: 760px) {
+    .hero-intro-wordmark { font-size: 0.82rem; letter-spacing: 0.22em; }
+    .hero-intro-stack { gap: 1.1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-intro-logo { display: none; }
+  }
+  /* Remove the old grid — photo replaces it */
+  .hero-grid { display: none; }
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center; max-width: 980px; padding: 0 2rem;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .hero-h1        { order: 1; }
+  .hero-sub       { order: 3; }
+  .hero-actions   { order: 4; }
+  .hero-eyebrow {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 600; font-size: 0.78rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold);
+    margin-top: 0.7rem; margin-bottom: 0;
+    display: flex; align-items: center; justify-content: center; gap: 0.85rem;
+    order: 2;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; display: block; width: 32px; height: 1px; background: var(--gold); opacity: 0.5;
+  }
+  .hero-h1 {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900; line-height: 0.9;
+    font-size: clamp(3.4rem, 9.5vw, 7.6rem);
+    text-transform: uppercase; letter-spacing: -0.01em;
+  }
+  /* Three-beat headline per brand book: two beats in white, one accent in gold */
+  .hero-h1 .line1 { display: block; color: #FFFFFF; }
+  .hero-h1 .line2 { display: block; color: #FFFFFF; }
+  .hero-h1 .line3 { display: block; color: var(--victory-gold); font-family: 'Heebo', sans-serif; font-weight: 900; letter-spacing: -0.01em; }
+
+  /* ── KINETIC TEXT ── */
+  .kinetic, .kinetic-italic {
+    display: inline-block;
+    position: relative;
+    transition: none;
+  }
+  .kinetic.exit {
+    animation: kineticExit 0.35s cubic-bezier(0.4, 0, 1, 1) forwards;
+  }
+  .kinetic.enter {
+    animation: kineticEnter 0.45s cubic-bezier(0, 0, 0.2, 1) forwards;
+  }
+  .kinetic-italic.exit {
+    animation: kineticExitUp 0.22s cubic-bezier(0.4, 0, 1, 1) forwards;
+  }
+  .kinetic-italic.enter {
+    animation: kineticEnterUp 0.28s cubic-bezier(0, 0, 0.2, 1) forwards;
+  }
+  @keyframes kineticExit {
+    0%   { opacity: 1; transform: translateY(0) skewX(0deg); }
+    100% { opacity: 0; transform: translateY(60%) skewX(-6deg); }
+  }
+  @keyframes kineticEnter {
+    0%   { opacity: 0; transform: translateY(-55%) skewX(6deg); }
+    100% { opacity: 1; transform: translateY(0) skewX(0deg); }
+  }
+  @keyframes kineticExitUp {
+    0%   { opacity: 1; transform: translateY(0) skewX(0deg); }
+    100% { opacity: 0; transform: translateY(-40%) skewX(4deg); }
+  }
+  @keyframes kineticEnterUp {
+    0%   { opacity: 0; transform: translateY(40%) skewX(-4deg); }
+    100% { opacity: 1; transform: translateY(0) skewX(0deg); }
+  }
+  .hero-sub {
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.02rem; font-weight: 400; color: rgba(255,255,255,0.88);
+    max-width: 540px; margin: 1.1rem auto 1.5rem; line-height: 1.55;
+  }
+  .hero-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+  .hero-actions .btn-primary { padding: 0.75rem 1.8rem; font-size: 0.85rem; }
+  .hero-stats {
+    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 4rem; z-index: 2;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900; font-size: 2.4rem; color: var(--victory-gold); line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.78); margin-top: 0.4rem; font-weight: 600;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 7rem 4rem; max-width: 1200px; margin: 0 auto; }
+  /* ── MISSION BLOCK ── */
+  .mission-block {
+    width: 100%;
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    position: relative;
+    overflow: hidden;
+    background: #EEEAE2;
+  }
+
+  .mission-silhouette {
+    position: relative;
+    display: flex; align-items: stretch; justify-content: stretch;
+    overflow: hidden;
+    background: #E9E5DC;
+  }
+  .mission-silhouette svg {
+    width: 100%; height: 100%;
+    min-height: 500px;
+    object-fit: cover;
+  }
+
+  /* Right: content area */
+  .mission-content {
+    display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 6rem 6rem 6rem 4rem;
+    position: relative;
+  }
+  .mission-content::before {
+    content: '';
+    position: absolute; left: 0; top: 15%; bottom: 15%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(212,162,74,0.3), transparent);
+  }
+  .mission-eyebrow {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 600; font-size: 0.8rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .mission-heading {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900;
+    font-size: clamp(4rem, 8vw, 7.5rem);
+    line-height: 0.88;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 2.5rem;
+    color: var(--deep-navy);
+  }
+  .mission-heading span {
+    display: block;
+    color: var(--deep-navy);
+  }
+  .mission-heading span.accent {
+    color: var(--victory-gold);
+  }
+  .mission-statement {
+    font-size: 1.12rem;
+    line-height: 1.85;
+    color: rgba(26,26,26,0.65);
+    max-width: 560px;
+    font-weight: 300;
+  }
+
+  @media (max-width: 900px) {
+    .mission-block { grid-template-columns: 1fr; min-height: auto; }
+    .mission-silhouette { min-height: 300px; }
+    .mission-content { padding: 3rem 1.5rem; }
+    .mission-content::before { display: none; }
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    position: relative;
+    border-top: 1px solid var(--border);
+    padding: 0; max-width: 100%;
+    overflow: hidden;
+  }
+  /* Background image on its own layer so it can zoom independently */
+  #about .mission-bg-layer {
+    position: absolute; inset: 0; z-index: 0;
+    background: url('hero-3.webp') center center / cover no-repeat;
+    transform: scale(1);
+    transform-origin: center center;
+    transition: transform 0s;
+    will-change: transform;
+  }
+  #about::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to right, rgba(244,241,236,0.74) 0%, rgba(244,241,236,0.60) 55%, rgba(244,241,236,0.24) 100%),
+      linear-gradient(to bottom, rgba(244,241,236,0.32) 0%, transparent 30%, transparent 70%, rgba(244,241,236,0.48) 100%);
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+  }
+  /* State when section is entering viewport */
+  #about.mission-zooming .mission-bg-layer {
+    transform: scale(1.08);
+    transition: transform 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  #about.mission-zooming::before {
+    opacity: 0.7;
+    transition: opacity 2.5s ease;
+  }
+  .about-grid {
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; max-width: 1200px; margin: 0 auto;
+    padding: 8rem 4rem;
+  }
+  /* Text elements fade+slide up on entry */
+  .about-grid .section-tag,
+  .about-grid .section-title,
+  .about-grid .about-body,
+  .about-grid .about-pillars {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  #about.mission-zooming .about-grid .section-tag  { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+  #about.mission-zooming .about-grid .section-title { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+  #about.mission-zooming .about-grid .about-body    { opacity: 1; transform: translateY(0); transition-delay: 0.6s; }
+  #about.mission-zooming .about-grid .about-pillars { opacity: 1; transform: translateY(0); transition-delay: 0.8s; }
+  .about-body { font-size: 1.05rem; line-height: 1.8; color: rgba(26,26,26,0.8); }
+  .about-body p + p { margin-top: 1rem; }
+  .about-pillars { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2.5rem; }
+  .pillar {
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    padding: 1.2rem 1.5rem; background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(6px);
+    border-left: 3px solid var(--victory-gold); border-radius: 0 4px 4px 0;
+    box-shadow: 0 4px 14px rgba(0,26,92,0.08);
+  }
+  .pillar-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 0.1rem; color: var(--tekhelet); }
+  .pillar-title {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 800; font-size: 1rem; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--deep-navy); margin-bottom: 0.3rem;
+  }
+  .pillar-body { font-family: 'Assistant', sans-serif; font-size: 0.92rem; color: var(--charcoal); line-height: 1.6; }
+  .about-visual { display: none; }
+  .about-visual-inner { display: none; }
+  .about-badge { display: none; }
+
+  /* ── ATHLETES ── */
+  #athletes { border-top: 1px solid var(--border); }
+  .athletes-intro { max-width: 640px; margin-bottom: 4rem; }
+  .athletes-intro .section-body { font-size: 1.05rem; line-height: 1.8; color: rgba(26,26,26,0.7); margin-top: 1rem; }
+  .athlete-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .athlete-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 2rem 1.8rem; position: relative; overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .athlete-card:hover { transform: translateY(-4px); border-color: rgba(212,162,74,0.5); }
+  .athlete-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--blue));
+  }
+  .athlete-sport {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.75rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+  }
+  .athlete-name {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 800; font-size: 1.5rem; text-transform: uppercase;
+    line-height: 1.1; margin-bottom: 0.5rem;
+  }
+  .athlete-uni { font-size: 0.85rem; color: var(--grey); margin-bottom: 1.2rem; }
+  .athlete-quote { font-size: 0.9rem; color: rgba(26,26,26,0.6); font-style: italic; line-height: 1.6; }
+  .athlete-placeholder {
+    width: 100%; height: 120px;
+    background: linear-gradient(135deg, rgba(0,56,184,0.4), rgba(212,162,74,0.1));
+    border-radius: 3px; margin-bottom: 1.2rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem;
+  }
+  .athletes-cta { text-align: center; margin-top: 3.5rem; }
+
+  /* ── OUR ATHLETES (stats) ── */
+  #our-athletes { border-top: 1px solid var(--border); }
+  .cohort-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem; }
+  .athletes-stats-bar {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0; flex-wrap: wrap;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .athlete-stat-block {
+    flex: 1; min-width: 140px;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .athlete-stat-block:hover { background: rgba(212,162,74,0.05); }
+  .athlete-stat-num {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900; font-size: clamp(3rem, 5vw, 4.5rem);
+    color: var(--gold); line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .athlete-stat-label {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 600; font-size: 0.78rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--grey);
+  }
+  .athletes-stats-divider {
+    width: 1px; height: 80px;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+  @media (max-width: 900px) {
+    .athletes-stats-divider { display: none; }
+    .athlete-stat-block { min-width: 40%; border-bottom: 1px solid var(--border); }
+  }
+
+  /* ── TRADING CARD FLIP ── */
+  .card-scene {
+    perspective: 900px;
+    aspect-ratio: 2.5 / 3.5;
+    cursor: pointer;
+  }
+  .card-flipper {
+    width: 100%; height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+  }
+  .card-scene:hover .card-flipper {
+    transform: rotateY(180deg);
+  }
+
+  .card-face {
+    position: absolute; inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  /* ── FRONT ── */
+  .card-front {
+    background: var(--navy2);
+    display: flex; flex-direction: column;
+    box-shadow: 0 8px 30px rgba(0,26,92,0.10), 0 0 0 1px rgba(212,162,74,0.15);
+  }
+
+  /* Outer border frame */
+  .card-front-frame {
+    position: absolute; inset: 6px;
+    border-radius: 7px;
+    border: 3px solid var(--gold);
+    pointer-events: none; z-index: 10;
+  }
+  /* Inner accent corner lines */
+  .card-front-frame::before {
+    content: '';
+    position: absolute; inset: 3px;
+    border-radius: 5px;
+    border: 1.5px solid rgba(212,162,74,0.3);
+  }
+
+  /* Top navy diagonal band */
+  .card-top-band {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 22%;
+    background: var(--navy);
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+    z-index: 2;
+  }
+  .card-top-band-inner {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 100%;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 55%, 0 95%);
+    display: flex; align-items: flex-start;
+    padding: 8px 12px 0;
+    justify-content: space-between;
+  }
+  .card-team-name {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 800; font-size: 0.6rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    text-shadow: 0 1px 4px rgba(0,26,92,0.10);
+  }
+  .card-num-badge {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900; font-size: 1rem; color: var(--gold);
+    line-height: 1; opacity: 0.9;
+  }
+
+  /* Photo area */
+  .card-photo-area {
+    flex: 1;
+    background: linear-gradient(160deg, #FFFFFF 0%, #F4F1EC 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; margin-top: 0;
+  }
+  .card-photo-area::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(0,56,184,0.04) 0px, rgba(0,56,184,0.04) 1px,
+      transparent 1px, transparent 8px
+    );
+  }
+  .card-sport-emoji {
+    font-size: 3.5rem;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+    position: relative; z-index: 1;
+  }
+
+  /* Left diagonal accent stripe */
+  .card-stripe-left {
+    position: absolute; top: 0; bottom: 0; left: 0;
+    width: 16px;
+    background: linear-gradient(180deg, var(--gold) 0%, #B8862A 100%);
+    clip-path: polygon(0 0, 100% 4%, 100% 96%, 0 100%);
+    z-index: 3;
+  }
+  /* Right diagonal accent stripe */
+  .card-stripe-right {
+    position: absolute; top: 0; bottom: 0; right: 0;
+    width: 10px;
+    background: var(--navy);
+    clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 96%);
+    z-index: 3;
+  }
+
+  /* Bottom navy name band */
+  .card-bottom-band {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    z-index: 4;
+  }
+  .card-bottom-band-inner {
+    background: var(--navy);
+    clip-path: polygon(0 30%, 100% 0, 100% 100%, 0 100%);
+    padding: 18px 14px 8px;
+    display: flex; align-items: flex-end; justify-content: space-between;
+  }
+  .card-player-name {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900; font-size: 0.85rem; letter-spacing: 0.06em;
+    text-transform: uppercase; color: #FFFFFF; line-height: 1.1;
+  }
+  .card-player-from {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 600; font-size: 0.58rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold); margin-top: 1px;
+  }
+  .card-sport-tag {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.58rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold);
+    background: rgba(212,162,74,0.15);
+    border: 1px solid rgba(212,162,74,0.4);
+    padding: 2px 6px; border-radius: 2px; white-space: nowrap;
+  }
+
+  /* ── BACK ── */
+  .card-back {
+    transform: rotateY(180deg);
+    background: var(--navy);
+    display: flex; flex-direction: column;
+    box-shadow: 0 8px 30px rgba(0,26,92,0.14);
+    border: 2px solid var(--gold);
+  }
+  .card-back-header {
+    background: linear-gradient(135deg, var(--blue), #0038B8);
+    padding: 0.7rem 1rem 0.6rem;
+    border-bottom: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .card-back-title {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900; font-size: 0.85rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #FFFFFF;
+  }
+  .card-back-num {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900; font-size: 1.2rem; color: var(--gold); opacity: 0.6;
+  }
+  .card-back-emoji {
+    font-size: 1.4rem; text-align: center; padding: 0.6rem 0 0.2rem;
+    display: block;
+  }
+  .card-back-stats {
+    flex: 1; padding: 0.5rem 1rem 0.8rem;
+    display: flex; flex-direction: column; gap: 0.45rem;
+  }
+  .cbs-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 1px solid rgba(212,162,74,0.1); padding-bottom: 0.4rem;
+  }
+  .cbs-row:last-child { border-bottom: none; }
+  .cbs-label {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.6rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--grey);
+  }
+  .cbs-value {
+    font-size: 0.78rem; color: #FFFFFF;
+    font-weight: 500; text-align: right; max-width: 55%;
+  }
+  .card-back-footer {
+    background: var(--gold);
+    padding: 0.45rem 1rem;
+    text-align: center;
+  }
+  .card-back-footer span {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 800; font-size: 0.65rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--navy);
+  }
+  .cohort-note { margin-top: 3rem; text-align: center; font-size: 0.9rem; color: var(--grey); font-style: italic; }
+
+  /* ── TIMELINE TRACK ── */
+  #timeline {
+    border-top: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  #timeline::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      /* Bright core — the "light at the end of the tunnel" */
+      radial-gradient(ellipse 35% 60% at 95% 50%, rgba(232,200,122,0.22) 0%, rgba(212,162,74,0.12) 35%, transparent 70%),
+      /* Wider warm halo bleeding in from the right */
+      radial-gradient(ellipse 65% 90% at 100% 50%, rgba(212,162,74,0.09) 0%, transparent 65%),
+      /* Left side stays dark — the tunnel */
+      linear-gradient(90deg, #EEEAE2 0%, #EEEAE2 40%, #F4F1EC 70%, transparent 100%),
+      /* Base */
+      linear-gradient(180deg, #F4F1EC 0%, #F4F1EC 100%);
+  }
+  #timeline::after {
+    content: '';
+    position: absolute; inset: 0; z-index: 0;
+    background: linear-gradient(180deg,
+      rgba(244,241,236,0.5) 0%, transparent 10%,
+      transparent 90%, rgba(244,241,236,0.6) 100%);
+    pointer-events: none;
+  }
+  #timeline > * { position: relative; z-index: 1; }
+  .timeline-intro { max-width: 640px; margin-bottom: 5rem; }
+
+  .track-container {
+    position: relative;
+    padding: 0 0 3rem 0;
+    overflow: visible;
+  }
+
+  /* The running track — three lanes, much taller */
+  .track-rail {
+    position: relative;
+    height: 120px;
+    margin-bottom: 0;
+  }
+  /* ── TIMELINE RUNNER ANIMATION ── */
+  /* Rails always visible — track is pre-loaded */
+  .track-rail::before,
+  .track-rail::after {
+    content: '';
+    position: absolute; left: 0; right: 0; height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold) 85%, rgba(212,162,74,0.15) 100%);
+  }
+  .track-rail::before { top: 10px; }
+  .track-rail::after  { top: 106px; }
+
+  /* Lane dashes always visible */
+  .track-lane-dashes::before,
+  .track-lane-dashes::after { }
+
+  /* Nodes hidden until runner passes */
+  .track-node { opacity: 0; transform: translateY(8px); transition: opacity 0.35s ease, transform 0.35s ease; }
+  .track-node.node-visible { opacity: 1; transform: translateY(0); }
+  /* Runner stops here marker */
+  .track-node.node-current .track-dot {
+    box-shadow: 0 0 0 3px var(--gold), 0 0 20px rgba(212,162,74,0.6);
+    animation: dotPulse 1.5s ease-in-out infinite;
+  }
+  @keyframes dotPulse {
+    0%, 100% { box-shadow: 0 0 0 3px var(--gold), 0 0 20px rgba(212,162,74,0.6); }
+    50%       { box-shadow: 0 0 0 6px rgba(212,162,74,0.3), 0 0 30px rgba(212,162,74,0.4); }
+  }
+
+  /* Runner removed — no longer used on the timeline. */
+  .track-runner { display: none !important; }
+
+  /* Three lane dividers inside the track */
+  .track-lane-dashes {
+    position: absolute; left: 0; right: 0;
+  }
+  .track-lane-dashes::before {
+    content: '';
+    position: absolute; top: 44px; left: 0; right: 0; height: 1px;
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(212,162,74,0.4) 0px, rgba(212,162,74,0.4) 28px,
+      transparent 28px, transparent 48px
+    );
+  }
+  .track-lane-dashes::after {
+    content: '';
+    position: absolute; top: 76px; left: 0; right: 0; height: 1px;
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(212,162,74,0.4) 0px, rgba(212,162,74,0.4) 28px,
+      transparent 28px, transparent 48px
+    );
+  }
+
+  /* Starting line — vertical stripes on the left */
+  .track-start {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 22px; z-index: 4;
+    background: repeating-linear-gradient(
+      180deg,
+      var(--gold) 0px, var(--gold) 10px,
+      rgba(244,241,236,0.6) 10px, rgba(244,241,236,0.6) 20px
+    );
+    opacity: 0.8;
+  }
+  /* "START" label */
+  .track-start-label {
+    position: absolute; left: 26px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Heebo', sans-serif;
+    font-weight: 800; font-size: 0.65rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold); opacity: 0.7;
+    white-space: nowrap;
+  }
+
+  /* Finish line on the right */
+  .track-finish {
+    position: absolute; right: 0; top: 0; bottom: 0;
+    width: 22px; z-index: 4;
+    background: repeating-linear-gradient(
+      180deg,
+      var(--gold) 0px, var(--gold) 10px,
+      rgba(244,241,236,0.6) 10px, rgba(244,241,236,0.6) 20px
+    );
+    opacity: 0.5;
+  }
+  .track-finish-label {
+    position: absolute; right: 26px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Heebo', sans-serif;
+    font-weight: 800; font-size: 0.65rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold); opacity: 0.5;
+    white-space: nowrap;
+  }
+
+  /* Milestone nodes ON the track */
+  .track-nodes {
+    position: absolute; top: 0; left: 50px; right: 50px; height: 120px;
+    display: flex; align-items: center;
+    justify-content: space-between;
+  }
+  .track-node {
+    position: relative;
+    display: flex; flex-direction: column; align-items: center;
+    cursor: default;
+  }
+
+  /* Above nodes: dot at TOP, connector goes DOWN to track center */
+  .track-node.node-above {
+    justify-content: flex-start;
+    height: 120px;
+  }
+  /* Below nodes: dot at BOTTOM, connector goes UP to track center */
+  .track-node.node-below {
+    justify-content: flex-end;
+    height: 120px;
+  }
+
+  /* The dot */
+  .track-dot {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid var(--navy);
+    box-shadow: 0 0 0 2px var(--gold), 0 4px 16px rgba(212,162,74,0.4);
+    position: relative; z-index: 5;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .track-node:hover .track-dot { transform: scale(1.3); }
+  .track-dot.future {
+    background: var(--navy2);
+    border-color: rgba(212,162,74,0.5);
+    box-shadow: 0 0 0 2px rgba(212,162,74,0.3);
+  }
+
+  /* Connector line */
+  .track-connector {
+    width: 1px;
+    background: linear-gradient(180deg, rgba(212,162,74,0.8), rgba(212,162,74,0.2));
+    flex-shrink: 0;
+  }
+  .node-above .track-connector { height: 44px; }
+  .node-below .track-connector { height: 44px; }
+
+  /* Cards */
+  .track-card {
+    position: absolute;
+    width: 175px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.9rem 1rem;
+    transition: border-color 0.2s, transform 0.2s;
+    z-index: 3;
+  }
+  .track-node:hover .track-card { border-color: rgba(212,162,74,0.5); }
+
+  /* Above cards sit above the dot */
+  .node-above .track-card {
+    bottom: calc(100% + 12px);
+    left: 50%; transform: translateX(-50%);
+  }
+  .node-above:hover .track-card { transform: translateX(-50%) translateY(-3px); }
+
+  /* Below cards sit below the dot */
+  .node-below .track-card {
+    top: calc(100% + 12px);
+    left: 50%; transform: translateX(-50%);
+  }
+  .node-below:hover .track-card { transform: translateX(-50%) translateY(3px); }
+
+  .track-card-date {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem;
+  }
+  .track-card-title {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 800; font-size: 0.88rem; text-transform: uppercase;
+    color: var(--deep-navy); line-height: 1.15; margin-bottom: 0.35rem;
+  }
+  .track-card-body {
+    font-size: 0.7rem; color: rgba(26,26,26,0.55); line-height: 1.5;
+    margin-bottom: 0.45rem;
+  }
+  .track-card-badge {
+    display: inline-block;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.6rem; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(212,162,74,0.12); color: var(--gold);
+    border: 1px solid rgba(212,162,74,0.3);
+    padding: 0.15rem 0.5rem; border-radius: 2px;
+  }
+  .track-card-badge.upcoming {
+    background: rgba(0,56,184,0.3); color: rgba(26,26,26,0.4);
+    border-color: rgba(26,26,26,0.1);
+  }
+
+  /* Spacer so cards don't clip */
+  .track-spacer-top { height: 230px; }
+  .track-spacer-bot { height: 230px; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { border-top: 1px solid var(--border); }
+  .testimonials-intro { max-width: 640px; margin-bottom: 4rem; }
+  .quotes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .quote-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 2rem 1.8rem; position: relative;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .quote-card:hover { border-color: rgba(212,162,74,0.4); transform: translateY(-3px); }
+  .quote-mark {
+    font-family: 'Heebo', sans-serif;
+    font-size: 4rem; line-height: 0.8; color: var(--gold);
+    opacity: 0.3; margin-bottom: 0.5rem; display: block;
+  }
+  .quote-text {
+    font-size: 0.98rem; color: rgba(26,26,26,0.8);
+    line-height: 1.75; font-style: italic; margin-bottom: 1.5rem;
+  }
+  .quote-divider { width: 32px; height: 2px; background: var(--gold); opacity: 0.5; margin-bottom: 1rem; }
+  .quote-author {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.9rem; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--deep-navy); margin-bottom: 0.2rem;
+  }
+  .quote-role { font-size: 0.78rem; color: var(--grey); }
+
+  /* ── PRESS ── */
+  #press { border-top: 1px solid var(--border); }
+  .press-intro { max-width: 640px; margin-bottom: 4rem; }
+  .press-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .press-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 1.8rem; position: relative; overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    text-decoration: none; display: block; color: inherit;
+  }
+  .press-card:hover { border-color: rgba(212,162,74,0.4); transform: translateY(-3px); }
+  .press-outlet {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 800; font-size: 0.85rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .press-outlet::before {
+    content: ''; display: block; width: 6px; height: 6px;
+    border-radius: 50%; background: var(--gold); flex-shrink: 0;
+  }
+  .press-headline {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 1.1rem; line-height: 1.2;
+    text-transform: uppercase; color: var(--deep-navy); margin-bottom: 0.8rem;
+  }
+  .press-excerpt { font-size: 0.85rem; color: var(--grey); line-height: 1.6; margin-bottom: 1rem; }
+  .press-date {
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(92,100,112,0.6);
+    font-family: 'Heebo', sans-serif; font-weight: 600;
+  }
+  .press-card::after {
+    content: '→';
+    position: absolute; bottom: 1.8rem; right: 1.8rem;
+    font-size: 1rem; color: var(--gold); opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .press-card:hover::after { opacity: 1; transform: translateX(3px); }
+  .press-placeholder-note {
+    margin-top: 2rem; text-align: center;
+    font-size: 0.85rem; color: var(--grey); font-style: italic;
+  }
+
+  /* ── UNIVERSITY PARTNERS ── */
+  #partners { border-top: 1px solid var(--border); }
+  .partners-intro { max-width: 640px; margin-bottom: 4rem; }
+
+  .partners-wall {
+    display: grid;
+    grid-template-columns: 1.4fr 1.4fr 1fr 1fr;
+    gap: 1.2rem;
+    align-items: stretch;
+  }
+
+  /* Featured partner card — used for BOTH Bar-Ilan and Reichman */
+  .partner-featured {
+    background: var(--pure-white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2.2rem 1.8rem;
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+    box-shadow: var(--shadow-card);
+  }
+  .partner-featured::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--victory-gold), var(--gold-light), var(--victory-gold));
+  }
+  .partner-status-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.7rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--deep-navy);
+    background: var(--victory-gold); padding: 0.3rem 0.8rem;
+    border-radius: 2px; margin-bottom: 1.6rem;
+    align-self: flex-start;
+  }
+  .partner-status-badge::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--deep-navy); flex-shrink: 0;
+  }
+  .partner-logo-frame {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 110px;
+    padding: 0.4rem 0 1.4rem;
+  }
+  .partner-uni-logo {
+    display: block;
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+  }
+  .partner-meta {
+    display: flex; flex-direction: column; gap: 0.55rem;
+    margin-top: auto; padding-top: 1.4rem;
+    border-top: 1px solid var(--border);
+  }
+  .partner-meta-row {
+    display: flex; gap: 0.8rem; align-items: baseline;
+  }
+  .partner-meta-label {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.66rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--grey);
+    min-width: 70px; flex-shrink: 0;
+  }
+  .partner-meta-value {
+    font-family: 'Assistant', sans-serif;
+    font-size: 0.88rem; color: var(--deep-navy); font-weight: 500;
+    line-height: 1.4;
+  }
+  .partner-mou-note {
+    margin-top: 1rem;
+    font-size: 0.72rem; color: var(--victory-gold);
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+
+  /* Coming Soon slots */
+  .partner-slot {
+    background: rgba(15,22,40,0.5);
+    border: 1px dashed rgba(212,162,74,0.2);
+    border-radius: 6px;
+    padding: 2rem 1.5rem;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; gap: 1rem;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: default;
+    min-height: 200px;
+  }
+  .partner-slot:hover {
+    border-color: rgba(212,162,74,0.4);
+    background: rgba(0,56,184,0.15);
+  }
+  .partner-slot-icon {
+    width: 48px; height: 48px; border-radius: 50%;
+    border: 1.5px dashed rgba(212,162,74,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; opacity: 0.5;
+  }
+  .partner-slot-label {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: rgba(92,100,112,0.6);
+    line-height: 1.4;
+  }
+  .partner-slot-cta {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.65rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold); opacity: 0.6;
+    text-decoration: none;
+    border: 1px solid rgba(212,162,74,0.2);
+    padding: 0.3rem 0.8rem; border-radius: 2px;
+    transition: opacity 0.2s, border-color 0.2s;
+  }
+  .partner-slot:hover .partner-slot-cta { opacity: 1; border-color: rgba(212,162,74,0.5); }
+
+  .partners-note {
+    margin-top: 2.5rem; text-align: center;
+    font-size: 0.88rem; color: var(--grey); font-style: italic;
+  }
+  .partners-note a { color: var(--gold); text-decoration: none; }
+  .partners-note a:hover { text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    .partners-wall { grid-template-columns: 1fr 1fr; }
+    .partner-featured { grid-column: 1 / -1; }
+  }
+
+  /* ── INVEST ── */
+  #invest { border-top: 1px solid var(--border); }
+  .invest-intro { max-width: 640px; margin-bottom: 4rem; }
+  .invest-intro .section-body { font-size: 1.05rem; line-height: 1.8; color: rgba(26,26,26,0.7); margin-top: 1rem; }
+  .invest-tiers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .tier {
+    background: var(--card-bg);
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 2.5rem 2rem; position: relative; overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .tier:hover { transform: translateY(-4px); border-color: rgba(212,162,74,0.5); }
+  .tier.featured {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, rgba(0,56,184,0.4), var(--card-bg));
+  }
+  .tier.featured::after {
+    content: 'FEATURED'; position: absolute; top: 1.2rem; right: 1.2rem;
+    font-family: 'Heebo', sans-serif;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+    background: var(--gold); color: var(--navy);
+    padding: 0.2rem 0.6rem; border-radius: 2px;
+  }
+  .tier-range {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900; font-size: 2.2rem; color: var(--gold); line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .tier-name {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 1rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--deep-navy); margin-bottom: 1.2rem;
+  }
+  .tier-desc { font-size: 0.9rem; color: rgba(26,26,26,0.65); line-height: 1.7; margin-bottom: 1.5rem; }
+  .tier-benefits { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .tier-benefits li { font-size: 0.85rem; color: rgba(26,26,26,0.7); display: flex; gap: 0.7rem; }
+  .tier-benefits li::before { content: '✦'; color: var(--gold); flex-shrink: 0; font-size: 0.7rem; margin-top: 0.15rem; }
+  .invest-cta-block {
+    margin-top: 4rem; text-align: center;
+    background: linear-gradient(135deg, var(--blue) 0%, rgba(0,56,184,0.3) 100%);
+    border: 1px solid var(--border); border-radius: 4px;
+    padding: 3.5rem 2rem;
+  }
+  .invest-cta-block h3 {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900; font-size: 2.2rem; text-transform: uppercase; margin-bottom: 0.8rem;
+  }
+  .invest-cta-block p { font-size: 1rem; color: rgba(26,26,26,0.7); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+  /* ── CONTACT ── */
+  #contact { border-top: 1px solid var(--border); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; }
+  .contact-info { }
+  .contact-info p { font-size: 1rem; color: rgba(26,26,26,0.7); line-height: 1.8; margin-top: 1rem; margin-bottom: 2.5rem; }
+  .contact-detail { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-item { display: flex; gap: 1rem; align-items: center; }
+  .contact-item-icon { font-size: 1.2rem; width: 2.5rem; height: 2.5rem; background: var(--card-bg); border: 1px solid var(--border); border-radius: 3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-item-text { font-size: 0.9rem; color: var(--grey); }
+  .contact-item-text strong { display: block; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.15rem; font-family: 'Heebo', sans-serif; font-weight: 700; }
+  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  .form-group label { font-family: 'Heebo', sans-serif; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--grey); }
+  .form-group input, .form-group select, .form-group textarea {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 3px; padding: 0.9rem 1rem;
+    color: var(--charcoal); font-family: 'Assistant', sans-serif; font-size: 0.9rem;
+    transition: border-color 0.2s; outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+  .form-group select option { background: var(--navy); }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-submit {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.95rem; letter-spacing: 0.14em;
+    text-transform: uppercase; background: var(--gold); color: var(--navy);
+    border: none; padding: 1.1rem 2rem; border-radius: 2px;
+    cursor: pointer; transition: background 0.2s, transform 0.15s;
+    align-self: flex-start;
+  }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .form-submit:disabled { cursor: wait; opacity: 0.9; transform: none; }
+  .form-status {
+    min-height: 1.2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--grey);
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700;
+  }
+  .form-status.is-success { color: var(--gold-light); }
+  .form-status.is-error { color: #C8102E; }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .footer-social { display: flex; gap: 0.8rem; align-items: center; }
+  .social-icon {
+    display: flex; align-items: center; justify-content: center;
+    width: 2.2rem; height: 2.2rem;
+    border: 1px solid var(--border); border-radius: 3px;
+    color: var(--grey); text-decoration: none;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .social-icon:hover { color: var(--gold); border-color: var(--gold); background: rgba(212,162,74,0.08); }
+
+  /* ── DIVIDER ── */
+  .full-bleed-divider {
+    width: 100%; padding: 2.5rem 0;
+    background: var(--gold);
+    overflow: hidden;
+    position: relative;
+  }
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll 28s linear infinite;
+  }
+  .ticker-half {
+    display: flex; gap: 0; flex-shrink: 0;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 800; font-size: 1.4rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--navy);
+    white-space: nowrap;
+    padding-right: 0;
+  }
+  .ticker-half span { padding: 0 2rem; }
+  .ticker-sep { color: rgba(244,241,236,0.3); padding: 0 !important; }
+  @keyframes ticker-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── ANIMATE IN (hero copy reveals after intro flash) ── */
+  .fade-up {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  body.intro-done .fade-up { opacity: 1; transform: translateY(0); }
+  body.intro-done .delay-1 { transition-delay: 0.05s; }
+  body.intro-done .delay-2 { transition-delay: 0.22s; }
+  body.intro-done .delay-3 { transition-delay: 0.40s; }
+  body.intro-done .delay-4 { transition-delay: 0.58s; }
+  /* Skip-intro users (internal nav, refresh) — headline appears instantly, no transition */
+  body.skip-intro .fade-up {
+    opacity: 1 !important; transform: none !important;
+    transition: none !important; transition-delay: 0s !important;
+  }
+  /* Reduced motion users see the headlines instantly */
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column; justify-content: center; gap: 5px;
+    width: 2.2rem; height: 2.2rem; cursor: pointer;
+    background: none; border: none; padding: 0;
+    z-index: 110;
+  }
+  .nav-hamburger span {
+    display: block; width: 100%; height: 2px;
+    background: var(--gold); border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile dropdown */
+  .nav-mobile-menu {
+    display: none;
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(244,241,236,0.98);
+    backdrop-filter: blur(12px);
+    padding: 5rem 2rem 2.5rem;
+    z-index: 99;
+    flex-direction: column; gap: 0;
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-mobile-menu.open {
+    transform: translateY(0);
+  }
+  .nav-mobile-menu a {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 1.4rem; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--deep-navy); padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(212,162,74,0.1);
+    transition: color 0.2s;
+  }
+  .nav-mobile-menu a:last-child { border-bottom: none; }
+  .nav-mobile-menu a:hover { color: var(--gold); }
+  .nav-mobile-menu .mobile-cta {
+    margin-top: 1.5rem;
+    background: var(--gold); color: var(--navy);
+    text-align: center; border-radius: 2px; padding: 1rem;
+    border-bottom: none;
+  }
+  .nav-mobile-menu .mobile-cta:hover { background: var(--gold-light); color: var(--navy); }
+
+  /* ── MOBILE TIMELINE ── */
+  .timeline-mobile { display: none; }
+  .timeline-desktop { display: block; }
+  .tl-item {
+    display: flex; gap: 1.5rem; position: relative;
+  }
+  .tl-item + .tl-item { margin-top: 0; }
+  .tl-line {
+    display: flex; flex-direction: column; align-items: center; flex-shrink: 0;
+  }
+  .tl-dot {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--gold); border: 3px solid var(--navy);
+    box-shadow: 0 0 0 2px var(--gold); flex-shrink: 0; margin-top: 4px;
+  }
+  .tl-dot.future {
+    background: var(--navy2); border-color: rgba(212,162,74,0.5);
+    box-shadow: 0 0 0 2px rgba(212,162,74,0.3);
+  }
+  .tl-connector {
+    width: 2px; flex: 1; min-height: 2rem;
+    background: linear-gradient(180deg, var(--gold), rgba(212,162,74,0.2));
+    margin: 4px 0;
+  }
+  .tl-content { padding-bottom: 2.5rem; flex: 1; }
+  .tl-date {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.7rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem;
+  }
+  .tl-title {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 800; font-size: 1.1rem; text-transform: uppercase;
+    color: var(--deep-navy); line-height: 1.15; margin-bottom: 0.4rem;
+  }
+  .tl-body { font-size: 0.88rem; color: rgba(26,26,26,0.6); line-height: 1.6; margin-bottom: 0.5rem; }
+  .tl-badge {
+    display: inline-block;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+    background: rgba(212,162,74,0.12); color: var(--gold);
+    border: 1px solid rgba(212,162,74,0.3); padding: 0.15rem 0.5rem; border-radius: 2px;
+  }
+  .tl-badge.upcoming { background: rgba(0,56,184,0.3); color: rgba(26,26,26,0.4); border-color: rgba(26,26,26,0.1); }
+
+  @media (max-width: 900px) {
+    /* ── NAV ── */
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-mobile-menu { display: flex; }
+
+    /* ── GLOBAL SECTIONS ── */
+    section { padding: 4rem 1.5rem; max-width: 100%; }
+    footer { flex-direction: column; text-align: center; padding: 3rem 1.5rem; }
+    .footer-links { justify-content: center; }
+
+    /* ── HERO ── */
+    .hero-h1 { font-size: clamp(3.5rem, 18vw, 7rem); }
+    .hero-sub { font-size: 1rem; margin: 1.5rem auto 2rem; }
+    .hero-stats {
+      position: relative; bottom: auto; left: auto; transform: none;
+      flex-wrap: wrap; justify-content: center;
+      gap: 1.5rem 2.5rem;
+      margin-top: 2.5rem; padding-top: 2rem;
+      border-top: 1px solid rgba(212,162,74,0.15);
+      width: 100%;
+    }
+
+    /* ── TICKER ── */
+    .full-bleed-divider { padding: 1.5rem 0; }
+    .ticker-half { font-size: 1rem; }
+
+    #about::before {
+      background:
+        linear-gradient(to right, rgba(244,241,236,0.48) 0%, rgba(244,241,236,0.24) 100%),
+        linear-gradient(to bottom, rgba(244,241,236,0.16) 0%, transparent 40%, rgba(244,241,236,0.40) 100%);
+    }
+    #about .mission-bg-layer { background-position: center 20%; }
+    .about-grid {
+      grid-template-columns: 1fr !important;
+      padding: 0 !important;
+      gap: 0;
+      display: flex !important;
+      flex-direction: column;
+    }
+    .about-grid > div:first-child {
+      padding: 3rem 1.5rem 3rem;
+      margin-top: 55vw;
+      background: linear-gradient(to bottom, transparent 0%, rgba(244,241,236,0.7) 20%, rgba(244,241,236,0.92) 50%);
+      position: relative; z-index: 2;
+    }
+    .about-visual { display: none; }
+
+    /* ── TWO PATHS ── */
+    #two-paths > div { padding: 4rem 1.5rem !important; }
+    #two-paths > div > div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+    #two-paths > div > div[style*="text-align: center"] { margin-bottom: 3rem !important; }
+
+    /* ── TIMELINE ── */
+    .timeline-mobile { display: block; }
+    .timeline-desktop { display: none; }
+
+    /* ── OUR ATHLETES (cohort cards) ── */
+    .cohort-header { flex-direction: column; align-items: flex-start; margin-bottom: 2rem; gap: 1rem; }
+    .cohort-grid { display: none; }
+    .cohort-cta-mobile { display: block !important; }
+    div[style*="margin-top: 3rem"] > a.btn-primary { display: none; }
+
+    /* ── MOBILE HERO IMAGE ── */
+    /* mobile hero handled by .hero-frame.f1 media query above */
+
+    /* ── TRADING CARDS — tap to flip on mobile ── */
+    .card-scene:hover .card-flipper { transform: none; }
+    .card-scene.flipped .card-flipper { transform: rotateY(180deg); }
+
+    /* ── UNIVERSITY PARTNERS ── */
+    .partners-wall { grid-template-columns: 1fr; }
+    .partner-featured { grid-column: auto; }
+    .partner-slot { min-height: 140px; }
+
+    /* ── TESTIMONIALS ── */
+    .quotes-grid { grid-template-columns: 1fr; }
+
+    /* ── DONOR CTA BANNER ── */
+    div[style*="padding: 6rem 4rem"] { padding: 4rem 1.5rem !important; }
+
+    /* ── CONTACT ── */
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-submit { width: 100%; align-self: stretch; }
+
+    /* ── INVEST TIERS ── */
+    .invest-tiers { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    /* Extra small — single column everything */
+    section { padding: 3.5rem 1.2rem; }
+    .hero-h1 { font-size: clamp(3rem, 20vw, 5rem); }
+    .cohort-grid { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-actions a { text-align: center; }
+    .btn-primary, .btn-outline { padding: 0.9rem 1.5rem; font-size: 0.85rem; }
+    .section-title { font-size: clamp(2.2rem, 9vw, 3.5rem); }
+  }
+</style>
+</head>
+<body data-whatsapp="972548184327">
+
+<!-- SAI logo intro: full-page navy curtain that fades to reveal the site -->
+<div class="hero-intro-logo" aria-hidden="true">
+  <div class="hero-intro-stack">
+    <img src="sai-logo-white.png" alt="" width="360" height="360" decoding="async">
+    <div class="hero-intro-wordmark">Student Athletes of Israel</div>
+  </div>
+</div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <a class="nav-logo" href="index.html" aria-label="SAI home">
+    <img class="nav-logo-img" src="sai-logo-navy.png" alt="" width="36" height="36" decoding="async"><div class="nav-wordmark">
+      <span class="nav-wordmark-sai">SAI</span>
+      <span class="nav-wordmark-sub">Student Athletes of Israel</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#about" class="active">Mission</a></li>
+    <li><a href="index.html#two-paths">Our Model</a></li>
+    <li><a href="index.html#timeline">Our Progress</a></li>
+    <li><a href="index.html#partners">Partners</a></li>
+    <li><a href="apply.html">Apply</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="press.html">Press</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://www.instagram.com/studentathletesofisrael/" target="_blank" rel="noopener" aria-label="SAI on Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/student-athletes-of-israel/" target="_blank" rel="noopener" aria-label="SAI on LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.27 2.36 4.27 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+    </a>
+  </div>
+  <a href="donate.html" class="nav-cta">Invest</a>
+  <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+  </button>
+</nav>
+<aside class="nav-mobile-menu" id="nav-mobile-menu">
+  <a href="index.html#about">Mission</a>
+  <a href="index.html#two-paths">Our Model</a>
+  <a href="index.html#timeline">Our Progress</a>
+  <a href="index.html#partners">Partners</a>
+  <a href="apply.html">Apply</a>
+  <a href="faq.html">FAQ</a>
+  <a href="press.html">Press</a>
+  <a href="donate.html">Invest</a>
+</aside>
+
+<main id="main">
+
+<!-- HERO -->
+<section id="home" style="padding:0; max-width:100%;">
+  <div class="hero-photo" aria-hidden="true">
+    <div class="hero-frame f1 is-active" style="background-color:#001A5C"></div>
+    <div class="hero-frame f2" style="background-color:#001A5C"></div>
+    <div class="hero-frame f3" style="background-color:#001A5C"></div>
+    <div class="hero-frame f4" style="background-color:#001A5C"></div>
+    <div class="hero-frame f5" style="background-color:#001A5C"></div>
+  </div>
+  <div class="hero-bg"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-content" style="position:relative; z-index:3;">
+    <div class="hero-eyebrow fade-up">Student Athletes of Israel</div>
+    <h1 class="hero-h1">
+      <span class="line1 fade-up delay-1">
+        <span class="kinetic" id="kinetic-top">Train.</span>
+      </span>
+      <span class="line2 fade-up delay-2">Study.</span>
+      <span class="line3 fade-up delay-3">
+        <span class="kinetic-italic" id="kinetic-bottom">Champion.</span>
+      </span>
+    </h1>
+    <p class="hero-sub fade-up delay-3">Israel's first structured framework supporting athletes in pursuing <em>both</em> elite sport and higher education.</p>
+    <div class="hero-actions fade-up delay-4">
+      <a class="btn-primary" href="donate.html">Invest in an Athlete</a>
+      <a class="btn-primary" href="apply.html">I'm an Athlete</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- TICKER -->
+<div class="full-bleed-divider">
+  <div class="ticker-track">
+    <div class="ticker-half">
+      <span>Bar-Ilan University</span><span class="ticker-sep">✦</span>
+      <span>Olympic Athletes</span><span class="ticker-sep">✦</span>
+      <span>Academic Excellence</span><span class="ticker-sep">✦</span>
+      <span>Paralympic Athletes</span><span class="ticker-sep">✦</span>
+      <span>National Movement</span><span class="ticker-sep">✦</span>
+      <span>Fall 2026</span><span class="ticker-sep">✦</span>
+      <span>Scholarships</span><span class="ticker-sep">✦</span>
+      <span>Hakalot Framework</span><span class="ticker-sep">✦</span>
+    </div>
+    <div class="ticker-half" aria-hidden="true">
+      <span>Bar-Ilan University</span><span class="ticker-sep">✦</span>
+      <span>Olympic Athletes</span><span class="ticker-sep">✦</span>
+      <span>Academic Excellence</span><span class="ticker-sep">✦</span>
+      <span>Paralympic Athletes</span><span class="ticker-sep">✦</span>
+      <span>National Movement</span><span class="ticker-sep">✦</span>
+      <span>Fall 2026</span><span class="ticker-sep">✦</span>
+      <span>Scholarships</span><span class="ticker-sep">✦</span>
+      <span>Hakalot Framework</span><span class="ticker-sep">✦</span>
+    </div>
+  </div>
+</div>
+
+<!-- MISSION + ABOUT COMBINED -->
+<section id="about">
+  <div class="mission-bg-layer"></div>
+  <div class="about-grid">
+    <div>
+      <div class="section-tag">Our Mission</div>
+      <h2 class="section-title">Redefining what Israel can <em>achieve</em></h2>
+      <div class="about-body">
+        <p>Israel has the talent. What it has lacked is the system. For too long, our most gifted athletes have been forced off the path to greatness — not by their rivals, but by a culture that made them choose between sport and education.</p>
+        <p>SAI exists to change that permanently. We are building the national infrastructure that will make Israel a force on the world's biggest sporting stages — by giving every elite athlete the support, the resources, and the institutional backing to compete without compromise.</p>
+        <p>This is not just about scholarships. It is about transforming what Israeli sport means — to our athletes, to our youth, and to the world watching us compete.</p>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="about-visual-inner"></div>
+      <div class="about-badge">MOU Signed · Bar-Ilan University</div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO PATHS -->
+<section id="two-paths" style="border-top: 1px solid var(--border); background: var(--navy2); padding: 0; max-width: 100%;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 7rem 4rem;">
+    <div style="text-align: center; max-width: 680px; margin: 0 auto 5rem;">
+      <div class="section-tag" style="justify-content:center; display:flex;">The SAI Framework</div>
+      <h2 class="section-title">Two paths. One <em>mission.</em></h2>
+      <p style="font-size:1.05rem; color:rgba(26,26,26,0.65); line-height:1.8; margin-top:1rem;">SAI is built around two distinct tracks — each designed for where an athlete actually is in their career, not a one-size-fits-all model.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+
+      <!-- TRACK A: OLYMPIC/PARALYMPIC -->
+      <div style="background-image: linear-gradient(160deg, rgba(244,241,236,0.78) 0%, rgba(244,241,236,0.88) 60%, rgba(244,241,236,0.95) 100%), url('track-a.webp'); background-size: cover; background-position: center center; border: 1px solid var(--gold); border-radius: 6px; padding: 3rem; position: relative; overflow: hidden; min-height: 540px;">
+        <div style="position:absolute; top:0; left:0; right:0; height:4px; background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));"></div>
+        <div style="display:inline-flex; align-items:center; gap:0.5rem; background:var(--gold); color:var(--navy); font-family:'Heebo',sans-serif; font-weight:800; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:2px; margin-bottom:1.8rem;">
+          <svg class="icon icon-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="14" r="7"/><path d="M9 21l3-2 3 2-1-5"/><path d="M7 4h10l-3 6h-4z"/></svg> Track A
+        </div>
+        <h3 style="font-family:'Heebo',sans-serif; font-weight:900; font-size:2rem; text-transform:uppercase; line-height:0.95; color:var(--deep-navy); margin-bottom:0.6rem;">Olympic &amp;<br>Paralympic Athletes</h3>
+        <p style="font-size:0.9rem; color:var(--gold); font-family:'Heebo',sans-serif; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1.5rem;">National &amp; International Competitors</p>
+        <p style="font-size:0.95rem; color:rgba(26,26,26,0.7); line-height:1.8; margin-bottom:2rem;">For athletes actively competing at the national team level or higher. This track is built around the demands of elite training schedules, international competition calendars, and long-term athletic careers.</p>
+        <div style="display:flex; flex-direction:column; gap:0.8rem;">
+          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
+            <span style="color:var(--gold); flex-shrink:0; margin-top:2px;">✦</span>
+            Academic accommodations around training and competition
+          </div>
+          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
+            <span style="color:var(--gold); flex-shrink:0; margin-top:2px;">✦</span>
+            Dedicated SAI academic coordinator managing university liaison
+          </div>
+          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
+            <span style="color:var(--gold); flex-shrink:0; margin-top:2px;">✦</span>
+            Dedicated tutor for catch-up sessions after travel and training blocks
+          </div>
+          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
+            <span style="color:var(--gold); flex-shrink:0; margin-top:2px;">✦</span>
+            Scholarship support
+          </div>
+        </div>
+      </div>
+
+      <!-- TRACK B: HIGH PERFORMANCE -->
+      <div style="background-image: linear-gradient(160deg, rgba(244,241,236,0.82) 0%, rgba(244,241,236,0.9) 60%, rgba(244,241,236,0.96) 100%), url('track-b.webp'); background-size: cover; background-position: center center; border: 1px solid var(--border); border-radius: 6px; padding: 3rem; position: relative; overflow: hidden; min-height: 540px;">
+        <div style="position:absolute; top:0; left:0; right:0; height:4px; background: linear-gradient(90deg, var(--blue), rgba(0,56,184,0.4));"></div>
+        <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(0,56,184,0.5); color:#FFFFFF; border:1px solid rgba(0,56,184,0.8); font-family:'Heebo',sans-serif; font-weight:800; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:2px; margin-bottom:1.8rem;">
+          <svg class="icon icon-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="15" r="6"/><path d="M9 9l-3-7h12l-3 7"/></svg> Track B
+        </div>
+        <h3 style="font-family:'Heebo',sans-serif; font-weight:900; font-size:2rem; text-transform:uppercase; line-height:0.95; color:var(--deep-navy); margin-bottom:0.6rem;">High-Performance<br>Athletes</h3>
+        <p style="font-size:0.9rem; color:rgba(26,26,26,0.5); font-family:'Heebo',sans-serif; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1.5rem;">Rising Competitors &amp; National Level</p>
+        <p style="font-size:0.95rem; color:rgba(26,26,26,0.7); line-height:1.8; margin-bottom:2rem;">For athletes competing seriously at a high national level who are building toward elite status. This track provides structured support to develop both athletic and academic potential simultaneously.</p>
+        <div style="display:flex; flex-direction:column; gap:0.8rem;">
+          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
+            <span style="color:rgba(212,162,74,0.6); flex-shrink:0; margin-top:2px;">✦</span>
+            Academic accommodations around training and competition
+          </div>
+          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
+            <span style="color:rgba(212,162,74,0.6); flex-shrink:0; margin-top:2px;">✦</span>
+            Dedicated SAI academic coordinator managing university liaison
+          </div>
+          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
+            <span style="color:rgba(212,162,74,0.6); flex-shrink:0; margin-top:2px;">✦</span>
+            Dedicated tutor for catch-up sessions after travel and training blocks
+          </div>
+          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
+            <span style="color:rgba(212,162,74,0.6); flex-shrink:0; margin-top:2px;">✦</span>
+            Pathway to Track A if competitive level rises
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p style="text-align:center; margin-top:3rem; font-size:0.9rem; color:var(--grey); font-style:italic;">Track placement is determined in partnership with the athlete, their coach, and the SAI selection committee.</p>
+  </div>
+</section>
+
+<!-- OUR PROGRESS (TIMELINE) -->
+<section id="timeline">
+  <div class="timeline-intro">
+    <div class="section-tag">Our Progress</div>
+    <h2 class="section-title">From idea to <em>movement</em></h2>
+    <p style="font-size:1.05rem; color:rgba(26,26,26,0.7); line-height:1.8; margin-top:1rem;">From concept to national framework — the milestones that brought SAI to life, and the road ahead.</p>
+  </div>
+
+  <div class="timeline-desktop">
+  <div class="track-container">
+    <div class="track-spacer-top"></div>
+    <div class="track-rail">
+      <div class="track-lane-dashes"></div>
+      <div class="track-start"></div>
+      <div class="track-start-label">Start</div>
+      <div class="track-finish"></div>
+      <div class="track-finish-label">2030</div>
+      <div class="track-nodes">
+        <div class="track-node node-above">
+          <div class="track-dot"></div>
+          <div class="track-connector"></div>
+          <div class="track-card">
+            <div class="track-card-title">The Problem Identified</div>
+            <div class="track-card-body">SAI is founded to end the impossible choice Israeli athletes face.</div>
+            <span class="track-card-badge">Founding</span>
+          </div>
+        </div>
+        <div class="track-node node-below">
+          <div class="track-card">
+            <div class="track-card-title">Framework Built</div>
+            <div class="track-card-body">Governance, two-track model, and scholarship structure established. Founding donor secured.</div>
+            <span class="track-card-badge">Operational</span>
+          </div>
+          <div class="track-connector"></div>
+          <div class="track-dot"></div>
+        </div>
+        <div class="track-node node-above">
+          <div class="track-dot"></div>
+          <div class="track-connector"></div>
+          <div class="track-card">
+            <div class="track-card-title">Bar-Ilan MOU Signed</div>
+            <div class="track-card-body">Israel's first formal hakalot framework for elite athletes, co-created with Bar-Ilan University.</div>
+            <span class="track-card-badge">Milestone ✦</span>
+          </div>
+        </div>
+        <div class="track-node node-below">
+          <div class="track-card">
+            <div class="track-card-title">Reichman MOU Signed</div>
+            <div class="track-card-body">Second university partnership formalized. Athlete-friendly hakalot extended to Reichman's Herzliya campus.</div>
+            <span class="track-card-badge">Milestone ✦</span>
+          </div>
+          <div class="track-connector"></div>
+          <div class="track-dot"></div>
+        </div>
+        <div class="track-node node-above">
+          <div class="track-dot"></div>
+          <div class="track-connector"></div>
+          <div class="track-card">
+            <div class="track-card-title">Cohort 1 Launch</div>
+            <div class="track-card-body">10 founding athletes recruited. Mentorship program activated. Fall 2026 semester begins.</div>
+            <span class="track-card-badge">In Progress</span>
+          </div>
+        </div>
+        <div class="track-node node-below">
+          <div class="track-card">
+            <div class="track-card-title">University 3 Expansion</div>
+            <div class="track-card-body">Replicate at Hebrew University, TAU, or Technion. 30+ athletes across three campuses.</div>
+            <span class="track-card-badge upcoming">Planned</span>
+          </div>
+          <div class="track-connector"></div>
+          <div class="track-dot future"></div>
+        </div>
+        <div class="track-node node-above">
+          <div class="track-dot future"></div>
+          <div class="track-connector"></div>
+          <div class="track-card">
+            <div class="track-card-title">100+ Athletes</div>
+            <div class="track-card-body">4+ universities. Endowment established. Israel's most credentialed Olympic team ever.</div>
+            <span class="track-card-badge upcoming">Vision</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="track-spacer-bot"></div>
+  </div>
+  </div>
+
+  <!-- MOBILE TIMELINE -->
+  <div class="timeline-mobile">
+    <div class="tl-item">
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">The Problem Identified</div>
+        <div class="tl-body">SAI is founded to end the impossible choice Israeli athletes face.</div>
+        <span class="tl-badge">Founding</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Framework Built</div>
+        <div class="tl-body">Governance, two-track model, and scholarship structure established. Founding donor secured.</div>
+        <span class="tl-badge">Operational</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Bar-Ilan MOU Signed</div>
+        <div class="tl-body">Israel's first formal hakalot framework for elite athletes, co-created with Bar-Ilan University.</div>
+        <span class="tl-badge">Milestone ✦</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Reichman MOU Signed</div>
+        <div class="tl-body">Second university partnership formalized. Athlete-friendly hakalot extended to Reichman's Herzliya campus.</div>
+        <span class="tl-badge">Milestone ✦</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">Cohort 1 Launch</div>
+        <div class="tl-body">10 founding athletes recruited. Mentorship program activated. Fall 2026 semester begins.</div>
+        <span class="tl-badge">In Progress</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-line"><div class="tl-dot future"></div><div class="tl-connector"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">University 3 Expansion</div>
+        <div class="tl-body">Replicate at Hebrew University, TAU, or Technion. 30+ athletes across three campuses.</div>
+        <span class="tl-badge upcoming">Planned</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-line"><div class="tl-dot future"></div></div>
+      <div class="tl-content">
+        <div class="tl-title">100+ Athletes</div>
+        <div class="tl-body">4+ universities. Endowment established. Israel's most credentialed Olympic team ever.</div>
+        <span class="tl-badge upcoming">Vision</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR ATHLETES — section removed for now -->
+<!-- UNIVERSITY PARTNERS -->
+<section id="partners">
+  <div class="partners-intro">
+    <div class="section-tag">University Partners</div>
+    <h2 class="section-title">Where <em>champions</em> study</h2>
+    <p style="font-size:1.05rem; color:rgba(26,26,26,0.7); line-height:1.8; margin-top:1rem;">SAI is building a national network of universities equipped to support elite athletes. Each new partner campus expands the number of athletes we can serve — and the sports culture we can transform.</p>
+  </div>
+  <div class="partners-wall">
+    <div class="partner-featured">
+      <span class="partner-status-badge">Active Partner · Fall 2026</span>
+      <div class="partner-logo-frame">
+        <picture>
+          <source srcset="bar-ilan-university-logo.webp" type="image/webp">
+          <img class="partner-uni-logo" src="bar-ilan-university-logo.png" alt="Bar-Ilan University" width="600" height="267" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="partner-meta">
+        <div class="partner-meta-row"><span class="partner-meta-label">Location</span><span class="partner-meta-value">Ramat Gan, Israel</span></div>
+        <div class="partner-meta-row"><span class="partner-meta-label">Founded</span><span class="partner-meta-value">1955</span></div>
+        <div class="partner-meta-row"><span class="partner-meta-label">Fun fact</span><span class="partner-meta-value">20,000+ students &mdash; Israel's second-largest university</span></div>
+      </div>
+      <div class="partner-mou-note">✦ Founding Partner of SAI</div>
+    </div>
+    <div class="partner-featured">
+      <span class="partner-status-badge">Active Partner · 2026</span>
+      <div class="partner-logo-frame">
+        <img class="partner-uni-logo" src="reichman-university-logo.png" alt="Reichman University" width="600" height="300" loading="lazy" decoding="async">
+      </div>
+      <div class="partner-meta">
+        <div class="partner-meta-row"><span class="partner-meta-label">Location</span><span class="partner-meta-value">Herzliya, Israel</span></div>
+        <div class="partner-meta-row"><span class="partner-meta-label">Founded</span><span class="partner-meta-value">1994</span></div>
+        <div class="partner-meta-row"><span class="partner-meta-label">Fun fact</span><span class="partner-meta-value">Israel's first private research university &mdash; home of Tier 1 athlete-friendly programs</span></div>
+      </div>
+    </div>
+    <div class="partner-slot"><div class="partner-slot-icon"><svg class="icon icon-gold" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="partner-slot-label">Next Partner<br>University</div><a class="partner-slot-cta" href="donate.html">Help Us Expand →</a></div>
+    <div class="partner-slot"><div class="partner-slot-icon"><svg class="icon icon-gold" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="partner-slot-label">Next Partner<br>University</div><a class="partner-slot-cta" href="donate.html">Help Us Expand →</a></div>
+  </div>
+  <p class="partners-note">Each new university partnership requires a <strong style="color:var(--deep-navy); font-weight:600;">$250K–$500K founding investment</strong>. Interested in bringing SAI to a campus? <a href="#contact">Get in touch →</a></p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-intro">
+    <div class="section-tag">Voices</div>
+    <h2 class="section-title">Why <em>this</em> matters</h2>
+    <p style="font-size:1.05rem; color:rgba(26,26,26,0.7); line-height:1.8; margin-top:1rem;">From the athletes who lived the impossible choice, to the partners building the solution.</p>
+  </div>
+  <div class="quotes-grid">
+    <div class="quote-card" style="border-color: rgba(212,162,74,0.5); background: linear-gradient(135deg, rgba(0,56,184,0.25), var(--card-bg));">
+      <span class="quote-mark">"</span>
+      <p class="quote-text">Thanks to this program, professional athletes like me will finally have a real opportunity to pursue education alongside elite sport. Israel will gain stronger, more successful athletes — and expand our representation on the world's biggest sporting stages.</p>
+      <div class="quote-divider" style="width:48px; background: var(--gold); opacity:0.8;"></div>
+      <div style="display:flex; align-items:center; gap:1rem; margin-top:0.5rem;">
+        <picture><source srcset="shahar.webp" type="image/webp"><img src="shahar.png" alt="Shahar Milfelder" style="width:64px; height:64px; border-radius:50%; object-fit:cover; border:2px solid var(--gold); flex-shrink:0;" loading="lazy" decoding="async"></picture>
+        <div>
+          <div class="quote-author">Shahar Milfelder</div>
+          <div class="quote-role">Paralympic Rower &nbsp;·&nbsp; <svg class="icon icon-gold" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em"><circle cx="12" cy="15" r="6"/><path d="M9 9l-3-7h12l-3 7"/></svg> Bronze Medalist, Paris 2024</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote-card">
+      <span class="quote-mark">"</span>
+      <p class="quote-text">The hakalot framework SAI negotiated with Bar-Ilan is a genuine breakthrough. For the first time, the university is adapting to the athlete's schedule — not the other way around.</p>
+      <div class="quote-divider"></div>
+      <div class="quote-author">University Partner Representative</div>
+      <div class="quote-role">Bar-Ilan University</div>
+    </div>
+    <div class="quote-card">
+      <span class="quote-mark">"</span>
+      <p class="quote-text">As a donor, I've supported many causes. But SAI is unique — it's building infrastructure that compounds. Every athlete we support sends a signal to the next generation that excellence has no ceiling.</p>
+      <div class="quote-divider"></div>
+      <div class="quote-author">Founding Donor</div>
+      <div class="quote-role">SAI Cohort 1 Supporter</div>
+    </div>
+  </div>
+</section>
+
+<!-- DONOR CTA -->
+<div style="background: linear-gradient(135deg, var(--blue) 0%, rgba(0,56,184,0.4) 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 6rem 4rem; text-align: center;">
+  <div style="max-width: 700px; margin: 0 auto;">
+    <div class="section-tag" style="justify-content: center; display: flex;">For Donors &amp; Investors</div>
+    <h2 style="font-family: 'Heebo', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; line-height: 0.95; margin: 1rem 0 1.5rem;">Ready to build Israel's <em style="font-family: 'Heebo', sans-serif; font-style: italic; color: var(--gold); font-size: 0.9em;">Olympic future?</em></h2>
+    <p style="font-size: 1.05rem; color: rgba(26,26,26,0.7); line-height: 1.8; max-width: 520px; margin: 0 auto 2.5rem;">Your investment doesn't just support one athlete — it builds the infrastructure that will support generations of Israeli Olympic and Paralympic talent.</p>
+    <a class="btn-primary" href="donate.html" style="font-size: 1rem; padding: 1.1rem 3rem;">Explore Investment Opportunities →</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title">Let's <em>talk</em></h2>
+      <p>Whether you're an athlete ready to apply, a donor exploring opportunities, or a university partner interested in the model — we'd love to hear from you.</p>
+      <div class="contact-detail">
+        <div class="contact-item">
+          <div class="contact-item-icon"><svg class="icon icon-gold" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="contact-item-text">
+            <strong>Location</strong>
+            Israel (Bar-Ilan University Partnership)
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><svg class="icon icon-gold" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
+          <div class="contact-item-text">
+            <strong>Email</strong>
+            <a href="mailto:info@studentathletes.org.il">info@studentathletes.org.il</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><svg class="icon icon-gold" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
+          <div class="contact-item-text">
+            <strong>Launch</strong>
+            Fall 2026 · Bar-Ilan University
+          </div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" id="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input type="text" id="first_name" name="first_name" placeholder="Your first name" required />
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" id="last_name" name="last_name" placeholder="Your last name" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="user_email">Email</label>
+        <input type="email" id="user_email" name="user_email" placeholder="your@email.com" required />
+      </div>
+      <div class="form-group">
+        <label for="inquiry_type">I am a...</label>
+        <select id="inquiry_type" name="inquiry_type" required>
+          <option value="">Select one</option>
+          <option value="Prospective Donor / Investor">Prospective Donor / Investor</option>
+          <option value="Student Athlete">Student Athlete</option>
+          <option value="University Representative">University Representative</option>
+          <option value="Press / Media">Press / Media</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group sr-only" aria-hidden="true">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us how we can help you, or how you'd like to get involved..." required></textarea>
+      </div>
+      <button class="form-submit" type="submit">Send Message →</button>
+      <div class="form-status" id="form-status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+</main>
+
+<footer>
+  <img class="footer-seal" src="sai-logo-navy.png" alt="Student Athletes of Israel" width="120" height="120" loading="lazy" decoding="async">
+  <div class="footer-wordmark">Student Athletes of Israel</div>
+  <div class="footer-wordmark" lang="he" dir="rtl" style="font-size:1rem;color:var(--tekhelet);margin-bottom:.6rem;letter-spacing:0">סטודנטים ספורטאים בישראל</div>
+  <div class="footer-sub">Train &middot; Study &middot; Champion</div>
+  <ul class="footer-links">
+    <li><a href="index.html#about">Mission</a></li>
+    <li><a href="athletes.html">Athletes</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="press.html">Press</a></li>
+    <li><a href="donate.html">Invest</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">&copy; <span data-year>2026</span> Student Athletes of Israel. All rights reserved.</div>
+</footer>
+<script src="sai.js"></script>
+
+<script>
+  // ── KINETIC TEXT ──
+  // "Sport. School." is fixed — only the third beat cycles
+  // First item is the initial HTML word and is never re-displayed by the cycle;
+  // last item is what the cycle settles on. We bookend with Champion.
+  const bottomWords = ['Champion.', 'Inspire.', 'Represent.', 'Lead.', 'Excel.', 'Compete.', 'Champion.'];
+  let bottomIdx = 0;
+  let bottomTimer = null;
+
+  function cycleWord(el, words, idx, onDone) {
+    el.classList.add('exit');
+    el.addEventListener('animationend', function handler() {
+      el.classList.remove('exit');
+      el.removeEventListener('animationend', handler);
+      el.textContent = words[idx];
+      el.classList.add('enter');
+      el.addEventListener('animationend', function h2() {
+        el.classList.remove('enter');
+        el.removeEventListener('animationend', h2);
+        onDone && onDone();
+      }, { once: true });
+    }, { once: true });
+  }
+
+  // Internal-nav / refresh users see the headline static — bail before cycling.
+  if (document.body.classList.contains('skip-intro')) {
+    const bottomEl = document.getElementById('kinetic-bottom');
+    if (bottomEl) bottomEl.textContent = bottomWords[bottomWords.length - 1]; // settle on "Champion."
+  } else
+  // Wait for initial fade-in then start cycling
+  setTimeout(() => {
+    const bottomEl = document.getElementById('kinetic-bottom');
+
+    function next() {
+      bottomIdx++;
+      if (bottomIdx >= bottomWords.length) return; // stop at last word ("Champion.")
+      cycleWord(bottomEl, bottomWords, bottomIdx, () => {
+        if (bottomIdx < bottomWords.length - 1) {
+          bottomTimer = setTimeout(next, 400);
+        }
+      });
+    }
+
+    bottomTimer = setTimeout(next, 400);
+  }, 800);
+
+  // ── NAV ACTIVE STATE ──
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    links.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    emailjs.init({ publicKey: 'XaFkILrTbWShCtXAg' });
+
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    const btn = form ? form.querySelector('.form-submit') : null;
+
+    if (!form || !btn || !status) {
+      console.error('Contact form elements not found.');
+      return;
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // honeypot
+      const company = document.getElementById('company');
+      if (company && company.value.trim() !== '') {
+        status.textContent = 'Thanks!';
+        status.className = 'form-status';
+        form.reset();
+        return;
+      }
+
+      const originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      status.textContent = 'Sending your message...';
+      status.className = 'form-status';
+
+      emailjs.sendForm('service_2qetzxh', 'template_7lzlt9f', form)
+        .then(function () {
+          status.textContent = 'Message sent successfully. We will be in touch soon.';
+          status.className = 'form-status is-success';
+          btn.textContent = 'Message Sent ✓';
+          form.reset();
+
+          setTimeout(function () {
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }, 2200);
+        })
+        .catch(function (error) {
+          console.error('EmailJS error:', error);
+          status.textContent = 'It did not send. Please try again or email us directly.';
+          status.className = 'form-status is-error';
+          btn.disabled = false;
+          btn.textContent = originalText;
+        });
+    });
+  });
+</script>
+
+<script>
+  // ── TIMELINE RUNNER ──
+  const timelineSection = document.getElementById('timeline');
+  if (timelineSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          timelineObserver.disconnect();
+
+          // Runner removed — reveal each timeline node in sequence on scroll-into-view.
+          const nodes = timelineSection.querySelectorAll('.track-node');
+          const STOP_NODE_INDEX = 4; // node 5 = current "you are here"
+          nodes.forEach((node, i) => {
+            setTimeout(() => {
+              node.classList.add('node-visible');
+              if (i === STOP_NODE_INDEX) node.classList.add('node-current');
+            }, 200 + i * 280);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    timelineObserver.observe(timelineSection);
+  }
+
+  // ── MISSION ZOOM + FADE ──
+  const missionSection = document.getElementById('about');
+  if (missionSection && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const missionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          missionSection.classList.add('mission-zooming');
+          missionObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.33 });
+    missionObserver.observe(missionSection);
+  }
+
+  // ── MOBILE CARD TAP TO FLIP ──
+  if ('ontouchstart' in window) {
+    document.querySelectorAll('.card-scene').forEach(card => {
+      card.addEventListener('click', () => card.classList.toggle('flipped'));
+    });
+  }
+</script>
+
+<script src="hero-flash.js" defer></script>
+
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           

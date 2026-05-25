@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Athletes — Student Athletes of Israel</title>
+<meta name="description" content="Meet the Israeli Olympic and Paralympic athletes training and studying inside the SAI program at Bar-Ilan University." />
+<meta name="theme-color" content="#001A5C" />
+<link rel="icon" type="image/png" href="sai-logo-navy.png" />
+<link rel="apple-touch-icon" href="sai-logo-navy.png" />
+<link rel="canonical" href="https://studentathletes.org.il/athletes" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Student Athletes of Israel" />
+<meta property="og:title" content="Athletes — Student Athletes of Israel" />
+<meta property="og:description" content="Meet the Israeli Olympic and Paralympic athletes training and studying inside the SAI program at Bar-Ilan University." />
+<meta property="og:image" content="https://studentathletes.org.il/hero-bg.png" />
+<meta property="og:url" content="https://studentathletes.org.il/athletes" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="sai.css" />
+<style>
+  /* Athletes page-specific styles */
+  /* VIDEO HERO */
+  .video-hero{position:relative;width:100%;height:100vh;overflow:hidden;background:#000}
+  .video-hero-iframe-wrap{position:absolute;inset:0;pointer-events:none}
+  .video-hero-iframe-wrap iframe{position:absolute;top:50%;left:50%;width:100vw;height:56.25vw;min-height:100vh;min-width:177.78vh;transform:translate(-50%,-50%);border:none}
+  .video-overlay-top{position:absolute;top:0;left:0;right:0;height:40%;background:linear-gradient(180deg,rgba(255,255,255,0.92) 0%,transparent 100%);z-index:2;pointer-events:none}
+  .video-overlay-bottom{position:absolute;bottom:0;left:0;right:0;height:65%;background:linear-gradient(0deg,rgba(255,255,255,1) 0%,rgba(255,255,255,0.65) 45%,transparent 100%);z-index:2;pointer-events:none}
+  .video-overlay-sides{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,0.5) 0%,transparent 25%,transparent 75%,rgba(255,255,255,0.5) 100%);z-index:2;pointer-events:none}
+  .video-hero-text{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:0 6rem 5rem;display:flex;flex-direction:column}
+  .vht-eyebrow{font-family:'Heebo',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.8rem}
+  .vht-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold);opacity:0.6}
+  .vht-title{font-family:'Heebo',sans-serif;font-weight:900;font-size:clamp(4rem,9vw,8rem);line-height:0.88;text-transform:uppercase;letter-spacing:-0.01em;color:var(--deep-navy);margin-bottom:1.2rem}
+  .vht-title em{font-family:'Heebo',sans-serif;font-style:italic;font-weight:700;color:var(--gold);font-size:0.85em}
+  .vht-sub{font-size:1rem;color:rgba(26,26,26,0.65);max-width:560px;line-height:1.7;font-weight:300;margin-bottom:2.5rem}
+  .vht-stats{display:flex;gap:3rem}
+  .vht-stat-num{font-family:'Heebo',sans-serif;font-weight:900;font-size:2.4rem;color:var(--gold);line-height:1}
+  .vht-stat-label{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey);margin-top:0.2rem}
+  .vht-actions{display:flex;gap:1rem;margin-top:2rem}
+  .scroll-cue{position:absolute;bottom:2rem;right:4rem;z-index:3;display:flex;flex-direction:column;align-items:center;gap:0.4rem}
+  .scroll-cue span{font-family:'Heebo',sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--grey);writing-mode:vertical-rl}
+  .scroll-line{width:1px;height:40px;background:linear-gradient(180deg,var(--gold),transparent);animation:scrollPulse 1.8s ease-in-out infinite}
+  @keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(0.7)}50%{opacity:1;transform:scaleY(1)}}
+
+  /* CARDS */
+  .athletes-page-section{padding:6rem 4rem 4rem;max-width:1300px;margin:0 auto}
+  .athletes-page-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1.5rem;flex-wrap:wrap;gap:2rem}
+  .athletes-page-desc{max-width:420px;font-size:0.95rem;color:rgba(26,26,26,0.6);line-height:1.7;align-self:flex-end}
+  .gold-rule{width:100%;height:1px;background:linear-gradient(90deg,var(--gold),rgba(212,162,74,0.1));margin-bottom:3rem}
+  .hover-hint{text-align:center;margin-bottom:2.5rem;font-family:'Heebo',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--grey);display:flex;align-items:center;justify-content:center;gap:0.6rem}
+  .hover-hint::before,.hover-hint::after{content:'';display:block;width:30px;height:1px;background:rgba(92,100,112,0.3)}
+  .cohort-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.6rem}
+  .card-scene{perspective:900px;aspect-ratio:2.5/3.5;cursor:pointer}
+  .card-flipper{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform 0.65s cubic-bezier(0.4,0.2,0.2,1)}
+  .card-scene:hover .card-flipper{transform:rotateY(180deg)}
+  .card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:10px;overflow:hidden}
+  .card-front{background:var(--navy2);display:flex;flex-direction:column;box-shadow:0 8px 30px rgba(0,26,92,0.10),0 0 0 1px rgba(212,162,74,0.15)}
+  .card-front.featured-card{box-shadow:0 8px 40px rgba(212,162,74,0.35),0 0 0 2px var(--gold)}
+  .card-front-frame{position:absolute;inset:6px;border-radius:7px;border:3px solid var(--gold);pointer-events:none;z-index:10}
+  .card-front-frame::before{content:'';position:absolute;inset:3px;border-radius:5px;border:1.5px solid rgba(212,162,74,0.3)}
+  .card-top-band{position:absolute;top:0;left:0;right:0;height:22%;background:var(--navy);clip-path:polygon(0 0,100% 0,100% 60%,0 100%);z-index:2}
+  .card-top-band-inner{position:absolute;top:0;left:0;right:0;height:100%;background:linear-gradient(135deg,var(--blue) 0%,var(--navy) 100%);clip-path:polygon(0 0,100% 0,100% 55%,0 95%);display:flex;align-items:flex-start;padding:8px 12px 0;justify-content:space-between}
+  .card-team-name{font-family:'Heebo',sans-serif;font-weight:800;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);text-shadow:0 1px 4px rgba(0,26,92,0.10)}
+  .card-num-badge{font-family:'Heebo',sans-serif;font-weight:900;font-size:1rem;color:var(--gold);line-height:1;opacity:0.9}
+  .card-photo-area{flex:1;background:linear-gradient(160deg,#FFFFFF 0%,#F4F1EC 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .card-photo-area::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,rgba(0,56,184,0.04) 0px,rgba(0,56,184,0.04) 1px,transparent 1px,transparent 8px)}
+  .card-sport-emoji{font-size:3.5rem;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.2));position:relative;z-index:1}
+  .card-sport-category{position:absolute;top:26%;left:50%;transform:translateX(-50%);z-index:5;font-family:'Heebo',sans-serif;font-weight:700;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;padding:2px 8px;border-radius:10px;white-space:nowrap;border:1px solid}
+  .card-sport-category.olympic{background:rgba(0,56,184,0.9);color:#0038B8;border-color:rgba(144,192,255,0.4)}
+  .card-sport-category.paralympic{background:rgba(10,40,70,0.9);color:#6B8E23;border-color:rgba(96,192,160,0.4)}
+  .card-athlete-photo{width:100%;height:100%;object-fit:cover;object-position:center top;position:absolute;inset:0}
+  .card-medal-ribbon{position:absolute;top:8px;right:8px;z-index:11;font-size:1.1rem;filter:drop-shadow(0 2px 4px rgba(0,26,92,0.10))}
+  .card-stripe-left{position:absolute;top:0;bottom:0;left:0;width:16px;background:linear-gradient(180deg,var(--gold) 0%,#B8862A 100%);clip-path:polygon(0 0,100% 4%,100% 96%,0 100%);z-index:3}
+  .card-stripe-right{position:absolute;top:0;bottom:0;right:0;width:10px;background:var(--navy);clip-path:polygon(0 4%,100% 0,100% 100%,0 96%);z-index:3}
+  .card-bottom-band{position:absolute;bottom:0;left:0;right:0;z-index:4}
+  .card-bottom-band-inner{background:var(--navy);clip-path:polygon(0 30%,100% 0,100% 100%,0 100%);padding:18px 14px 8px;display:flex;align-items:flex-end;justify-content:space-between}
+  .card-player-name{font-family:'Heebo',sans-serif;font-weight:900;font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;color:#FFFFFF;line-height:1.1}
+  .card-player-from{font-family:'Heebo',sans-serif;font-weight:600;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-top:1px}
+  .card-sport-tag{font-family:'Heebo',sans-serif;font-weight:700;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);background:rgba(212,162,74,0.15);border:1px solid rgba(212,162,74,0.4);padding:2px 6px;border-radius:2px;white-space:nowrap}
+  .card-back{transform:rotateY(180deg);background:var(--navy);display:flex;flex-direction:column;box-shadow:0 8px 30px rgba(0,26,92,0.14);border:2px solid var(--gold)}
+  .card-back-header{background:linear-gradient(135deg,var(--blue),#0038B8);padding:0.7rem 1rem 0.6rem;border-bottom:2px solid var(--gold);display:flex;align-items:center;justify-content:space-between}
+  .card-back-title{font-family:'Heebo',sans-serif;font-weight:900;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF}
+  .card-back-num{font-family:'Heebo',sans-serif;font-weight:900;font-size:1.2rem;color:var(--gold);opacity:0.6}
+  .card-back-emoji{font-size:1.4rem;text-align:center;padding:0.6rem 0 0.2rem;display:block}
+  .card-back-stats{flex:1;padding:0.5rem 1rem 0.8rem;display:flex;flex-direction:column;gap:0.45rem}
+  .cbs-row{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(212,162,74,0.1);padding-bottom:0.4rem}
+  .cbs-row:last-child{border-bottom:none}
+  .cbs-label{font-family:'Heebo',sans-serif;font-weight:700;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey)}
+  .cbs-value{font-size:0.78rem;color:#FFFFFF;font-weight:500;text-align:right;max-width:60%}
+  .card-back-footer{background:var(--gold);padding:0.45rem 1rem;text-align:center}
+  .card-back-footer span{font-family:'Heebo',sans-serif;font-weight:800;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy)}
+  .cohort-note{margin-top:3.5rem;text-align:center;font-size:0.9rem;color:var(--grey);font-style:italic;padding:1.2rem 2rem;border:1px dashed rgba(212,162,74,0.2);border-radius:4px;max-width:500px;margin-left:auto;margin-right:auto}
+
+  /* APPLY CTA */
+  .apply-cta{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--blue) 0%,var(--navy2) 60%,#EEEAE2 100%);border-top:1px solid var(--border);padding:7rem 4rem;text-align:center}
+  .apply-cta::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(212,162,74,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(212,162,74,0.03) 1px,transparent 1px);background-size:50px 50px}
+  .apply-cta-inner{position:relative;z-index:2;max-width:700px;margin:0 auto}
+  .apply-cta-tag{font-family:'Heebo',sans-serif;font-weight:600;font-size:0.8rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:0.8rem}
+  .apply-cta-tag::before,.apply-cta-tag::after{content:'';display:block;width:30px;height:1px;background:var(--gold);opacity:0.5}
+  .apply-cta-title{font-family:'Heebo',sans-serif;font-weight:900;font-size:clamp(3rem,7vw,6rem);text-transform:uppercase;line-height:0.9;color:var(--deep-navy);margin-bottom:1.5rem}
+  .apply-cta-title em{font-family:'Heebo',sans-serif;font-style:italic;font-weight:700;color:var(--gold)}
+  .apply-cta-body{font-size:1.05rem;color:rgba(26,26,26,0.7);line-height:1.75;margin-bottom:2.5rem;max-width:500px;margin-left:auto;margin-right:auto}
+  .apply-cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .apply-requirements{display:flex;gap:2rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap}
+  .apply-req{font-family:'Heebo',sans-serif;font-weight:600;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(26,26,26,0.5);display:flex;align-items:center;gap:0.4rem}
+  .apply-req::before{content:'\2713';color:var(--gold);font-size:0.85rem}
+
+  @media(max-width:1100px){.cohort-grid{grid-template-columns:repeat(4,1fr)}}
+  @media(max-width:860px){.video-hero-text{padding:0 1.5rem 4rem}.athletes-page-section{padding:4rem 1.5rem}.cohort-grid{grid-template-columns:repeat(2,1fr)}.apply-cta{padding:5rem 1.5rem}}
+</style>
+</head>
+<body data-whatsapp="972548184327">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <a class="nav-logo" href="index.html" aria-label="SAI home">
+    <img class="nav-logo-img" src="sai-logo-navy.png" alt="" width="36" height="36" decoding="async"><div class="nav-wordmark">
+      <span class="nav-wordmark-sai">SAI</span>
+      <span class="nav-wordmark-sub">Student Athletes of Israel</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">Mission</a></li>
+    <li><a href="index.html#two-paths">Our Model</a></li>
+    <li><a href="index.html#timeline">Our Progress</a></li>
+    <li><a href="athletes.html" class="active">Athletes</a></li>
+    <li><a href="index.html#partners">Partners</a></li>
+    <li><a href="apply.html">Apply</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="press.html">Press</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://www.instagram.com/studentathletesofisrael/" target="_blank" rel="noopener" aria-label="SAI on Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/student-athletes-of-israel/" target="_blank" rel="noopener" aria-label="SAI on LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.27 2.36 4.27 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+    </a>
+  </div>
+  <a href="donate.html" class="nav-cta">Invest</a>
+  <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+  </button>
+</nav>
+<aside class="nav-mobile-menu" id="nav-mobile-menu">
+  <a href="index.html#about">Mission</a>
+  <a href="index.html#two-paths">Our Model</a>
+  <a href="index.html#timeline">Our Progress</a>
+  <a href="index.html#partners">Partners</a>
+  <a href="apply.html">Apply</a>
+  <a href="faq.html">FAQ</a>
+  <a href="press.html">Press</a>
+  <a href="donate.html">Invest</a>
+</aside>
+
+<main id="main">
+
+<div class="video-hero">
+  <div class="video-hero-iframe-wrap">
+    <iframe title="SAI program — Bar-Ilan announcement" src="https://www.youtube.com/embed/M9_A_o2jPCM?autoplay=1&mute=1&loop=1&playlist=M9_A_o2jPCM&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+  <div class="video-overlay-top"></div>
+  <div class="video-overlay-bottom"></div>
+  <div class="video-overlay-sides"></div>
+  <div class="video-hero-text">
+    <div class="vht-eyebrow">SAI &middot; Cohort 1 &middot; Fall 2026</div>
+    <h1 class="vht-title">Meet Our<br><em>Athletes</em></h1>
+    <p class="vht-sub">Israel's pioneering cohort of student athletes — training at the highest level while earning a world-class degree at Bar-Ilan University.</p>
+    <div class="vht-stats">
+      <div><div class="vht-stat-num">10</div><div class="vht-stat-label">Athletes</div></div>
+      <div><div class="vht-stat-num">5+</div><div class="vht-stat-label">Sports</div></div>
+      <div><div class="vht-stat-num">1</div><div class="vht-stat-label">University</div></div>
+      <div><div class="vht-stat-num" style="display:flex;align-items:center;height:2.4rem"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color:var(--gold);display:inline-block"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55.47.98.97 1.21C12.15 18.75 13 19.71 13 21h-2c-1 0-1-2-1-2"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div><div class="vht-stat-label">Paris 2024</div></div>
+    </div>
+    <div class="vht-actions">
+      <a class="btn-primary" href="#apply">Apply to Cohort 2</a>
+      <a class="btn-outline" href="#cards">Meet the Athletes &darr;</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><div class="scroll-line"></div><span>Scroll</span></div>
+</div>
+
+
+
+<!-- ── COHORT GRID ── -->
+<section id="cards" class="athletes-page-section">
+  <div class="athletes-page-header">
+    <div>
+      <div class="section-tag">Cohort 1 · Fall 2026</div>
+      <h2 class="section-title">Ten athletes. One <em>roster.</em></h2>
+    </div>
+    <p class="athletes-page-desc">Our inaugural cohort balances elite competition with a degree at Bar-Ilan University. Hover any card to flip it and see the athlete profile.</p>
+  </div>
+  <div class="gold-rule"></div>
+  <div class="hover-hint"><span>Hover or tap to flip</span></div>
+
+  <div class="cohort-grid">
+    <!-- Card 1 — Shahar Milfelder (real) — featured -->
+    <div class="card-scene" tabindex="0">
+      <div class="card-flipper">
+        <div class="card-face card-front featured-card">
+          <div class="card-front-frame"></div>
+          <div class="card-top-band"><div class="card-top-band-inner"><span class="card-team-name">SAI · Cohort 1</span><span class="card-num-badge">01</span></div></div>
+          <span class="card-medal-ribbon" aria-label="Paris 2024 bronze medalist">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4A24A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+          </span>
+          <div class="card-sport-category paralympic">Paralympic</div>
+          <div class="card-photo-area">
+            <picture>
+              <source srcset="shahar.webp" type="image/webp">
+              <img class="card-athlete-photo" src="shahar.png" alt="Portrait of Paralympic rower Shahar Milfelder" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <div class="card-stripe-left"></div>
+          <div class="card-stripe-right"></div>
+          <div class="card-bottom-band"><div class="card-bottom-band-inner">
+            <div><div class="card-player-name">Shahar<br>Milfelder</div><div class="card-player-from">Israel · b. 2002</div></div>
+            <div class="card-sport-tag">Rowing</div>
+          </div></div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-back-header"><span class="card-back-title">Shahar Milfelder</span><span class="card-back-num">01</span></div>
+          <div class="card-back-stats">
+            <div class="cbs-row"><span class="cbs-label">Sport</span><span class="cbs-value">PR2 single sculls</span></div>
+            <div class="cbs-row"><span class="cbs-label">Major</span><span class="cbs-value">Communications</span></div>
+            <div class="cbs-row"><span class="cbs-label">Paris 2024</span><span class="cbs-value">Bronze medal</span></div>
+            <div class="cbs-row"><span class="cbs-label">Hometown</span><span class="cbs-value">Israel</span></div>
+            <div class="cbs-row"><span class="cbs-label">Why SAI</span><span class="cbs-value">"Train without sacrificing my education."</span></div>
+          </div>
+          <div class="card-back-footer"><span>Train · Study · Champion</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 — Track & Field TBA -->
+    <div class="card-scene" tabindex="0">
+      <div class="card-flipper">
+        <div class="card-face card-front">
+          <div class="card-front-frame"></div>
+          <div class="card-top-band"><div class="card-top-band-inner"><span class="card-team-name">SAI · Cohort 1</span><span class="card-num-badge">02</span></div></div>
+          <div class="card-sport-category olympic">Olympic</div>
+          <div class="card-photo-area">
+            <svg width="58%" viewBox="0 0 80 120" fill="none" stroke="#D4A24A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:0.55">
+              <circle cx="40" cy="18" r="9"/>
+              <path d="M40 28 L34 60 L26 95 M40 28 L46 56 L60 88 M34 60 L22 78 M46 56 L62 50"/>
+            </svg>
+          </div>
+          <div class="card-stripe-left"></div>
+          <div class="card-stripe-right"></div>
+          <div class="card-bottom-band"><div class="card-bottom-band-inner">
+            <div><div class="card-player-name">To be<br>announced</div><div class="card-player-from">Cohort 1 · 2026</div></div>
+            <div class="card-sport-tag">Track</div>
+          </div></div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-back-header"><span class="card-back-title">Athlete 02</span><span class="card-back-num">02</span></div>
+          <div class="card-back-stats">
+            <div class="cbs-row"><span class="cbs-label">Discipline</span><span class="cbs-value">Track &amp; Field</span></div>
+            <div class="cbs-row"><span class="cbs-label">Major</span><span class="cbs-value">To be confirmed</span></div>
+            <div class="cbs-row"><span class="cbs-label">Status</span><span class="cbs-value">Profile coming soon</span></div>
+          </div>
+          <div class="card-back-footer"><span>Cohort 1 · Fall 2026</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 — Swimming TBA -->
+    <div class="card-scene" tabindex="0">
+      <div class="card-flipper">
+        <div class="card-face card-front">
+          <div class="card-front-frame"></div>
+          <div class="card-top-band"><div class="card-top-band-inner"><span class="card-team-name">SAI · Cohort 1</span><span class="card-num-badge">03</span></div></div>
+          <div class="card-sport-category olympic">Olympic</div>
+          <div class="card-photo-area">
+            <svg width="64%" viewBox="0 0 100 120" fill="none" stroke="#D4A24A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:0.55">
+              <circle cx="22" cy="40" r="7"/>
+              <path d="M28 44 L52 52 L78 44 M52 52 L62 70 L86 64 M52 52 L40 72 L18 66"/>
+              <path d="M4 90 Q15 84 26 90 T48 90 T70 90 T92 90" stroke-dasharray="3 3"/>
+              <path d="M4 102 Q15 96 26 102 T48 102 T70 102 T92 102" stroke-dasharray="3 3"/>
+            </svg>
+          </div>
+          <div class="card-stripe-left"></div>
+          <div class="card-stripe-right"></div>
+          <div class="card-bottom-band"><div class="card-bottom-band-inner">
+            <div><div class="card-player-name">To be<br>announced</div><div class="card-player-from">Cohort 1 · 2026</div></div>
+            <div class="card-sport-tag">Swim</div>
+          </div></div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-back-header"><span class="card-back-title">Athlete 03</span><span class="card-back-num">03</span></div>
+          <div class="card-back-stats">
+            <div class="cbs-row"><span class="cbs-label">Discipline</span><span class="cbs-value">Swimming</span></div>
+            <div class="cbs-row"><span class="cbs-label">Major</span><span class="cbs-value">To be confirmed</span></div>
+            <div class="cbs-row"><span class="cbs-label">Status</span><span class="cbs-value">Profile coming soon</span></div>
+          </div>
+          <div class="card-back-footer"><span>Cohort 1 · Fall 2026</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 — Judo TBA -->
+    <div class="card-scene" tabindex="0">
+      <div class="card-flipper">
+        <div class="card-face card-front">
+          <div class="card-front-frame"></div>
+          <div class="card-top-band"><div class="card-top-band-inner"><span class="card-team-name">SAI · Cohort 1</span><span class="card-num-badge">04</span></div></div>
+          <div class="card-sport-category olympic">Olympic</div>
+          <div class="card-photo-area">
+            <svg width="60%" viewBox="0 0 100 120" fill="none" stroke="#D4A24A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:0.55">
+              <circle cx="50" cy="22" r="9"/>
+              <path d="M50 32 L40 50 L22 60 M50 32 L62 52 L80 46 M40 50 L34 80 L24 100 M62 52 L70 80 L80 102"/>
+            </svg>
+          </div>
+          <div class="card-stripe-left"></div>
+          <div class="card-stripe-right"></div>
+          <div class="card-bottom-band"><div class="card-bottom-band-inner">
+            <div><div class="card-player-name">To be<br>announced</div><div class="card-player-from">Cohort 1 · 2026</div></div>
+            <div class="card-sport-tag">Judo</div>
+          </div></div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-back-header"><span class="card-back-title">Athlete 04</span><span class="card-back-num">04</span></div>
+          <div class="card-back-stats">
+            <div class="cbs-row"><span class="cbs-label">Discipline</span><span class="cbs-value">Judo</span></div>
+            <div class="cbs-row"><span class="cbs-label">Major</span><span class="cbs-value">To be confirmed</span></div>
+            <div class="cbs-row"><span class="cbs-label">Status</span><span class="cbs-value">Profile coming soon</span></div>
+          </div>
+          <div class="card-back-footer"><span>Cohort 1 · Fall 2026</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 — Sailing TBA -->
+    <div class="card-scene" tabindex="0">
+      <div class="card-flipper">
+        <div class="card-face card-front">
+          <div class="card-front-frame"></div>
+          <div class="card-top-band"><div class="card-top-band-inner"><span class="card-team-name">SAI · Cohort 1</span><span class="card-num-badge">05</span></div></div>
+          <div class="card-sport-category olympic">Olympic</div>
+          <div class="card-photo-area">
+            <svg width="60%" viewBox="0 0 100 120" fill="none" stroke="#D4A24A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="opacity:0.55">
+              <path d="M50 10 L50 90"/>
+              <path d="M50 14 L20 84 L50 84 Z"/>
+              <path d="M50 30 L80 84 L50 84"/>
+              <path d="M10 95 Q30 90 50 95 T90 95"/>
+              <path d="M10 105 Q30 100 50 105 T90 105"/>
+            </svg>
+          </div>
+          <div class="card-stripe-left"></div>
+          <div class="card-stripe-right"></div>
+          <div class="card-bottom-band"><div class="card-bottom-band-inner">
+            <div><div class="card-player-name">To be<br>announced</div><div class="card-player-from">Cohort 1 · 2026</div></div>
+            <div class="card-sport-tag">Sail</div>
+          </div></div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-back-header"><span class="card-back-title">Athlete 05</span><span class="card-back-num">05</span></div>
+          <div class="card-back-stats">
+            <div class="cbs-row"><span class="cbs-label">Discipline</span><span class="cbs-value">Sailing</span></div>
+            <div class="cbs-row"><span class="cbs-label">Major</span><span class="cbs-value">To be confirmed</span></div>
+            <div class="cbs-row"><span class="cbs-label">Status</span><span class="cbs-value">Profile coming soon</span></div>
+          </div>
+          <div class="card-back-footer"><span>Cohort 1 · Fall 2026</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cohort-note">Five more athletes joining Cohort 1 — names announced ahead of Fall 2026.</div>
+</section>
+
+<!-- ── APPLY CTA ── -->
+<section id="apply" class="apply-cta">
+  <div class="apply-cta-inner">
+    <div class="apply-cta-tag">Cohort 2 · Fall 2027</div>
+    <h2 class="apply-cta-title">Train. Study. <em>Apply.</em></h2>
+    <p class="apply-cta-body">SAI Cohort 2 opens applications in Spring 2027. If you compete at a national-team level and intend to enrol at Bar-Ilan, start the conversation now.</p>
+    <div class="apply-cta-buttons">
+      <a class="btn-primary" href="apply.html">Start application</a>
+      <a class="btn-outline" href="index.html#contact">Talk to the team</a>
+    </div>
+    <div class="apply-requirements">
+      <div class="apply-req">National-team level</div>
+      <div class="apply-req">Israeli citizen or resident</div>
+      <div class="apply-req">Bar-Ilan-eligible</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <img class="footer-seal" src="sai-logo-navy.png" alt="Student Athletes of Israel" width="120" height="120" loading="lazy" decoding="async">
+  <div class="footer-wordmark">Student Athletes of Israel</div>
+  <div class="footer-wordmark" lang="he" dir="rtl" style="font-size:1rem;color:var(--tekhelet);margin-bottom:.6rem;letter-spacing:0">סטודנטים ספורטאים בישראל</div>
+  <div class="footer-sub">Train · Study · Champion</div>
+  <ul class="footer-links">
+    <li><a href="index.html#about">Mission</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="press.html">Press</a></li>
+    <li><a href="donate.html">Invest</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">&copy; <span data-year>2026</span> Student Athletes of Israel. All rights reserved.</div>
+</footer>
+
+<script src="sai.js"></script>
+</body>
+</html>
