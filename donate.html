@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Invest in an Athlete — Student Athletes of Israel</title>
+<meta name="description" content="Direct support for Israeli Olympic and Paralympic athletes balancing elite training and a university education. Every gift fuels a champion." />
+<meta name="theme-color" content="#001A5C" />
+<link rel="icon" type="image/png" href="sai-logo-navy.png" />
+<link rel="apple-touch-icon" href="sai-logo-navy.png" />
+<link rel="canonical" href="https://studentathletes.org.il/donate" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Student Athletes of Israel" />
+<meta property="og:title" content="Invest in an Athlete — Student Athletes of Israel" />
+<meta property="og:description" content="Direct support for Israeli Olympic and Paralympic athletes balancing elite training and a university education. Every gift fuels a champion." />
+<meta property="og:image" content="https://studentathletes.org.il/hero-bg.png" />
+<meta property="og:url" content="https://studentathletes.org.il/donate" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="sai.css" />
+<style>
+  /* Donate page-specific styles */
+
+  /* HERO */
+  .page-hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:10rem 2rem 6rem;position:relative;overflow:hidden}
+  .hero-stadium-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hero-overlay{position:absolute;inset:0;z-index:1;background:rgba(244,241,236,0.47);transition:background 1s ease}
+  .page-hero.fully-lit .hero-overlay{background:linear-gradient(to bottom,rgba(244,241,236,0.38) 0%,rgba(244,241,236,0.17) 40%,rgba(244,241,236,0.60) 100%)}
+  .page-hero-content{position:relative;z-index:2;max-width:900px}
+  .page-hero-eyebrow{font-family:'Heebo',sans-serif;font-weight:600;font-size:0.85rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:1rem}
+  .page-hero-eyebrow::before,.page-hero-eyebrow::after{content:'';display:block;width:40px;height:1px;background:var(--gold);opacity:0.5}
+  .page-hero h1{font-family:'Heebo',sans-serif;font-weight:900;font-size:clamp(4rem,11vw,9rem);text-transform:uppercase;line-height:0.88;color:var(--deep-navy);margin-bottom:1.5rem}
+  .page-hero h1 em{font-family:'Heebo',sans-serif;font-style:italic;color:var(--gold);font-size:0.85em;display:block}
+  .page-hero p{font-family:'Assistant',sans-serif;font-size:1.18rem;font-weight:700;color:var(--deep-navy);line-height:1.6;max-width:620px;margin:0 auto 2.5rem}
+  .hero-stats{display:flex;gap:4rem;justify-content:center;flex-wrap:wrap;padding-top:2.5rem;border-top:1px solid rgba(212,162,74,0.2)}
+  .hero-stat{text-align:center}
+  .hero-stat-num{font-family:'Heebo',sans-serif;font-weight:900;font-size:2.6rem;color:var(--gold);line-height:1}
+  .hero-stat-label{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(26,26,26,0.5);margin-top:0.3rem}
+
+  /* SECTIONS */
+  .page-section{padding:7rem 4rem;max-width:1200px;margin:0 auto}
+
+  /* CALCULATOR */
+  .calculator-section{border-top:1px solid var(--border);background:var(--navy2)}
+  .calculator-inner{padding:7rem 4rem;max-width:1000px;margin:0 auto}
+  .calc-box{background:var(--card-bg);border:1px solid var(--border);border-radius:6px;padding:3rem;margin-top:3rem;position:relative;overflow:hidden}
+  .calc-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold))}
+  .calc-slider-label{font-family:'Heebo',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--grey);margin-bottom:1rem}
+  .calc-amount-display{font-family:'Heebo',sans-serif;font-weight:900;font-size:clamp(2.8rem,8vw,5rem);color:var(--gold);line-height:1;margin-bottom:2rem}
+  input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:linear-gradient(to right,var(--gold) 0%,var(--gold) var(--pct,10%),rgba(212,162,74,0.2) var(--pct,10%),rgba(212,162,74,0.2) 100%);outline:none;cursor:pointer;margin-bottom:0.8rem}
+  input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--gold);border:3px solid var(--navy);box-shadow:0 0 0 2px var(--gold);cursor:pointer}
+  input[type="range"]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--gold);border:3px solid var(--navy);cursor:pointer}
+  .calc-range-labels{display:flex;justify-content:space-between;font-size:0.72rem;color:var(--grey);font-family:'Heebo',sans-serif;font-weight:600;letter-spacing:0.1em;margin-bottom:3rem}
+  .calc-results{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .calc-result{background:rgba(244,241,236,0.6);border:1px solid var(--border);border-radius:4px;padding:1.5rem;text-align:center;transition:border-color 0.3s,transform 0.3s,background 0.3s}
+  .calc-result.highlight{border-color:var(--gold);background:rgba(0,56,184,0.25);transform:translateY(-3px)}
+  .calc-result-num{font-family:'Heebo',sans-serif;font-weight:900;font-size:2.2rem;color:var(--gold);line-height:1;margin-bottom:0.4rem}
+  .calc-result-label{font-family:'Heebo',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--grey)}
+  .calc-result-sub{font-size:0.78rem;color:rgba(26,26,26,0.4);margin-top:0.4rem;line-height:1.4}
+  .calc-cta{text-align:center;margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border)}
+  .calc-cta-text{font-size:0.95rem;color:rgba(26,26,26,0.6);margin-bottom:1.2rem;font-style:italic}
+  .calc-breakdown{margin-top:2.5rem;padding-top:2.5rem;border-top:1px solid var(--border)}
+  .breakdown-label{font-family:'Heebo',sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--grey);margin-bottom:1.2rem}
+  .breakdown-bar-wrap{display:flex;height:10px;border-radius:5px;overflow:hidden;margin-bottom:1.5rem;background:rgba(212,162,74,0.1)}
+  .breakdown-bar-scholarship{background:var(--gold);transition:width 0.5s ease;border-radius:5px 0 0 5px}
+  .breakdown-bar-framework{background:var(--blue);transition:width 0.5s ease;border-radius:0 5px 5px 0;flex:1}
+  .breakdown-legend{display:flex;flex-direction:column;gap:1rem}
+  .breakdown-item{display:flex;gap:1rem;align-items:flex-start}
+  .breakdown-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:4px}
+  .breakdown-dot-scholarship{background:var(--gold)}
+  .breakdown-dot-framework{background:var(--blue);border:1px solid rgba(0,56,184,0.8)}
+  .breakdown-item-label{font-family:'Heebo',sans-serif;font-weight:700;font-size:0.88rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--deep-navy);margin-bottom:0.25rem}
+  .breakdown-item-label span{color:var(--gold)}
+  .breakdown-item-sub{font-size:0.8rem;color:rgba(26,26,26,0.45);line-height:1.5}
+
+  /* TIERS */
+  .invest-tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:4rem}
+  .tier{background:var(--card-bg);border:1px solid var(--border);border-radius:6px;padding:2.5rem 2rem;position:relative;overflow:hidden;transition:transform 0.2s,border-color 0.2s;display:flex;flex-direction:column}
+  .tier:hover{transform:translateY(-4px);border-color:rgba(212,162,74,0.5)}
+  .tier::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,rgba(212,162,74,0.3),transparent)}
+  .tier.featured{border-color:var(--gold);background:linear-gradient(135deg,rgba(0,56,184,0.4),var(--card-bg))}
+  .tier.featured::before{background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold))}
+  .tier.featured::after{content:'MOST POPULAR';position:absolute;top:1.2rem;right:1.2rem;font-family:'Heebo',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.15em;background:var(--gold);color:var(--navy);padding:0.2rem 0.6rem;border-radius:2px}
+  .tier-range{font-family:'Heebo',sans-serif;font-weight:900;font-size:2.2rem;color:var(--gold);line-height:1;margin-bottom:0.4rem}
+  .tier-name{font-family:'Heebo',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--deep-navy);margin-bottom:1rem}
+  .tier-desc{font-size:0.9rem;color:rgba(26,26,26,0.65);line-height:1.7;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+  .tier-benefits{list-style:none;display:flex;flex-direction:column;gap:0.55rem;margin-bottom:2rem;flex:1}
+  .tier-benefits li{font-size:0.85rem;color:rgba(26,26,26,0.75);display:flex;gap:0.7rem;align-items:flex-start}
+  .tier-benefits li::before{content:'\2726';color:var(--gold);flex-shrink:0;font-size:0.65rem;margin-top:0.2rem}
+  .tier-cta{font-family:'Heebo',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;color:var(--gold);border:1.5px solid rgba(212,162,74,0.4);padding:0.7rem 1.4rem;border-radius:2px;transition:background 0.2s,border-color 0.2s;display:inline-block;align-self:flex-start}
+  .tier-cta:hover{background:rgba(212,162,74,0.1);border-color:var(--gold)}
+  .tier.featured .tier-cta{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+  .tier.featured .tier-cta:hover{background:var(--gold-light)}
+
+  /* HOW IT WORKS */
+  .how-section{border-top:1px solid var(--border)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem}
+  .step{text-align:center;padding:2rem}
+  .step-num{font-family:'Heebo',sans-serif;font-weight:900;font-size:1rem;letter-spacing:0.1em;color:var(--navy);background:var(--gold);width:2.8rem;height:2.8rem;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem}
+  .step-title{font-family:'Heebo',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--deep-navy);margin-bottom:0.8rem}
+  .step-body{font-size:0.9rem;color:rgba(26,26,26,0.6);line-height:1.7}
+
+  /* QUOTE */
+  .quote-section{border-top:1px solid var(--border);background:linear-gradient(135deg,rgba(0,56,184,0.15),var(--navy))}
+  .quote-inner{padding:7rem 4rem;max-width:900px;margin:0 auto}
+  .quote-card-large{background:var(--card-bg);border:1px solid rgba(212,162,74,0.3);border-radius:6px;padding:3.5rem;position:relative}
+  .quote-card-large::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));border-radius:6px 6px 0 0}
+  .quote-mark-large{font-family:'Heebo',sans-serif;font-size:5rem;line-height:0.7;color:var(--gold);opacity:0.2;display:block;margin-bottom:1.2rem}
+  .quote-text-large{font-size:1.15rem;color:rgba(26,26,26,0.9);line-height:1.85;font-style:italic;margin-bottom:2rem}
+  .quote-attribution{display:flex;align-items:center;gap:1.2rem}
+  .quote-attribution img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex-shrink:0}
+  .quote-author-name{font-family:'Heebo',sans-serif;font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--deep-navy)}
+  .quote-author-role{font-size:0.82rem;color:var(--gold);margin-top:0.2rem;display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap}
+  .quote-author-role .icon{vertical-align:-0.15em}
+
+  /* CONTACT */
+  .contact-section{border-top:1px solid var(--border)}
+  .contact-inner{padding:7rem 4rem;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start}
+  .contact-text p{font-size:1rem;color:rgba(26,26,26,0.7);line-height:1.8;margin-top:1rem}
+  .email-note{margin-top:1rem;font-size:0.9rem;color:var(--grey)}
+  .email-note a{color:var(--gold);text-decoration:none}
+  .contact-form-box{background:var(--card-bg);border:1px solid var(--border);border-radius:6px;padding:2.5rem}
+  .contact-form-box h3{font-family:'Heebo',sans-serif;font-weight:800;font-size:1.3rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--deep-navy);margin-bottom:1.8rem}
+  .form-group{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.2rem}
+  .form-group label{font-family:'Heebo',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--grey)}
+  .form-group input,.form-group select,.form-group textarea{background:rgba(244,241,236,0.6);border:1px solid var(--border);border-radius:3px;padding:0.85rem 1rem;color:var(--charcoal);font-family:'Assistant',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+  .form-group select option{background:var(--navy)}
+  .form-group textarea{resize:vertical;min-height:100px}
+  .form-submit{font-family:'Heebo',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.14em;text-transform:uppercase;background:var(--gold);color:var(--navy);border:none;padding:1rem 2rem;border-radius:2px;cursor:pointer;transition:background 0.2s,transform 0.15s;width:100%}
+  .form-submit:hover{background:var(--gold-light);transform:translateY(-1px)}
+  .form-submit:disabled{cursor:wait;opacity:0.85;transform:none}
+  .form-status{min-height:1.2rem;font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--grey);font-family:'Heebo',sans-serif;font-weight:700;margin-top:0.8rem;text-align:center}
+  .form-status.is-success{color:var(--gold-light)}
+  .form-status.is-error{color:#C8102E}
+
+  /* MOBILE */
+  @media(max-width:900px){
+    .page-hero{min-height:80vh;padding:8rem 1.5rem 4rem}
+    .hero-stats{gap:1.5rem 2.5rem}
+    .calculator-inner,.quote-inner{padding:4rem 1.5rem}
+    .page-section{padding:4rem 1.5rem}
+    .calc-results{grid-template-columns:1fr;gap:1rem}
+    .invest-tiers{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr;gap:1.5rem}
+    .contact-inner{grid-template-columns:1fr;gap:3rem;padding:4rem 1.5rem}
+    .quote-card-large{padding:2rem 1.5rem}
+  }
+  @media(max-width:480px){
+    .page-hero h1{font-size:clamp(3rem,16vw,5rem)}
+    .calc-amount-display{font-size:2.5rem}
+  }
+
+  /* STADIUM LIGHTS INTRO - simple, robust dark-to-bright sweep.
+     A single full-page dark overlay starts at opacity 1 and fades to 0
+     in lock-step with the existing 5-frame stadium animation underneath.
+     No JS dependency for the visual; the JS only triggers the class swap. */
+  .lights-curtain{
+    position:fixed; inset:0; z-index:9999; pointer-events:none;
+    background:#02050E;
+    opacity:1;
+    /* Long fade so the stadium frames are visible brightening UNDER the curtain
+       as it eases off — the curtain becomes increasingly transparent while
+       each successive frame is brighter than the last. */
+    transition:opacity 0.9s cubic-bezier(0.4,0,0.2,1);
+  }
+  body.lights-on .lights-curtain{ opacity:0; }
+  body.lights-on .lights-curtain.removed{ display:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    .lights-curtain{ display:none !important; }
+  }
+</style>
+</head>
+<body data-whatsapp="972548184327" class="pre-lit">
+
+<!-- Stadium lights intro: full-page black curtain that fades over the stadium animation -->
+<div class="lights-curtain" aria-hidden="true"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <a class="nav-logo" href="index.html" aria-label="SAI home">
+    <img class="nav-logo-img" src="sai-logo-navy.png" alt="" width="36" height="36" decoding="async"><div class="nav-wordmark">
+      <span class="nav-wordmark-sai">SAI</span>
+      <span class="nav-wordmark-sub">Student Athletes of Israel</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">Mission</a></li>
+    <li><a href="index.html#two-paths">Our Model</a></li>
+    <li><a href="index.html#timeline">Our Progress</a></li>
+    <li><a href="index.html#partners">Partners</a></li>
+    <li><a href="apply.html">Apply</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="press.html">Press</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://www.instagram.com/studentathletesofisrael/" target="_blank" rel="noopener" aria-label="SAI on Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/student-athletes-of-israel/" target="_blank" rel="noopener" aria-label="SAI on LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.27 2.36 4.27 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+    </a>
+  </div>
+  <a href="donate.html" class="nav-cta active">Invest</a>
+  <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+  </button>
+</nav>
+<aside class="nav-mobile-menu" id="nav-mobile-menu">
+  <a href="index.html#about">Mission</a>
+  <a href="index.html#two-paths">Our Model</a>
+  <a href="index.html#timeline">Our Progress</a>
+  <a href="index.html#partners">Partners</a>
+  <a href="apply.html">Apply</a>
+  <a href="faq.html">FAQ</a>
+  <a href="press.html">Press</a>
+  <a href="donate.html">Invest</a>
+</aside>
+
+<main id="main">
+
+<!-- HERO -->
+<div class="page-hero" id="page-hero">
+  <picture>
+    <source id="stadium-frame-source" srcset="Donate-Hero-Frame1.webp" type="image/webp">
+    <img id="stadium-frame" class="hero-stadium-img" src="Donate-Hero-Frame1.webp" alt="" loading="eager" fetchpriority="high" />
+  </picture>
+  <div class="hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">For Donors &amp; Investors</div>
+    <h1>Invest in Israel's<br><em>Champions</em></h1>
+    <p>Your investment doesn't just support one athlete &mdash; it builds the infrastructure that will support generations of Israeli Olympic and Paralympic talent.</p>
+  </div>
+</div>
+
+<!-- IMPACT CALCULATOR -->
+<div class="calculator-section">
+  <div class="calculator-inner">
+    <div class="section-tag">See Your Impact</div>
+    <h2 class="section-title">What does your <em>investment</em> unlock?</h2>
+    <p style="font-size:1rem;color:rgba(26,26,26,0.65);line-height:1.8;max-width:580px;margin-top:1rem;">Move the slider to see exactly what your gift makes possible for Israeli Olympic and Paralympic athletes.</p>
+    <div class="calc-box">
+      <div class="calc-slider-label">Your Investment</div>
+      <div class="calc-amount-display" id="calc-amount">$40,000</div>
+      <input type="range" id="calc-slider" min="0" max="100" value="10" step="1" aria-label="Investment amount" />
+      <div class="calc-range-labels">
+        <span>$10K</span><span>$100K</span><span>$250K</span><span>$500K</span><span>$2M+</span>
+      </div>
+      <div class="calc-results">
+        <div class="calc-result" id="calc-r1">
+          <div class="calc-result-num" id="calc-athletes">1</div>
+          <div class="calc-result-label">Athletes Funded</div>
+          <div class="calc-result-sub">Full degree at Bar-Ilan (4 years)</div>
+        </div>
+        <div class="calc-result" id="calc-r2">
+          <div class="calc-result-num" id="calc-years">1</div>
+          <div class="calc-result-label">Years Per Athlete</div>
+          <div class="calc-result-sub">$10K funds one athlete for one year</div>
+        </div>
+        <div class="calc-result" id="calc-r3">
+          <div class="calc-result-num" id="calc-tier">Scholarship</div>
+          <div class="calc-result-label">Investment Tier</div>
+          <div class="calc-result-sub" id="calc-tier-sub">Scholarship Expansion</div>
+        </div>
+      </div>
+      <div class="calc-cta">
+        <p class="calc-cta-text" id="calc-cta-text">Ready to fund a named scholarship? Let's start a conversation.</p>
+        <a class="btn-primary" href="#invest-contact">Start a Conversation &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INVESTMENT TIERS -->
+<section class="page-section" style="border-top:1px solid var(--border);">
+  <div class="section-tag">Investment Pathways</div>
+  <h2 class="section-title">Choose your <em>impact</em></h2>
+  <p style="font-size:1.05rem;color:rgba(26,26,26,0.7);line-height:1.8;max-width:640px;margin-top:1rem;">Every giving level creates real, measurable change &mdash; from an athlete's tuition to a university's long-term infrastructure.</p>
+  <div class="invest-tiers">
+    <div class="tier">
+      <div class="tier-range">$40K &ndash; $200K</div>
+      <div class="tier-name">Scholarship Expansion</div>
+      <div class="tier-desc">Directly fund scholarships for student athletes at Bar-Ilan. Each gift enables 1&ndash;5 additional athletes to join the program.</div>
+      <ul class="tier-benefits">
+        <li>Named scholarship in your honor</li>
+        <li>Annual athlete progress reports</li>
+        <li>Recognition at SAI events</li>
+        <li>Direct athlete connection opportunities</li>
+      </ul>
+      <a class="tier-cta" href="#invest-contact">Start a Conversation &rarr;</a>
+    </div>
+    <div class="tier featured">
+      <div class="tier-range">$75K &ndash; $150K</div>
+      <div class="tier-name">Infrastructure Enhancement</div>
+      <div class="tier-desc">Fund the systems that make excellence possible &mdash; academic coordination, mentorship programs (&#x05D7;&#x05D5;&#x05E0;&#x05DB;&#x05D5;&#x05EA;), and athlete support services.</div>
+      <ul class="tier-benefits">
+        <li>Program naming opportunities</li>
+        <li>Seat on advisory board</li>
+        <li>Quarterly impact briefings</li>
+        <li>Co-branding on all SAI materials</li>
+      </ul>
+      <a class="tier-cta" href="#invest-contact">Start a Conversation &rarr;</a>
+    </div>
+    <div class="tier">
+      <div class="tier-range">$250K &ndash; $500K</div>
+      <div class="tier-name">University Replication</div>
+      <div class="tier-desc">Expand SAI to Hebrew University, Tel Aviv University, or Technion. Be the founding partner of the next campus.</div>
+      <ul class="tier-benefits">
+        <li>Founding partner status at new university</li>
+        <li>University naming rights discussions</li>
+        <li>National press &amp; media recognition</li>
+        <li>Seat on national steering committee</li>
+      </ul>
+      <a class="tier-cta" href="#invest-contact">Start a Conversation &rarr;</a>
+    </div>
+    <div class="tier">
+      <div class="tier-range">$1M &ndash; $5M+</div>
+      <div class="tier-name">Endowment Fund</div>
+      <div class="tier-desc">Create a permanent legacy. An endowment gift ensures SAI's mission continues in perpetuity &mdash; transforming Israel's Olympic culture for generations.</div>
+      <ul class="tier-benefits">
+        <li>Permanent naming of SAI endowment</li>
+        <li>Legacy recognition at all SAI universities</li>
+        <li>Founding trustee board membership</li>
+        <li>Full co-creation of program vision</li>
+      </ul>
+      <a class="tier-cta" href="#invest-contact">Start a Conversation &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="page-section">
+    <div class="section-tag">The Process</div>
+    <h2 class="section-title">How it <em>works</em></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Start a Conversation</div>
+        <div class="step-body">Reach out below. We'll schedule a call to understand your goals and walk you through every investment pathway in detail.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Customize Your Impact</div>
+        <div class="step-body">Together we structure a gift that aligns with your giving goals &mdash; from naming a scholarship to founding a new university chapter.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">See Real Results</div>
+        <div class="step-body">Receive regular impact updates &mdash; athlete reports, program milestones, and invitations to SAI events as your investment shapes Israel's Olympic future.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="quote-inner">
+    <div class="quote-card-large">
+      <span class="quote-mark-large">&ldquo;</span>
+      <p class="quote-text-large">Thanks to this program, professional athletes like me will finally have a real opportunity to pursue education alongside elite sport. Israel will gain stronger, more successful athletes &mdash; and expand our representation on the world's biggest sporting stages.</p>
+      <div class="quote-attribution">
+        <picture>
+          <source srcset="shahar.webp" type="image/webp">
+          <img src="shahar.png" alt="Shahar Milfelder" loading="lazy" decoding="async" />
+        </picture>
+        <div>
+          <div class="quote-author-name">Shahar Milfelder</div>
+          <div class="quote-author-role">Paralympic Rower &middot; <svg class="icon icon-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="15" r="6"/><path d="M9 9l-3-7h12l-3 7"/></svg> Bronze Medalist, Paris 2024 &middot; SAI Cohort 1</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="invest-contact">
+  <div class="contact-inner">
+    <div class="contact-text">
+      <div class="section-tag">Ready to Invest?</div>
+      <h2 class="section-title" style="font-size:clamp(2.2rem,4vw,3.5rem);">Let's build Israel's Olympic <em>future</em> together</h2>
+      <p>Tell us about yourself and your interests. Our team will be in touch within 48 hours to schedule a conversation.</p>
+      <p class="email-note">Prefer email? <a href="mailto:donate@studentathletes.org.il">donate@studentathletes.org.il</a></p>
+    </div>
+    <div class="contact-form-box">
+      <h3>Get in Touch</h3>
+      <form id="donor-form">
+        <div class="form-group">
+          <label for="donor-name">Your Name</label>
+          <input id="donor-name" type="text" name="donor_name" placeholder="First and last name" required />
+        </div>
+        <div class="form-group">
+          <label for="donor-email">Email</label>
+          <input id="donor-email" type="email" name="donor_email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="donor-tier">Investment Interest</label>
+          <select id="donor-tier" name="investment_tier" required>
+            <option value="">Select a pathway</option>
+            <option>Scholarship Expansion ($40K&ndash;$200K)</option>
+            <option>Infrastructure Enhancement ($75K&ndash;$150K)</option>
+            <option>University Replication ($250K&ndash;$500K)</option>
+            <option>Endowment Fund ($1M&ndash;$5M+)</option>
+            <option>Not sure yet &mdash; I'd like to learn more</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="donor-message">Message (optional)</label>
+          <textarea id="donor-message" name="donor_message" placeholder="Tell us about your goals or any questions you have..."></textarea>
+        </div>
+        <div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);" aria-hidden="true">
+          <input type="text" name="company" tabindex="-1" autocomplete="off" />
+        </div>
+        <button class="form-submit" type="submit">Send My Interest &rarr;</button>
+        <div class="form-status" id="donor-status"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <img class="footer-seal" src="sai-logo-navy.png" alt="Student Athletes of Israel" width="120" height="120" loading="lazy" decoding="async">
+  <div class="footer-wordmark">Student Athletes of Israel</div>
+  <div class="footer-wordmark" lang="he" dir="rtl" style="font-size:1rem;color:var(--tekhelet);margin-bottom:.6rem;letter-spacing:0">סטודנטים ספורטאים בישראל</div>
+  <div class="footer-sub">Train &middot; Study &middot; Champion</div>
+  <ul class="footer-links">
+    <li><a href="index.html#about">Mission</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="press.html">Press</a></li>
+    <li><a href="donate.html">Invest</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">&copy; <span data-year>2026</span> Student Athletes of Israel. All rights reserved.</div>
+</footer>
+<script src="sai.js"></script>
+
+<script>
+// STADIUM LIGHTS INTRO
+// Page boots black; after a brief beat, the curtain fades over 1.4s
+// while the stadium-frame animation underneath brightens the photo.
+// Stadium intro: kick off the lights-on curtain fade FIRST so the user can
+// see each successive stadium-light frame brightening through a thinning
+// black wash. Frame 1 = darkest, frame 5 = fully lit. Curtain fade duration
+// matches the total frame cycle (~1.25s) so they finish in sync.
+var lightsAlreadyOn = false;
+function turnLightsOn(){
+  if (lightsAlreadyOn) return;
+  lightsAlreadyOn = true;
+  document.body.classList.add('lights-on');
+  setTimeout(function(){
+    var c = document.querySelector('.lights-curtain');
+    if (c) c.classList.add('removed');
+  }, 1000);
+}
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) { turnLightsOn(); return; }
+  // Begin the curtain fade on the next paint so the initial black state
+  // is registered visually first.
+  requestAnimationFrame(function(){ setTimeout(turnLightsOn, 80); });
+})();
+
+// STADIUM ANIMATION (WebP frames) — cycles brightness UNDER the fading curtain
+var frames = [
+  'Donate-Hero-Frame1.webp',
+  'Donate-Hero-Frame2.webp',
+  'Donate-Hero-Frame3.webp',
+  'Donate-Hero-Frame4.webp',
+  'Donate-Hero-Frame5.webp'
+];
+var i = 0;
+function nextFrame() {
+  i++;
+  if (i >= frames.length) {
+    var hero = document.getElementById('page-hero');
+    if (hero) hero.classList.add('fully-lit');
+    return;
+  }
+  var src = document.getElementById('stadium-frame-source');
+  if (src) src.setAttribute('srcset', frames[i]);
+  var img = document.getElementById('stadium-frame');
+  if (img) img.src = frames[i];
+  setTimeout(nextFrame, 150);
+}
+setTimeout(nextFrame, 150);
+
+// IMPACT CALCULATOR
+var slider = document.getElementById('calc-slider');
+
+function sliderToDollars(v) {
+  if (v <= 25)  return 10000  + (v / 25) * 65000;
+  if (v <= 50)  return 75000  + ((v - 25) / 25) * 175000;
+  if (v <= 75)  return 250000 + ((v - 50) / 25) * 250000;
+  return              500000  + ((v - 75) / 25) * 1500000;
+}
+function fmt(n) {
+  if (n >= 1000000) return '$' + (n / 1000000).toFixed(1).replace('.0', '') + 'M';
+  if (n >= 1000)    return '$' + Math.round(n / 1000) + 'K';
+  return '$' + n;
+}
+function updateCalc() {
+  var v = parseInt(slider.value);
+  var d = sliderToDollars(v);
+  slider.style.setProperty('--pct', v + '%');
+  document.getElementById('calc-amount').textContent = fmt(Math.round(d / 1000) * 1000);
+  // 3-year degree program: full athlete journey = 3 * $10K = $30K per athlete
+  var COST_PER_YEAR = 10000;
+  var FULL_DEGREE = COST_PER_YEAR * 3; // $30K
+  var fullDegrees = Math.floor(d / FULL_DEGREE);
+  var remainder = d % FULL_DEGREE;
+  var partialYears = Math.floor(remainder / COST_PER_YEAR);
+  var athletes, years, tier, tierSub, cta, highlight;
+  if (d < COST_PER_YEAR) {
+    athletes = '—'; years = '—'; tier = 'Explore'; tierSub = 'Contact us to discuss';
+    cta = "Interested in SAI? Let's find the right path for you."; highlight = -1;
+  } else if (d < FULL_DEGREE) {
+    athletes = 1; years = partialYears || 1;
+    tier = 'Scholarship'; tierSub = 'Scholarship Expansion';
+    cta = 'Fund one athlete for ' + years + ' year' + (years > 1 ? 's' : '') + ' — a named scholarship in your honor.'; highlight = 0;
+  } else if (d < FULL_DEGREE * 2) {
+    athletes = 1; years = 3;
+    tier = 'Scholarship'; tierSub = 'Full 3-Year Scholarship';
+    cta = "Fund one athlete's complete 3-year degree — a named scholarship in your honor."; highlight = 0;
+  } else if (d < 250000) {
+    athletes = fullDegrees; years = 3;
+    tier = 'Scholarship'; tierSub = 'Scholarship Expansion';
+    cta = 'Fund ' + athletes + ' athletes through their complete 3-year degrees.'; highlight = 0;
+  } else if (d < 1000000) {
+    athletes = fullDegrees; years = 3;
+    tier = 'Cohort'; tierSub = 'Founding Cohort Investment';
+    cta = 'Fund a founding cohort of ' + athletes + ' athletes — a named cohort in your family or company name.'; highlight = 1;
+  } else {
+    athletes = fullDegrees; years = '∞';
+    tier = 'Endowment'; tierSub = 'Permanent Legacy';
+    cta = 'Endow SAI in perpetuity — your name on the program for generations.'; highlight = 2;
+  }
+
+  document.getElementById('calc-athletes').textContent = athletes;
+  document.getElementById('calc-years').textContent = years;
+  document.getElementById('calc-tier').textContent = tier;
+  document.getElementById('calc-tier-sub').textContent = tierSub;
+  document.getElementById('calc-cta-text').textContent = cta;
+
+  ['calc-r1','calc-r2','calc-r3'].forEach(function(id, idx){
+    document.getElementById(id).classList.toggle('highlight', idx === highlight);
+  });
+}
+if (slider) {
+  slider.addEventListener('input', updateCalc);
+  updateCalc();
+}
+
+// EMAILJS (donor form)
+document.addEventListener('DOMContentLoaded', function() {
+  var s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+  s.onload = function() {
+    if (typeof emailjs === 'undefined') return;
+    emailjs.init({ publicKey: 'XaFkILrTbWShCtXAg' });
+    var form = document.getElementById('donor-form');
+    if (!form) return;
+    var status = document.getElementById('donor-status');
+    var btn = form.querySelector('.form-submit');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (form.querySelector('[name="company"]').value.trim()) { form.reset(); return; }
+      var orig = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending...';
+      status.textContent = 'Sending...'; status.className = 'form-status';
+      emailjs.sendForm('service_2qetzxh', 'template_7lzlt9f', form)
+        .then(function() {
+          status.textContent = "Sent! We'll be in touch within 48 hours.";
+          status.className = 'form-status is-success';
+          btn.textContent = 'Sent ✓'; form.reset();
+          setTimeout(function() { btn.disabled = false; btn.textContent = orig; }, 3000);
+        })
+        .catch(function() {
+          status.textContent = 'Something went wrong. Please email us directly.';
+          status.className = 'form-status is-error';
+          btn.disabled = false; btn.textContent = orig;
+        });
+    });
+  };
+  document.body.appendChild(s);
+});
+</script>
+
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

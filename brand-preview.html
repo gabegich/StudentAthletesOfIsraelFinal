@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SAI Brand Preview — Train. Study. Champion.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="sai.css" />
+<style>
+  body { padding: 6rem 4rem 4rem; max-width: 1100px; margin: 0 auto; }
+  h1.preview-title { font-family: 'Heebo'; font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--deep-navy); text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: .8rem; }
+  h1.preview-title em { color: var(--victory-gold); font-style: normal; }
+  .preview-lede { font-family: 'Assistant'; font-size: 1.1rem; color: var(--charcoal); max-width: 720px; margin-bottom: 3rem; }
+  .preview-block { padding: 2rem 0; border-top: 1px solid var(--border); }
+  .preview-block h2 { font-family: 'Heebo'; font-weight: 800; font-size: 1.4rem; text-transform: uppercase; letter-spacing: .06em; color: var(--deep-navy); margin-bottom: 1.4rem; }
+  /* Color swatches */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+  .sw { padding: 1rem; border-radius: 4px; border: 1px solid var(--border); background: #fff; box-shadow: var(--shadow-card); }
+  .sw .chip { height: 64px; border-radius: 3px; margin-bottom: .7rem; border: 1px solid rgba(0,0,0,.06); }
+  .sw .name { font-family: 'Heebo'; font-weight: 700; font-size: .9rem; color: var(--deep-navy); }
+  .sw .hex { font-family: 'Assistant'; font-size: .82rem; color: var(--grey); }
+  /* Type ladder */
+  .type-row { display: grid; grid-template-columns: 120px 1fr; gap: 1rem; padding: .8rem 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+  .type-row:last-child { border-bottom: 0; }
+  .type-meta { font-family: 'Heebo'; font-weight: 700; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--victory-gold); }
+  .type-h1 { font-family: 'Heebo'; font-weight: 900; font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1; color: var(--deep-navy); text-transform: uppercase; }
+  .type-h2 { font-family: 'Heebo'; font-weight: 800; font-size: 1.6rem; color: var(--deep-navy); text-transform: uppercase; }
+  .type-body { font-family: 'Assistant'; font-size: 1.05rem; color: var(--charcoal); line-height: 1.7; max-width: 620px; }
+  .type-caption { font-family: 'Heebo'; font-weight: 700; font-size: .78rem; letter-spacing: .22em; color: var(--victory-gold); text-transform: uppercase; }
+  .type-stat { font-family: 'Heebo'; font-weight: 900; font-size: 3.2rem; color: var(--deep-navy); line-height: 1; }
+  .type-hebrew { font-family: 'Heebo'; font-weight: 800; font-size: 2.2rem; color: var(--deep-navy); direction: rtl; }
+  /* Components */
+  .comp-row { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; padding: 1rem 0; }
+  .card-demo { background: #fff; padding: 1.6rem 1.4rem; border-radius: 6px; box-shadow: var(--shadow-card); max-width: 320px; border-top: 3px solid var(--victory-gold); }
+  .card-demo .eyebrow { font-family: 'Heebo'; font-weight: 700; font-size: .72rem; letter-spacing: .22em; color: var(--victory-gold); text-transform: uppercase; margin-bottom: .6rem; }
+  .card-demo h3 { font-family: 'Heebo'; font-weight: 800; font-size: 1.15rem; color: var(--deep-navy); margin-bottom: .6rem; text-transform: uppercase; }
+  .card-demo p { font-family: 'Assistant'; color: var(--charcoal); font-size: .95rem; line-height: 1.5; }
+  /* Stat tile */
+  .stat-demo { display: flex; gap: 2.4rem; }
+  .stat-demo div span:first-child { display: block; font-family: 'Heebo'; font-weight: 900; font-size: 3rem; color: var(--tekhelet); line-height: 1; }
+  .stat-demo div span:last-child { display: block; font-family: 'Heebo'; font-weight: 700; font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--deep-navy); margin-top: .3rem; }
+  /* Hero demo */
+  .hero-demo { position: relative; height: 360px; border-radius: 6px; overflow: hidden; background: url('hero-bg.webp') center/cover no-repeat #001A5C; display: flex; align-items: center; justify-content: center; }
+  .hero-demo::before { content:''; position:absolute; inset:0; background: linear-gradient(to bottom, rgba(0,26,92,.65), rgba(0,26,92,.85)); }
+  .hero-demo-content { position: relative; text-align: center; padding: 0 1.5rem; }
+  .hero-demo-eyebrow { font-family: 'Heebo'; font-weight: 700; font-size: .78rem; letter-spacing: .25em; color: var(--victory-gold); text-transform: uppercase; }
+  .hero-demo-h1 { font-family: 'Heebo'; font-weight: 900; font-size: clamp(2.4rem, 6vw, 4rem); color: #fff; text-transform: uppercase; line-height: 1; letter-spacing: -0.01em; margin: .8rem 0; }
+  .hero-demo-h1 em { color: var(--victory-gold); font-style: normal; }
+  .hero-demo-sub { font-family: 'Assistant'; color: rgba(255,255,255,.88); margin-bottom: 1.6rem; font-size: 1rem; }
+</style>
+</head>
+<body>
+
+<h1 class="preview-title">Brand <em>Preview</em></h1>
+<p class="preview-lede">Quick visual reference for the Student Athletes of Israel brand v1.0 — Stone Cream 60% canvas, Tekhelet Blue + Deep Navy content, Victory Gold accent, Heebo display, Assistant body, pill buttons, sharp 2–6px corners. Open <code>index.html</code> for the full applied site.</p>
+
+<section class="preview-block">
+  <h2>Color palette</h2>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#0038B8"></div><div class="name">Tekhelet Blue</div><div class="hex">#0038B8 · Primary</div></div>
+    <div class="sw"><div class="chip" style="background:#001A5C"></div><div class="name">Deep Navy</div><div class="hex">#001A5C · Text/Headlines</div></div>
+    <div class="sw"><div class="chip" style="background:#D4A24A"></div><div class="name">Victory Gold</div><div class="hex">#D4A24A · 10% accent</div></div>
+    <div class="sw"><div class="chip" style="background:#F4F1EC"></div><div class="name">Stone Cream</div><div class="hex">#F4F1EC · 60% bg</div></div>
+    <div class="sw"><div class="chip" style="background:#1A1A1A"></div><div class="name">Charcoal</div><div class="hex">#1A1A1A · Body</div></div>
+    <div class="sw"><div class="chip" style="background:#C8102E"></div><div class="name">Court Red</div><div class="hex">#C8102E · Alerts</div></div>
+    <div class="sw"><div class="chip" style="background:#6B8E23"></div><div class="name">Olive</div><div class="hex">#6B8E23 · Reserved</div></div>
+    <div class="sw"><div class="chip" style="background:#FFFFFF;border:1px solid #ddd"></div><div class="name">Pure White</div><div class="hex">#FFFFFF · Cards</div></div>
+  </div>
+</section>
+
+<section class="preview-block">
+  <h2>Typography ladder</h2>
+  <div class="type-row"><div class="type-meta">Display H1<br>Heebo 900</div><div class="type-h1">Sport. School. <em style="color:var(--victory-gold);font-style:normal">Champion.</em></div></div>
+  <div class="type-row"><div class="type-meta">Subhead H2<br>Heebo 800</div><div class="type-h2">Two paths. One mission.</div></div>
+  <div class="type-row"><div class="type-meta">Eyebrow<br>Heebo 700</div><div class="type-caption">The SAI Framework</div></div>
+  <div class="type-row"><div class="type-meta">Body<br>Assistant 400</div><div class="type-body">Israel Athletes builds the institutional infrastructure that lets Israel's student-athletes pursue elite sport and a university degree at the same time. We partner with universities to embed academic accommodations, tutoring, facility access, and financial advisory into a unified athlete community.</div></div>
+  <div class="type-row"><div class="type-meta">Stat<br>Heebo 900</div><div class="type-stat">87%</div></div>
+  <div class="type-row"><div class="type-meta">Hebrew<br>Heebo 800</div><div class="type-hebrew">סטודנטים ספורטאים בישראל</div></div>
+</section>
+
+<section class="preview-block">
+  <h2>Buttons (pill-shaped, Tekhelet Blue)</h2>
+  <div class="comp-row">
+    <a href="#" class="btn-primary">Apply now</a>
+    <a href="#" class="btn-outline">Learn more</a>
+    <a href="#" class="nav-cta">Invest</a>
+  </div>
+</section>
+
+<section class="preview-block">
+  <h2>Card · Stats · Hero treatment</h2>
+  <div class="comp-row" style="align-items:flex-start;">
+    <div class="card-demo">
+      <div class="eyebrow">Pillar 1</div>
+      <h3>No more choosing</h3>
+      <p>One athlete, two pursuits, zero compromise. We build the system that lets you do both.</p>
+    </div>
+    <div class="stat-demo">
+      <div><span>10</span><span>Athletes</span></div>
+      <div><span>1</span><span>Olympic Medal</span></div>
+      <div><span>2</span><span>World Champions</span></div>
+    </div>
+  </div>
+  <div style="margin-top:1.4rem;" class="hero-demo">
+    <div class="hero-demo-content">
+      <div class="hero-demo-eyebrow">Student Athletes of Israel</div>
+      <h1 class="hero-demo-h1">Train. Study. <em>Champion.</em></h1>
+      <p class="hero-demo-sub">Israel's first structured framework for elite athletes pursuing higher education.</p>
+      <a href="#" class="btn-primary btn-on-dark">Apply now</a>
+    </div>
+  </div>
+</section>
+
+<footer style="margin-top:3rem; padding-top:2rem; border-top:3px solid var(--victory-gold); text-align:center;">
+  <div class="footer-wordmark">Student Athletes of Israel</div>
+  <div class="footer-wordmark" lang="he" dir="rtl" style="font-size:1rem;color:var(--tekhelet);margin-bottom:.6rem;letter-spacing:0">סטודנטים ספורטאים בישראל</div>
+  <div class="footer-sub">Train &middot; Study &middot; Champion</div>
+  <div class="footer-copy">Brand v1.0 · May 2026 · Preview only</div>
+</footer>
+
+</body>
+</html>
