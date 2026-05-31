@@ -435,4 +435,120 @@
       <span class="faq-question-text">מה לוחות הזמנים לשותפויות אקדמיות חדשות?</span>
       <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
-    <div class="fa
+    <div class="faq-answer">
+      <div class="faq-answer-inner">הקמת שותפויות אקדמיות חדשות אורכת בדרך כלל 6&ndash;12 חודשים, מהשיחות הראשוניות ועד לחתימה על מזכר הבנות. התהליך כולל יישור ציפיות עם בעלי העניין, עיצוב המסגרת ותכנון פיילוט. אנו שואפים להוסיף שותפה אקדמית אחת בשנה החל מ-2027.</div>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  <img class="footer-seal" src="sai-logo-navy.png" alt="סטודנטים ספורטאים בישראל" width="120" height="120" loading="lazy" decoding="async">
+  <div class="footer-wordmark">סטודנטים ספורטאים בישראל</div>
+  <div class="footer-wordmark" lang="en" dir="ltr" style="font-size:1rem;color:var(--tekhelet);margin-bottom:.6rem;letter-spacing:0">Student Athletes of Israel</div>
+  <div class="footer-sub">להתאמן &middot; ללמוד &middot; להצטיין</div>
+  <ul class="footer-links">
+    <li><a href="index-he.html#about">השליחות</a></li>
+    <li><a href="faq-he.html">שאלות נפוצות</a></li>
+    <li><a href="press-he.html">תקשורת</a></li>
+    <li><a href="donate-he.html">השקיעו</a></li>
+    <li><a href="index-he.html#contact">צרו קשר</a></li>
+  </ul>
+  <div class="footer-copy">&copy; <span data-year>2026</span> סטודנטים ספורטאים בישראל. כל הזכויות שמורות.</div>
+</footer>
+<script src="sai.js"></script>
+
+<script>
+(function() {
+  // Filter tabs (with aria-pressed)
+  var tabs = document.querySelectorAll('.filter-tab');
+  var items = document.querySelectorAll('.faq-item');
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-pressed', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-pressed', 'true');
+
+      var filter = tab.getAttribute('data-filter');
+
+      // Close all open items
+      items.forEach(function(item) {
+        item.classList.remove('open');
+        var q = item.querySelector('.faq-question');
+        if (q) q.setAttribute('aria-expanded', 'false');
+        var a = item.querySelector('.faq-answer');
+        if (a) a.style.maxHeight = null;
+      });
+
+      // Show/hide items
+      items.forEach(function(item) {
+        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // Accordion
+  var questions = document.querySelectorAll('.faq-question');
+  questions.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item');
+      var answer = item.querySelector('.faq-answer');
+      var isOpen = item.classList.contains('open');
+      var category = item.getAttribute('data-category');
+
+      // Close other open items in same category
+      items.forEach(function(other) {
+        if (other !== item && other.getAttribute('data-category') === category && other.classList.contains('open')) {
+          other.classList.remove('open');
+          other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          other.querySelector('.faq-answer').style.maxHeight = null;
+        }
+      });
+
+      if (isOpen) {
+        item.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Scroll reveal with IntersectionObserver
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.scroll-reveal');
+
+  if (prefersReduced) {
+    revealEls.forEach(function(el) { el.classList.add('revealed'); });
+  } else {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var allReveals = Array.prototype.slice.call(revealEls);
+          var idx = allReveals.indexOf(entry.target);
+          var delay = idx * 80;
+          setTimeout(function() { entry.target.classList.add('revealed'); }, delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(function(el) { observer.observe(el); });
+  }
+})();
+</script>
+
+</body>
+</html>
