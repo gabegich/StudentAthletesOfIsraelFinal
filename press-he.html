@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>תקשורת — SAI</title>
+<meta name="description" content="סיקור חדשותי, פרשנות המייסדים, ערכת תקשורת ופרטי קשר לעיתונאים של SAI." />
+<meta name="theme-color" content="#001A5C" />
+<link rel="icon" type="image/png" href="sai-logo-navy.png" />
+<link rel="apple-touch-icon" href="sai-logo-navy.png" />
+<link rel="canonical" href="https://studentathletes.org.il/press" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Student Athletes of Israel" />
+<meta property="og:title" content="תקשורת — SAI" />
+<meta property="og:description" content="סיקור חדשותי, פרשנות המייסדים, ערכת תקשורת ופרטי קשר לעיתונאים של SAI." />
+<meta property="og:image" content="https://studentathletes.org.il/hero-bg.png" />
+<meta property="og:url" content="https://studentathletes.org.il/press" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="sai.css" />
+<style>
+  /* Press page-specific styles */
+
+  /* HERO */
+  .page-hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 10rem 2rem 6rem; background-image: linear-gradient(160deg, rgba(255,255,255,0.86) 0%, rgba(10,20,40,0.70) 45%, rgba(255,255,255,0.92) 100%), url('press-athlete-portrait.webp'); background-size: cover; background-position: center 40%; position: relative; overflow: hidden; }
+  .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 50% 45%, rgba(255,255,255,0.45) 0%, transparent 75%); }
+  .page-hero-content { position: relative; z-index: 1; max-width: 700px; }
+  .page-hero-eyebrow { font-family: 'Heebo', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 1rem; }
+  .page-hero-eyebrow::before, .page-hero-eyebrow::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .page-hero h1 { font-family: 'Heebo', sans-serif; font-weight: 900; font-size: clamp(4rem, 10vw, 8rem); text-transform: uppercase; line-height: 0.9; color: var(--deep-navy); }
+  .page-hero h1 em { font-family: 'Heebo', sans-serif; font-style: italic; color: var(--gold); font-size: 0.85em; }
+  .page-hero p { font-size: 1.05rem; color: rgba(26,26,26,0.65); line-height: 1.8; max-width: 520px; margin: 2rem auto 0; }
+
+  /* PRESS GRID */
+  .press-section { padding: 7rem 4rem; max-width: 1200px; margin: 0 auto; border-top: 1px solid var(--border); }
+  .press-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 4rem; }
+  .press-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 1.8rem; position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; text-decoration: none; display: block; color: inherit; }
+  .press-card:hover { border-color: rgba(212,162,74,0.4); transform: translateY(-3px); }
+  .press-outlet { font-family: 'Heebo', sans-serif; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+  .press-outlet::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .press-headline { font-family: 'Heebo', sans-serif; font-weight: 700; font-size: 1.1rem; line-height: 1.2; text-transform: uppercase; color: var(--deep-navy); margin-bottom: 0.8rem; }
+  .press-excerpt { font-size: 0.85rem; color: var(--grey); line-height: 1.6; margin-bottom: 1rem; }
+  .press-date { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(92,100,112,0.6); font-family: 'Heebo', sans-serif; font-weight: 600; }
+  .press-card::after { content: '\2190'; position: absolute; bottom: 1.8rem; right: 1.8rem; font-size: 1rem; color: var(--gold); opacity: 0; transition: opacity 0.2s, transform 0.2s; }
+  .press-card:hover::after { opacity: 1; transform: translateX(3px); }
+  .press-placeholder { border: 1px dashed rgba(212,162,74,0.2); background: rgba(15,22,40,0.4); }
+  .press-placeholder .press-outlet, .press-placeholder .press-headline { opacity: 0.4; }
+  .press-placeholder .press-excerpt { font-style: italic; }
+
+  /* MEDIA KIT + PITCH — side-by-side row */
+  .press-cta-row {
+    border-top: 1px solid var(--border);
+    background: var(--navy2);
+    padding: 5rem 4rem;
+  }
+  .press-cta-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2rem; align-items: stretch;
+  }
+  .media-kit, .pitch-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2.4rem 2rem;
+    display: flex; flex-direction: column;
+  }
+  .media-kit h2, .pitch-section h2 {
+    font-family: 'Heebo', sans-serif; font-weight: 900;
+    font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+    text-transform: uppercase; line-height: 1; margin-bottom: 1rem;
+    color: var(--deep-navy);
+  }
+  .media-kit h2 em, .pitch-section h2 em {
+    font-family: 'Heebo', sans-serif; font-style: italic;
+    color: var(--gold); font-size: 0.9em;
+  }
+  .media-kit p, .pitch-section p {
+    font-family: 'Assistant', sans-serif;
+    font-size: 0.96rem; color: rgba(26,26,26,0.75);
+    line-height: 1.7; margin-bottom: 1.2rem;
+  }
+  .media-kit .btn-primary, .pitch-section .btn-primary {
+    align-self: flex-start;
+    margin-top: auto;
+  }
+  .kit-assets { display: flex; flex-direction: column; gap: 0.6rem; margin: 0.6rem 0 1.4rem; }
+  .kit-asset { background: var(--navy2); border: 1px solid var(--border); border-radius: 3px; padding: 0.75rem 0.9rem; display: flex; align-items: center; gap: 0.8rem; font-size: 0.82rem; color: rgba(26,26,26,0.75); }
+  .kit-asset-icon { flex-shrink: 0; display: flex; align-items: center; }
+  .kit-asset-icon .icon { width: 1.2rem; height: 1.2rem; }
+  .kit-asset-label { font-family: 'Heebo', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.1rem; }
+  @media (max-width: 760px) {
+    .press-cta-grid { grid-template-columns: 1fr; }
+    .press-cta-row { padding: 4rem 1.5rem; }
+  }
+
+  .footer-social { display: flex; gap: 0.8rem; align-items: center; justify-content: center; margin: 1rem 0 1.4rem; }
+  .social-icon { display: flex; align-items: center; justify-content: center; width: 2.2rem; height: 2.2rem; border: 1px solid var(--border); border-radius: 3px; color: var(--grey); text-decoration: none; transition: color 0.2s, border-color 0.2s, background 0.2s; }
+  .social-icon:hover { color: var(--gold); border-color: var(--gold); background: rgba(212,162,74,0.08); }
+
+  @media (max-width: 900px) {
+    .press-section, .pitch-section { padding: 5rem 1.5rem; }
+    .press-grid { grid-template-columns: 1fr; }
+    .media-kit-inner { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+  }
+</style>
+</head>
+<body data-whatsapp="972548184327">
+
+<a class="skip-link" href="#main">דלגו לתוכן</a>
+<nav>
+  <a class="nav-logo" href="index-he.html" aria-label="SAI דף הבית">
+    <img class="nav-logo-img" src="sai-logo-navy.png" alt="" width="36" height="36" decoding="async"><div class="nav-wordmark">
+      <span class="nav-wordmark-sai">SAI</span>
+      <span class="nav-wordmark-sub">סטודנטים ספורטאים בישראל</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index-he.html#about">המשימה</a></li>
+    <li><a href="index-he.html#two-paths">המודל שלנו</a></li>
+    <li><a href="index-he.html#timeline">ההתקדמות שלנו</a></li>
+    <li><a href="index-he.html#partners">שותפים</a></li>
+    <li><a href="apply-he.html">הגשת מועמדות</a></li>
+    <li><a href="faq-he.html">שאלות נפוצות</a></li>
+    <li><a href="press-he.html" class="active">תקשורת</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://www.instagram.com/student_athlete_il/" target="_blank" rel="noopener" aria-label="SAI באינסטגרם">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/student-athletes-of-israel/" target="_blank" rel="noopener" aria-label="SAI בלינקדאין">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.27 2.36 4.27 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@sai.studentathleteisrael" target="_blank" rel="noopener" aria-label="SAI בטיקטוק"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.83 4.83 0 0 1-1.84-.07z"/></svg></a>
+  </div>
+  <a class="nav-lang-toggle" href="press.html" lang="en" hreflang="en" aria-label="English">EN</a>
+  <a href="donate-he.html" class="nav-cta">השקיעו</a>
+  <button class="nav-hamburger" aria-label="פתחו תפריט" aria-expanded="false">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+  </button>
+</nav>
+<aside class="nav-mobile-menu" id="nav-mobile-menu">
+  <a href="index-he.html#about">המשימה</a>
+  <a href="index-he.html#two-paths">המודל שלנו</a>
+  <a href="index-he.html#timeline">ההתקדמות שלנו</a>
+  <a href="index-he.html#partners">שותפים</a>
+  <a href="apply-he.html">הגשת מועמדות</a>
+  <a href="faq-he.html">שאלות נפוצות</a>
+  <a href="press-he.html">תקשורת</a>
+  <a href="donate-he.html">השקיעו</a>
+  <a href="press.html" class="nav-mobile-lang" lang="en" hreflang="en">EN</a>
+
+</aside>
+
+<main id="main">
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">מדיה ותקשורת</div>
+    <h1>SAI ב<em>תקשורת</em></h1>
+    <p>סיקור של תנועת הסטודנטים-הספורטאים בישראל — מההקמה ועד ההתרחבות הלאומית. לפניות מצד התקשורת, צרו קשר ישיר עם הצוות שלנו.</p>
+  </div>
+</div>
+
+<!-- PRESS ARTICLES -->
+<section class="press-section">
+  <div class="section-tag">סיקור</div>
+  <h2 class="section-title">הסיפורים <em>האחרונים</em></h2>
+  <div class="press-grid">
+
+    <a class="press-card" href="https://www.biu.ac.il/en/article/584276" target="_blank" rel="noopener">
+      <div class="press-outlet">אוניברסיטת בר-אילן</div>
+      <div class="press-headline">בר-אילן משיקה תכנית מצוינות לספורטאים אולימפיים</div>
+      <div class="press-excerpt">יוזמה חלוצית שפותחה יחד עם הוועד האולימפי מאפשרת לספורטאים ישראלים מובילים ללמוד לתואר אקדמי מלא תוך כדי תחרויות ברמה הבינלאומית הגבוהה ביותר. הספורטאית הראשונה שנבחרה: אלופת העולם בשייט שחר טיבי.</div>
+      <div class="press-date">11 בפברואר, 2026</div>
+    </a>
+
+    <a class="press-card press-placeholder" href="#" target="_blank">
+      <div class="press-outlet">The Jerusalem Post</div>
+      <div class="press-headline">SAI משיקה את המחזור הראשון של סטודנטים-ספורטאים בבר-אילן</div>
+      <div class="press-excerpt">עשרה ספורטאים אולימפיים ופאראלימפיים ייקלטו באוניברסיטת בר-אילן בסתיו במסגרת תכנית דו-מסלולית חלוצית, שעשויה להתרחב בקרוב לקמפוסים נוספים ברחבי הארץ.</div>
+      <div class="press-date">בקרוב &middot; 2026</div>
+    </a>
+
+    <a class="press-card press-placeholder" href="#" target="_blank">
+      <div class="press-outlet">ynet ספורט</div>
+      <div class="press-headline">התכנית שמשנה את משמעות היותך ספורטאי ישראלי</div>
+      <div class="press-excerpt">סטודנטים ספורטאים בישראל מהמרים על כך שעתידה האולימפי של המדינה תלוי לא רק במתקני אימונים — אלא במתן חיים לאחר הספורט לאלופים, חיים שמתחילים כבר בזמן הקריירה התחרותית.</div>
+      <div class="press-date">בקרוב &middot; 2026</div>
+    </a>
+
+    <a class="press-card press-placeholder" href="#" target="_blank">
+      <div class="press-outlet">הארץ</div>
+      <div class="press-headline">בתוך מסגרת המלגות האולימפית הראשונה בישראל</div>
+      <div class="press-excerpt">בעקבות מזכר הבנות חוצה דרך שנחתם באוניברסיטת בר-אילן, SAI יוצרת את התשתית שתמיד חסרה לספורטאים האולימפיים בישראל — והעיתוי לא יכול היה להיות חשוב יותר.</div>
+      <div class="press-date">בקרוב &middot; 2026</div>
+    </a>
+
+    <a class="press-card press-placeholder" href="#" target="_blank">
+      <div class="press-outlet">Times of Israel</div>
+      <div class="press-headline">הכירו את הספורטאים שישנו את הספורט הישראלי לנצח</div>
+      <div class="press-excerpt">מחזור 1 של תכנית סטודנטים ספורטאים בישראל מייצג משהו חסר תקדים: דור של אלופים שלא יצטרכו לבחור בין תהילה אולימפית לבין תואר אקדמי.</div>
+      <div class="press-date">בקרוב &middot; 2026</div>
+    </a>
+
+    <a class="press-card press-placeholder" href="#" target="_blank">
+      <div class="press-outlet">וואלה! ספורט</div>
+      <div class="press-headline">המסגרת שעשויה לשנות את פני האולימפיזם הישראלי</div>
+      <div class="press-excerpt">מודל ההקלות של SAI מעניק לספורטאים האוניברסיטאיים את הגמישות להתאמן ולהתחרות ברמה הגבוהה ביותר — שינוי מערכתי שעשוי להגדיר מחדש את מעמדה של ישראל בספורט העולמי.</div>
+      <div class="press-date">בקרוב &middot; 2026</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- MEDIA KIT + PITCH (side-by-side) -->
+<div class="press-cta-row">
+  <div class="press-cta-grid">
+
+    <!-- Media Kit -->
+    <div class="media-kit">
+      <div class="section-tag">לעיתונאים</div>
+      <h2>ערכת <em>תקשורת</em> ונכסים</h2>
+      <p>כל מה שצריך לסקר את SAI בצורה מדויקת ומשכנעת — נכסי מותג, צילומי ספורטאים, רקע ארגוני ונתונים מרכזיים.</p>
+      <div class="kit-assets">
+        <div class="kit-asset">
+          <span class="kit-asset-icon"><svg class="icon icon-gold" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></span>
+          <div><span class="kit-asset-label">לוגואים של המותג</span>לוגואי SAI בפורמטים PNG, SVG ו-EPS — בהיר וכהה</div>
+        </div>
+        <div class="kit-asset">
+          <span class="kit-asset-icon"><svg class="icon icon-gold" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span>
+          <div><span class="kit-asset-label">צילומי ספורטאים</span>צילומים ברזולוציה גבוהה של ספורטאי מחזור 1 (לפי בקשה)</div>
+        </div>
+        <div class="kit-asset">
+          <span class="kit-asset-icon"><svg class="icon icon-gold" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+          <div><span class="kit-asset-label">דף עובדות</span>נתונים מרכזיים, סקירת התכנית ורקע ארגוני</div>
+        </div>
+        <div class="kit-asset">
+          <span class="kit-asset-icon"><svg class="icon icon-gold" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></span>
+          <div><span class="kit-asset-label">בקשות לראיון</span>גישה להנהגת SAI ולדוברים מקרב הספורטאים</div>
+        </div>
+      </div>
+      <a class="btn-primary" href="index-he.html#contact">בקשו ערכת תקשורת &larr;</a>
+    </div>
+
+    <!-- Pitch Us -->
+    <section class="pitch-section">
+      <div class="section-tag">יש לכם סיפור?</div>
+      <h2>הציעו לנו <em>סיפור</em></h2>
+      <p>אתם מסקרים ספורט ישראלי, השכלה גבוהה או את נקודת המפגש בין ספורט לחברה? נשמח לעבוד אתכם. פנו אלינו עם הזווית שלכם ונחבר אתכם לאנשים הנכונים.</p>
+      <p style="font-size:0.85rem; color:rgba(92,100,112,0.85);">פניות ישירות: <a href="mailto:press@studentathletes.org.il" style="color:var(--gold); text-decoration:none;">press@studentathletes.org.il</a></p>
+      <div class="footer-social">
+        <a class="social-icon" href="https://www.instagram.com/student_athlete_il/" target="_blank" rel="noopener" aria-label="אינסטגרם">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+   
