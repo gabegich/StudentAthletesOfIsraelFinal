@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>הגשת מועמדות — סטודנטים ספורטאים בישראל</title>
+<meta name="description" content="הגישו מועמדות למחזור השני של תוכנית SAI באוניברסיטת בר-אילן. לספורטאי עילית ישראלים המשלבים אימונים ברמה הגבוהה ביותר עם תואר אקדמי מלא." />
+<meta name="theme-color" content="#001A5C" />
+<link rel="icon" type="image/png" href="sai-logo-navy.png" />
+<link rel="apple-touch-icon" href="sai-logo-navy.png" />
+<link rel="canonical" href="https://studentathletes.org.il/apply" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Student Athletes of Israel" />
+<meta property="og:title" content="הגשת מועמדות — סטודנטים ספורטאים בישראל" />
+<meta property="og:description" content="הגישו מועמדות למחזור השני של תוכנית SAI באוניברסיטת בר-אילן. לספורטאי עילית ישראלים המשלבים אימונים ברמה הגבוהה ביותר עם תואר אקדמי מלא." />
+<meta property="og:image" content="https://studentathletes.org.il/hero-bg.png" />
+<meta property="og:url" content="https://studentathletes.org.il/apply" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="sai.css" />
+<style>
+  /* Apply-page specific styles */
+  body { min-height: 100vh; }
+
+  .nav-back { font-family: 'Heebo', sans-serif; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--grey); display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+  .nav-back:hover { color: var(--gold); }
+
+  /* PAGE HEADER — full-bleed photo */
+  .page-header {
+    padding: 11rem 2rem 6rem;
+    max-width: none;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-image:
+      linear-gradient(160deg, rgba(255,255,255,0.31) 0%, rgba(0,26,92,0.24) 45%, rgba(255,255,255,0.39) 100%),
+      url('apply-hero-bg.webp');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 62vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(255,255,255,0.10) 0%, transparent 75%);
+    pointer-events: none;
+  }
+  .page-header > * { position: relative; z-index: 1; max-width: 860px; }
+  .page-eyebrow {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 600; font-size: 0.8rem; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+  }
+  .page-eyebrow::before, .page-eyebrow::after {
+    content: ''; display: block; width: 32px; height: 1px;
+    background: var(--gold); opacity: 0.5;
+  }
+  .page-title {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900; font-size: clamp(3rem, 7vw, 5.5rem);
+    text-transform: uppercase; line-height: 0.9;
+    color: var(--deep-navy); margin-bottom: 1.2rem;
+  }
+  .page-title em {
+    font-family: 'Heebo', sans-serif;
+    font-style: italic; font-weight: 700; color: var(--gold);
+  }
+  .page-sub {
+    font-family: 'Assistant', sans-serif;
+    font-size: 1.42rem; color: var(--deep-navy);
+    font-weight: 700; line-height: 1.55;
+    max-width: 680px; margin: 0 auto 3rem;
+    text-align: center;
+  }
+  .page-sub strong { font-weight: 900; color: var(--deep-navy); }
+
+  /* GOLD DIVIDER */
+  .gold-divider {
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 0;
+    max-width: 860px;
+  }
+
+  /* TALLY EMBED WRAPPER */
+  .form-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 4rem 6rem;
+  }
+  .tally-embed {
+    width: 100%;
+    border: none;
+    background: transparent;
+  }
+
+  /* FORM META CARDS */
+  .form-meta {
+    max-width: 860px; margin: 0 auto;
+    padding: 0 4rem 4rem;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+  .meta-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1.4rem 1.2rem;
+  }
+  .meta-card-icon { margin-bottom: 0.7rem; display: block; }
+  .meta-card-title {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.8rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem;
+  }
+  .meta-card-body { font-size: 0.82rem; color: var(--grey); line-height: 1.6; }
+
+
+  /* WHAT YOU'LL RECEIVE */
+  .benefits-section {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 4rem 4rem 5rem;
+  }
+  .benefits-intro {
+    text-align: center;
+    max-width: 660px;
+    margin: 0 auto 3.5rem;
+  }
+  .benefits-eyebrow {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 600; font-size: 0.78rem; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .benefits-title {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900; font-size: clamp(2.4rem, 5vw, 4rem);
+    text-transform: uppercase; line-height: 0.95;
+    color: var(--deep-navy); margin-bottom: 1rem;
+  }
+  .benefits-title em {
+    font-family: 'Heebo', sans-serif;
+    font-style: italic; font-weight: 700; color: var(--gold); font-size: 0.9em;
+  }
+  .benefits-lead {
+    font-size: 1rem; color: rgba(26,26,26,0.72);
+    line-height: 1.8; margin-top: 1rem;
+  }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+  }
+  .benefit-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.8rem 1.6rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+  .benefit-card:hover {
+    border-color: rgba(212,162,74,0.45);
+    transform: translateY(-2px);
+  }
+  .benefit-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--gold) 0%, var(--gold-dark) 100%);
+    opacity: 0.85;
+  }
+  .benefit-icon {
+    display: flex; align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.7rem;
+  }
+  .benefit-icon svg { color: var(--gold); }
+  .benefit-number {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900; font-size: 0.7rem;
+    letter-spacing: 0.2em; color: var(--gold);
+    opacity: 0.55;
+  }
+  .benefit-title {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 800; font-size: 1.15rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--deep-navy); margin-bottom: 0.5rem;
+    line-height: 1.15;
+  }
+  .benefit-body {
+    font-size: 0.92rem; color: rgba(26,26,26,0.72);
+    line-height: 1.7;
+  }
+  .benefit-note {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 600; font-size: 0.7rem;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold); margin-top: 0.8rem;
+    opacity: 0.85;
+  }
+
+  /* TWO-TRACK STRIP */
+  .track-strip {
+    max-width: 1080px;
+    margin: 0 auto 3rem;
+    padding: 2rem 4rem;
+    display: flex; gap: 2rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .track-strip-col { flex: 1; min-width: 240px; }
+  .track-strip-eyebrow {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700; font-size: 0.7rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .track-strip-title {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 800; font-size: 1.05rem;
+    text-transform: uppercase; color: var(--deep-navy);
+    margin-bottom: 0.5rem; letter-spacing: 0.04em;
+  }
+  .track-strip-body {
+    font-size: 0.85rem; color: rgba(26,26,26,0.68);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 860px) {
+    .benefits-section { padding: 3rem 1.5rem 3.5rem; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .track-strip { padding: 2rem 1.5rem; }
+  }
+
+  @media (max-width: 860px) {
+    .page-header { padding: 9rem 1.25rem 4rem; min-height: 55vh; }
+    .form-wrapper { padding: 0 1.5rem 5rem; }
+    .form-meta { grid-template-columns: 1fr; padding: 2rem 1.5rem 0; }
+  }
+</style>
+</head>
+<body data-whatsapp="972548184327">
+
+<a class="skip-link" href="#main">דלגו לתוכן</a>
+<nav>
+  <a class="nav-logo" href="index-he.html" aria-label="SAI home">
+    <img class="nav-logo-img" src="sai-logo-navy.png" alt="" width="36" height="36" decoding="async"><div class="nav-wordmark">
+      <span class="nav-wordmark-sai">SAI</span>
+      <span class="nav-wordmark-sub">סטודנטים ספורטאים בישראל</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index-he.html#about">המשימה</a></li>
+    <li><a href="index-he.html#two-paths">המסגרת שלנו</a></li>
+    <li><a href="index-he.html#timeline">ההתקדמות שלנו</a></li>
+    <li><a href="index-he.html#partners">השותפים שלנו</a></li>
+    <li><a href="apply-he.html">להגיש מועמדות</a></li>
+    <li><a href="faq-he.html">שאלות נפוצות</a></li>
+    <li><a href="press-he.html">תקשורת</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="https://www.instagram.com/student_athlete_il/" target="_blank" rel="noopener" aria-label="SAI באינסטגרם">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/student-athletes-of-israel/" target="_blank" rel="noopener" aria-label="SAI בלינקדאין">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.27 2.36 4.27 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@sai.studentathleteisrael" target="_blank" rel="noopener" aria-label="SAI בטיקטוק"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.83 4.83 0 0 1-1.84-.07z"/></svg></a>
+  </div>
+  <a class="nav-lang-toggle" href="apply.html" lang="en" hreflang="en" aria-label="English">EN</a>
+  <a href="donate-he.html" class="nav-cta">השקעה</a>
+  <button class="nav-hamburger" aria-label="פתיחת תפריט" aria-expanded="false">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+  </button>
+</nav>
+<aside class="nav-mobile-menu" id="nav-mobile-menu">
+  <a href="index-he.html#about">המשימה</a>
+  <a href="index-he.html#two-paths">המסגרת שלנו</a>
+  <a href="index-he.html#timeline">ההתקדמות שלנו</a>
+  <a href="index-he.html#partners">השותפים שלנו</a>
+  <a href="apply-he.html">להגיש מועמדות</a>
+  <a href="faq-he.html">שאלות נפוצות</a>
+  <a href="press-he.html">תקשורת</a>
+  <a href="donate-he.html">השקעה</a>
+  <a href="apply.html" class="nav-mobile-lang" lang="en" hreflang="en">EN</a>
+
+</aside>
+
+<main id="main">
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-eyebrow">טופס מועמדות לספורטאים</div>
+  <h1 class="page-title">מועמדות<br><em>לספורטאים</em></h1>
+</div>
+
+<div class="gold-divider"></div>
+
+<!-- WHAT YOU'LL RECEIVE -->
+<section class="benefits-section">
+  <p class="page-sub"><strong>הגישו מועמדות להפוך לסטודנט-ספורטאי של ישראל.</strong> מילוי הטופס לוקח כ-10 דקות. אנו בודקים כל פנייה באופן אישי ומשיבים תוך שבועיים.</p>
+  <div class="benefits-intro">
+    <div class="benefits-eyebrow">מה תקבלו</div>
+    <h2 class="benefits-title">להתאמן. ללמוד. <em>שניהם.</em></h2>
+    <p class="benefits-lead">כשאתם מצטרפים ל-SAI, אינכם מוותרים על שאיפה אחת לטובת אחרת. אתם נכנסים למסגרת שנבנתה כדי שספורט עילית ואותו תואר שמקבל כל סטודנט יוכלו להתקיים זה לצד זה — עם האנשים, הזמן והמשאבים שיאפשרו לשניהם להצליח.</p>
+  </div>
+
+  <div class="benefits-grid">
+
+    <div class="benefit-card">
+      <div class="benefit-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span class="benefit-number">01</span>
+      </div>
+      <h3 class="benefit-title">גמישות אקדמית</h3>
+      <p class="benefit-body">דחיית מבחנים בהתאם למחנות אימונים ותחרויות. התאמת מטלות לעונה בחו"ל. הארכת לוח הזמנים של התואר אם הקריירה האתלטית שלכם דורשת זאת. אתם קובעים את לוח הזמנים שהספורט שלכם זקוק לו — והתוכנית האקדמית מתאימה את עצמה.</p>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="14" r="7"/><path d="M9 21l3-2 3 2-1-5"/><path d="M7 4h10l-3 6h-4z"/></svg>
+        <span class="benefit-number">02</span>
+      </div>
+      <h3 class="benefit-title">תמיכה במלגות</h3>
+      <p class="benefit-body">כיסוי שכר לימוד בהתאם לרמה התחרותית שלכם — חלקי לספורטאי ביצועים גבוהים, מקסימלי לספורטאים אולימפיים ופאראלימפיים. מענקי אימונים וציוד היכן שהפער הוא הגדול ביותר.</p>
+      <div class="benefit-note">מותאם לשיוך המסלולי</div>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="benefit-number">03</span>
+      </div>
+      <h3 class="benefit-title">רכז ייעודי</h3>
+      <p class="benefit-body">איש אחד בתוך בר-אילן שתפקידו לשמש כגשר בין הספורט שלכם לתואר. הוא מטפל בדחיות, בהרצאות שהפסדתם, בשיעורי השלמה, בשיחות מול המזכירות — כדי שאתם לא תצטרכו.</p>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+        <span class="benefit-number">04</span>
+      </div>
+      <h3 class="benefit-title">אותו תואר</h3>
+      <p class="benefit-body">לא גרסה מרוככת. לא מסלול מדולל. אותו תואר שמקבל כל סטודנט, אותם סטנדרטים, אותן דלתות שנפתחות כשהקריירה הספורטיבית מסתיימת. SAI לא מנמיכה את הרף — היא נותנת לכם את המסגרת לעבור אותו בקצב שלכם.</p>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="benefit-number">05</span>
+      </div>
+      <h3 class="benefit-title">קבוצת עמיתים</h3>
+      <p class="benefit-body">לא תהיו האדם היחיד בקמפוס שמשלב סינון לנבחרת לאומית עם בחינת סיום. SAI היא קהילה של ספורטאים שמתמודדים עם אותו אתגר — ורשת של בוגרי אולימפיאדה שכבר עברו את הדרך הזו.</p>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+        <span class="benefit-number">06</span>
+      </div>
+      <h3 class="benefit-title">חיים אחרי הספורט</h3>
+      <p class="benefit-body">ייעוץ קריירה, היכרות עם בוגרים, התמחויות שמתואמות ללוח התחרויות שלכם. SAI היא המענה המבני לשאלה "מה הלאה" — בנויה כך שהיום שאחרי המרוץ האחרון שלכם לא יהיה היום שבו תתחילו מאפס.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- TWO-TRACK QUICK CONTEXT -->
+<div class="track-strip">
+  <div class="track-strip-col">
+    <div class="track-strip-eyebrow">מסלול א' · אולימפיים ופאראלימפיים</div>
+    <div class="track-strip-title">לספורטאי נבחרת לאומית ובינלאומיים</div>
+    <div class="track-strip-body">מלגה מקסימלית, גמישות אקדמית מלאה, רכז ייעודי, לוח זמנים מורחב לתואר. בנוי סביב הדרישות של לוח תחרויות עילית.</div>
+  </div>
+  <div class="track-strip-col">
+    <div class="track-strip-eyebrow">מסלול ב' · ביצועים גבוהים</div>
+    <div class="track-strip-title">לספורטאים מבטיחים ברמה לאומית</div>
+    <div class="track-strip-body">מלגה חלקית, התאמות אקדמיות מובנות, ליווי לזהות הכפולה. מסלול התקדמות למסלול א' ככל שהרמה התחרותית שלכם עולה.</div>
+  </div>
+</div>
+
+<!-- FORM SECTION -->
+<div class="form-wrapper">
+  <iframe
+    data-tally-src="https://tally.so/embed/jaLJEE?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+    loading="lazy"
+    width="100%"
+    height="600"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"
+    title="טופס מועמדות לספורטאים של SAI"
+    class="tally-embed"
+  ></iframe>
+  <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+</div>
+
+<!-- WHAT WE LOOK FOR -->
+<div class="form-meta">
+  <div class="meta-card">
+    <span class="meta-card-icon"><svg class="icon icon-gold" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="15" r="6"/><path d="M9 9l-3-7h12l-3 7"/></svg></span>
+    <div class="meta-card-title">מצוינות אתלטית</div>
+    <div class="meta-card-body">אנו מחפשים ספורטאים המתחרים ברמת נבחרת לאומית ומעלה בכל ענף אולימפי או פאראלימפי. תוצאות ודירוגים בינלאומיים מחזקים את המועמדות שלכם.</div>
+  </div>
+  <div class="meta-card">
+    <span class="meta-card-icon"><svg class="icon icon-gold" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></span>
+    <div class="meta-card-title">מחויבות אקדמית</div>
+    <div class="meta-card-body">אינכם צריכים תיעוד אקדמי מושלם — אתם צריכים מחויבות אמיתית לרכישת תואר לצד הספורט. ספרו לנו על תחום העניין שלכם ועל התוכנית שלכם.</div>
+  </div>
+  <div class="meta-card">
+    <span class="meta-card-icon"><svg class="icon icon-gold" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+    <div class="meta-card-title">מה קורה הלאה</div>
