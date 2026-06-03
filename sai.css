@@ -283,6 +283,24 @@ footer {
   text-decoration: none; transition: opacity 0.2s, color 0.2s;
 }
 .footer-links a:hover { opacity: 1; color: var(--tekhelet); }
+.footer-social {
+  display: flex; justify-content: center; align-items: center;
+  gap: 0.8rem; margin-bottom: 1.5rem;
+}
+.footer-social a {
+  display: flex; align-items: center; justify-content: center;
+  width: 2.2rem; height: 2.2rem;
+  border: 1px solid var(--border); border-radius: 50%;
+  color: var(--deep-navy); opacity: 0.78;
+  text-decoration: none;
+  transition: opacity 0.2s, color 0.2s, border-color 0.2s, background 0.2s;
+}
+.footer-social a:hover {
+  opacity: 1; color: var(--victory-gold);
+  border-color: var(--victory-gold);
+  background: rgba(212,162,74,0.08);
+}
+.footer-social svg { width: 1.1rem; height: 1.1rem; }
 .footer-copy {
   font-family: 'Assistant', sans-serif;
   font-size: 0.78rem; color: var(--grey); letter-spacing: 0.04em;
