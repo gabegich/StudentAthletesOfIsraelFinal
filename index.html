@@ -74,8 +74,8 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
   /* ── HERO ── */
   #home {
     min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    padding-top: 7rem;       /* clears the fixed nav */
+    display: flex; align-items: flex-start; justify-content: center;
+    padding-top: 6rem;       /* clears the fixed nav + locks hero below the bar */
     padding-bottom: 4rem;
     position: relative; overflow: hidden;
     background: var(--navy);
@@ -186,7 +186,7 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
     font-family: 'Heebo', sans-serif;
     font-weight: 600; font-size: 0.78rem; letter-spacing: 0.22em;
     text-transform: uppercase; color: var(--gold);
-    margin-top: 0.7rem; margin-bottom: 0;
+    margin-top: 0.15rem; margin-bottom: 0;
     display: flex; align-items: center; justify-content: center; gap: 0.85rem;
     order: 2;
   }
@@ -196,13 +196,13 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
   .hero-h1 {
     font-family: 'Heebo', sans-serif;
     font-weight: 900; line-height: 0.9;
-    font-size: clamp(3.4rem, 9.5vw, 7.6rem);
+    font-size: clamp(4.3rem, 12vw, 9.55rem);
     text-transform: uppercase; letter-spacing: -0.01em;
   }
   /* Three-beat headline per brand book: two beats in white, one accent in gold */
   .hero-h1 .line1 { display: block; color: #FFFFFF; }
   .hero-h1 .line2 { display: block; color: #FFFFFF; }
-  .hero-h1 .line3 { display: block; color: var(--victory-gold); font-family: 'Heebo', sans-serif; font-weight: 900; letter-spacing: -0.01em; }
+  .hero-h1 .line3 { display: block; color: var(--victory-gold); font-family: 'Heebo', sans-serif; font-weight: 900; letter-spacing: -0.01em; line-height: 1.05; padding-bottom: 0.12em; }
 
   /* ── KINETIC TEXT ── */
   .kinetic, .kinetic-italic {
@@ -241,9 +241,9 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
   .hero-sub {
     font-family: 'Assistant', sans-serif;
     font-size: 1.02rem; font-weight: 400; color: rgba(255,255,255,0.88);
-    max-width: 540px; margin: 1.1rem auto 1.5rem; line-height: 1.55;
+    max-width: 540px; margin: 1.05rem auto 1.42rem; line-height: 1.55;
   }
-  .hero-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+  .hero-actions { display: flex; gap: 0.71rem; justify-content: center; flex-wrap: wrap; }
   .hero-actions .btn-primary { padding: 0.75rem 1.8rem; font-size: 0.85rem; }
   .hero-stats {
     position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
@@ -356,8 +356,8 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
     content: '';
     position: absolute; inset: 0;
     background:
-      linear-gradient(to right, rgba(244,241,236,0.74) 0%, rgba(244,241,236,0.60) 55%, rgba(244,241,236,0.24) 100%),
-      linear-gradient(to bottom, rgba(244,241,236,0.32) 0%, transparent 30%, transparent 70%, rgba(244,241,236,0.48) 100%);
+      linear-gradient(to right, rgba(244,241,236,0.89) 0%, rgba(244,241,236,0.72) 55%, rgba(244,241,236,0.29) 100%),
+      linear-gradient(to bottom, rgba(244,241,236,0.38) 0%, transparent 30%, transparent 70%, rgba(244,241,236,0.58) 100%);
     z-index: 1;
     opacity: 1;
     transition: opacity 0.6s ease;
@@ -368,7 +368,7 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
     transition: transform 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   #about.mission-zooming::before {
-    opacity: 0.7;
+    opacity: 0.84;
     transition: opacity 2.5s ease;
   }
   .about-grid {
@@ -1211,7 +1211,7 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
     transition: border-color 0.2s; outline: none;
   }
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
-  .form-group select option { background: var(--navy); }
+  .form-group select option { background: #ffffff; color: #000000; }
   .form-group textarea { resize: vertical; min-height: 110px; }
   .form-submit {
     font-family: 'Heebo', sans-serif;
@@ -1414,8 +1414,9 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
     .footer-links { justify-content: center; }
 
     /* ── HERO ── */
-    .hero-h1 { font-size: clamp(3.5rem, 18vw, 7rem); }
-    .hero-sub { font-size: 1rem; margin: 1.5rem auto 2rem; }
+    .hero-content { padding: 0 1.4rem; }
+    .hero-h1 { font-size: clamp(3.05rem, 15.75vw, 6.83rem); letter-spacing: -0.02em; }
+    .hero-sub { font-size: 0.98rem; margin: 1.31rem auto 1.75rem; padding: 0 0.5rem; }
     .hero-stats {
       position: relative; bottom: auto; left: auto; transform: none;
       flex-wrap: wrap; justify-content: center;
@@ -1495,7 +1496,21 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
   @media (max-width: 480px) {
     /* Extra small — single column everything */
     section { padding: 3.5rem 1.2rem; }
-    .hero-h1 { font-size: clamp(3rem, 20vw, 5rem); }
+    /* Full hero fits inside one mobile viewport — eyebrow, headline, sub, both buttons */
+    #home {
+      min-height: 100vh;
+      min-height: 100dvh;
+      align-items: center;
+      padding-top: 5.2rem;
+      padding-bottom: 1.5rem;
+    }
+    .hero-content { padding: 0 1.2rem; gap: 0.44rem; }
+    .hero-eyebrow { margin: 0; font-size: 0.7rem; }
+    .hero-h1 { font-size: clamp(2.63rem, 14.5vw, 5.04rem); letter-spacing: -0.025em; line-height: 0.92; }
+    .hero-h1 .line3 { padding-bottom: 0.18em; }
+    .hero-sub { font-size: 0.92rem; margin: 0.66rem auto 1.09rem; padding: 0 0.5rem; max-width: 100%; line-height: 1.45; }
+    .hero-actions { gap: 0.6rem; width: 100%; max-width: 320px; }
+    .hero-actions .btn-primary { padding: 0.78rem 1.4rem; font-size: 0.86rem; }
     .cohort-grid { grid-template-columns: 1fr; }
     .hero-actions { flex-direction: column; align-items: stretch; }
     .hero-actions a { text-align: center; }
@@ -1534,17 +1549,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="apply.html">Apply</a></li>
     <li><a href="faq.html">FAQ</a></li>
     <li><a href="press.html">Press</a></li>
-  </ul>
-  <div class="nav-social">
-    <a href="https://www.instagram.com/student_athlete_il/" target="_blank" rel="noopener" aria-label="SAI on Instagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
-    </a>
-    <a href="https://www.linkedin.com/company/student-athletes-of-israel/" target="_blank" rel="noopener" aria-label="SAI on LinkedIn">
-      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.27 2.36 4.27 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-    </a>
-    <a href="https://www.tiktok.com/@sai.studentathleteisrael" target="_blank" rel="noopener" aria-label="SAI on TikTok"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.83 4.83 0 0 1-1.84-.07z"/></svg></a>
-  </div>
-  <a class="nav-lang-toggle" href="index-he.html" lang="he" hreflang="he" aria-label="עברית">עבר</a>
+  </ul><a class="nav-lang-toggle" href="index-he.html" lang="he" hreflang="he" aria-label="עברית">עבר</a>
   <a href="donate.html" class="nav-cta">Invest</a>
   <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
@@ -1566,7 +1571,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <main id="main">
 
 <!-- HERO -->
-<section id="home" style="padding:0; max-width:100%;">
+<section id="home" style="max-width:100%;">
   <div class="hero-photo" aria-hidden="true">
     <div class="hero-frame f1 is-active" style="background-color:#001A5C"></div>
     <div class="hero-frame f2" style="background-color:#001A5C"></div>
@@ -1973,9 +1978,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <input type="text" id="last_name" name="last_name" placeholder="Your last name" required />
         </div>
       </div>
-      <div class="form-group">
-        <label for="user_email">Email</label>
-        <input type="email" id="user_email" name="user_email" placeholder="your@email.com" required />
+      <div class="form-row">
+        <div class="form-group">
+          <label for="user_email">Email</label>
+          <input type="email" id="user_email" name="user_email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="phone_number">Phone</label>
+          <input type="tel" id="phone_number" name="phone_number" placeholder="+972 50 123 4567" autocomplete="tel" required />
+        </div>
       </div>
       <div class="form-group">
         <label for="inquiry_type">I am a...</label>
@@ -2018,6 +2029,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="donate.html">Invest</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/student_athlete_il/" target="_blank" rel="noopener" aria-label="SAI on Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/student-athletes-of-israel/" target="_blank" rel="noopener" aria-label="SAI on LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.27 2.36 4.27 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@sai.studentathleteisrael" target="_blank" rel="noopener" aria-label="SAI on TikTok"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.83 4.83 0 0 1-1.84-.07z"/></svg></a>
+  </div>
   <div class="footer-copy">&copy; <span data-year>2026</span> Student Athletes of Israel. All rights reserved.</div>
 </footer>
 <script src="sai.js"></script>

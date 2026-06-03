@@ -132,7 +132,7 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
   .form-wrapper {
     max-width: 860px;
     margin: 0 auto;
-    padding: 0 4rem 6rem;
+    padding: 0 4rem 1.5rem;
   }
   .tally-embed {
     width: 100%;
@@ -142,10 +142,8 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
 
   /* FORM META CARDS */
   .form-meta {
-    max-width: 860px; margin: 0 auto;
-    padding: 0 4rem 4rem;
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
+    max-width: 560px; margin: 0 auto;
+    padding: 0 4rem 7rem;
   }
   .meta-card {
     background: var(--card-bg); border: 1px solid var(--border);
@@ -191,62 +189,53 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
     font-size: 1rem; color: rgba(26,26,26,0.72);
     line-height: 1.8; margin-top: 1rem;
   }
+  /* BADGE ROW — six navy circles with gold icons, titles below */
   .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.4rem;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.4rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
   }
-  .benefit-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 1.8rem 1.6rem;
+  @media (max-width: 760px) {
+    .benefits-grid { grid-template-columns: repeat(3, 1fr); gap: 1.8rem 1rem; }
+  }
+  @media (max-width: 420px) {
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .benefit-badge {
+    display: flex; flex-direction: column;
+    align-items: center; text-align: center;
+    gap: 0.85rem;
+  }
+  .benefit-circle {
+    width: 76px; height: 76px;
+    border-radius: 50%;
+    background: var(--deep-navy);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    box-shadow: 0 8px 20px rgba(0,26,92,0.18);
     position: relative;
-    overflow: hidden;
-    transition: border-color 0.25s, transform 0.2s;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
   }
-  .benefit-card:hover {
-    border-color: rgba(212,162,74,0.45);
-    transform: translateY(-2px);
-  }
-  .benefit-card::before {
+  .benefit-circle::after {
     content: '';
-    position: absolute; top: 0; left: 0;
-    width: 3px; height: 100%;
-    background: linear-gradient(180deg, var(--gold) 0%, var(--gold-dark) 100%);
-    opacity: 0.85;
+    position: absolute; inset: 4px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,162,74,0.3);
   }
-  .benefit-icon {
-    display: flex; align-items: center;
-    gap: 0.7rem;
-    margin-bottom: 0.7rem;
-  }
-  .benefit-icon svg { color: var(--gold); }
-  .benefit-number {
-    font-family: 'Heebo', sans-serif;
-    font-weight: 900; font-size: 0.7rem;
-    letter-spacing: 0.2em; color: var(--gold);
-    opacity: 0.55;
+  .benefit-circle svg { position: relative; z-index: 1; }
+  .benefit-badge:hover .benefit-circle {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0,26,92,0.26);
   }
   .benefit-title {
     font-family: 'Heebo', sans-serif;
-    font-weight: 800; font-size: 1.15rem;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--deep-navy); margin-bottom: 0.5rem;
-    line-height: 1.15;
+    font-weight: 800; font-size: 0.74rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--deep-navy); line-height: 1.25;
+    margin: 0;
   }
-  .benefit-body {
-    font-size: 0.92rem; color: rgba(26,26,26,0.72);
-    line-height: 1.7;
-  }
-  .benefit-note {
-    font-family: 'Heebo', sans-serif;
-    font-weight: 600; font-size: 0.7rem;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--gold); margin-top: 0.8rem;
-    opacity: 0.85;
-  }
-
   /* TWO-TRACK STRIP */
   .track-strip {
     max-width: 1080px;
@@ -277,7 +266,6 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
 
   @media (max-width: 860px) {
     .benefits-section { padding: 3rem 1.5rem 3.5rem; }
-    .benefits-grid { grid-template-columns: 1fr; }
     .track-strip { padding: 2rem 1.5rem; }
   }
 
@@ -310,17 +298,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="apply-he.html">להגיש מועמדות</a></li>
     <li><a href="faq-he.html">שאלות נפוצות</a></li>
     <li><a href="press-he.html">תקשורת</a></li>
-  </ul>
-  <div class="nav-social">
-    <a href="https://www.instagram.com/student_athlete_il/" target="_blank" rel="noopener" aria-label="SAI באינסטגרם">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
-    </a>
-    <a href="https://www.linkedin.com/company/student-athletes-of-israel/" target="_blank" rel="noopener" aria-label="SAI בלינקדאין">
-      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.27 2.36 4.27 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-    </a>
-    <a href="https://www.tiktok.com/@sai.studentathleteisrael" target="_blank" rel="noopener" aria-label="SAI בטיקטוק"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.83 4.83 0 0 1-1.84-.07z"/></svg></a>
-  </div>
-  <a class="nav-lang-toggle" href="apply.html" lang="en" hreflang="en" aria-label="English">EN</a>
+  </ul><a class="nav-lang-toggle" href="apply.html" lang="en" hreflang="en" aria-label="English">EN</a>
   <a href="donate-he.html" class="nav-cta">השקעה</a>
   <button class="nav-hamburger" aria-label="פתיחת תפריט" aria-expanded="false">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
@@ -358,61 +336,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="benefits-lead">כשאתם מצטרפים ל-SAI, אינכם מוותרים על שאיפה אחת לטובת אחרת. אתם נכנסים למסגרת שנבנתה כדי שספורט עילית ואותו תואר שמקבל כל סטודנט יוכלו להתקיים זה לצד זה — עם האנשים, הזמן והמשאבים שיאפשרו לשניהם להצליח.</p>
   </div>
 
-  <div class="benefits-grid">
+    <div class="benefits-grid">
 
-    <div class="benefit-card">
-      <div class="benefit-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <span class="benefit-number">01</span>
+    <div class="benefit-badge">
+      <div class="benefit-circle">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       </div>
-      <h3 class="benefit-title">גמישות אקדמית</h3>
-      <p class="benefit-body">דחיית מבחנים בהתאם למחנות אימונים ותחרויות. התאמת מטלות לעונה בחו"ל. הארכת לוח הזמנים של התואר אם הקריירה האתלטית שלכם דורשת זאת. אתם קובעים את לוח הזמנים שהספורט שלכם זקוק לו — והתוכנית האקדמית מתאימה את עצמה.</p>
+      <h3 class="benefit-title">גמישות<br>אקדמית</h3>
     </div>
 
-    <div class="benefit-card">
-      <div class="benefit-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="14" r="7"/><path d="M9 21l3-2 3 2-1-5"/><path d="M7 4h10l-3 6h-4z"/></svg>
-        <span class="benefit-number">02</span>
+    <div class="benefit-badge">
+      <div class="benefit-circle">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="14" r="7"/><path d="M9 21l3-2 3 2-1-5"/><path d="M7 4h10l-3 6h-4z"/></svg>
       </div>
-      <h3 class="benefit-title">תמיכה במלגות</h3>
-      <p class="benefit-body">כיסוי שכר לימוד בהתאם לרמה התחרותית שלכם — חלקי לספורטאי ביצועים גבוהים, מקסימלי לספורטאים אולימפיים ופאראלימפיים. מענקי אימונים וציוד היכן שהפער הוא הגדול ביותר.</p>
-      <div class="benefit-note">מותאם לשיוך המסלולי</div>
+      <h3 class="benefit-title">תמיכה<br>במלגות</h3>
     </div>
 
-    <div class="benefit-card">
-      <div class="benefit-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <span class="benefit-number">03</span>
+    <div class="benefit-badge">
+      <div class="benefit-circle">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       </div>
-      <h3 class="benefit-title">רכז ייעודי</h3>
-      <p class="benefit-body">איש אחד בתוך בר-אילן שתפקידו לשמש כגשר בין הספורט שלכם לתואר. הוא מטפל בדחיות, בהרצאות שהפסדתם, בשיעורי השלמה, בשיחות מול המזכירות — כדי שאתם לא תצטרכו.</p>
+      <h3 class="benefit-title">רכזת<br>ייעודית</h3>
     </div>
 
-    <div class="benefit-card">
-      <div class="benefit-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
-        <span class="benefit-number">04</span>
+    <div class="benefit-badge">
+      <div class="benefit-circle">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
       </div>
-      <h3 class="benefit-title">אותו תואר</h3>
-      <p class="benefit-body">לא גרסה מרוככת. לא מסלול מדולל. אותו תואר שמקבל כל סטודנט, אותם סטנדרטים, אותן דלתות שנפתחות כשהקריירה הספורטיבית מסתיימת. SAI לא מנמיכה את הרף — היא נותנת לכם את המסגרת לעבור אותו בקצב שלכם.</p>
+      <h3 class="benefit-title">אותו<br>תואר</h3>
     </div>
 
-    <div class="benefit-card">
-      <div class="benefit-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <span class="benefit-number">05</span>
+    <div class="benefit-badge">
+      <div class="benefit-circle">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       </div>
-      <h3 class="benefit-title">קבוצת עמיתים</h3>
-      <p class="benefit-body">לא תהיו האדם היחיד בקמפוס שמשלב סינון לנבחרת לאומית עם בחינת סיום. SAI היא קהילה של ספורטאים שמתמודדים עם אותו אתגר — ורשת של בוגרי אולימפיאדה שכבר עברו את הדרך הזו.</p>
+      <h3 class="benefit-title">קבוצת<br>עמיתים</h3>
     </div>
 
-    <div class="benefit-card">
-      <div class="benefit-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
-        <span class="benefit-number">06</span>
+    <div class="benefit-badge">
+      <div class="benefit-circle">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
       </div>
-      <h3 class="benefit-title">חיים אחרי הספורט</h3>
-      <p class="benefit-body">ייעוץ קריירה, היכרות עם בוגרים, התמחויות שמתואמות ללוח התחרויות שלכם. SAI היא המענה המבני לשאלה "מה הלאה" — בנויה כך שהיום שאחרי המרוץ האחרון שלכם לא יהיה היום שבו תתחילו מאפס.</p>
+      <h3 class="benefit-title">חיים<br>אחרי הספורט</h3>
     </div>
 
   </div>
@@ -435,7 +400,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- FORM SECTION -->
 <div class="form-wrapper">
   <iframe
-    data-tally-src="https://tally.so/embed/jaLJEE?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+    data-tally-src="https://tally.so/embed/gDvlBD?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
     loading="lazy"
     width="100%"
     height="600"
@@ -451,15 +416,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- WHAT WE LOOK FOR -->
 <div class="form-meta">
   <div class="meta-card">
-    <span class="meta-card-icon"><svg class="icon icon-gold" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="15" r="6"/><path d="M9 9l-3-7h12l-3 7"/></svg></span>
-    <div class="meta-card-title">מצוינות אתלטית</div>
-    <div class="meta-card-body">אנו מחפשים ספורטאים המתחרים ברמת נבחרת לאומית ומעלה בכל ענף אולימפי או פאראלימפי. תוצאות ודירוגים בינלאומיים מחזקים את המועמדות שלכם.</div>
-  </div>
-  <div class="meta-card">
-    <span class="meta-card-icon"><svg class="icon icon-gold" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></span>
-    <div class="meta-card-title">מחויבות אקדמית</div>
-    <div class="meta-card-body">אינכם צריכים תיעוד אקדמי מושלם — אתם צריכים מחויבות אמיתית לרכישת תואר לצד הספורט. ספרו לנו על תחום העניין שלכם ועל התוכנית שלכם.</div>
-  </div>
-  <div class="meta-card">
     <span class="meta-card-icon"><svg class="icon icon-gold" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
     <div class="meta-card-title">מה קורה הלאה</div>
+    <div class="meta-card-body">אנו סוקרים כל בקשה תוך שבועיים. ספורטאים שעולים לשלב הבא יוזמנו לשיחה עם צוות SAI לפני קבלת ההחלטה הסופית. שאלות? כתבו לנו ל-<a href="mailto:apply@studentathletes.org.il" style="color:var(--gold); text-decoration:none;">apply@studentathletes.org.il</a>.</div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <img class="footer-seal" src="sai-logo-navy.png" alt="סטודנטים ספורטאים בישראל" width="120" height="120" loading="lazy" decoding="async">
+  <div class="footer-wordmark">סטודנטים ספורטאים בישראל</div>
+  <div class="footer-wordmark" lang="en" dir="ltr" style="font-size:1rem;color:var(--tekhelet);margin-bottom:.6rem;letter-spacing:0">Student Athletes of Israel</div>
+  <div class="footer-sub">להתאמן &middot; ללמוד &middot; להצטיין</div>
+  <ul class="footer-links">
+    <li><a href="index-he.html#about">השליחות</a></li>
+    <li><a href="faq-he.html">שאלות נפוצות</a></li>
+    <li><a href="press-he.html">תקשורת</a></li>
+    <li><a href="donate-he.html">השקיעו</a></li>
+    <li><a href="index-he.html#contact">צרו קשר</a></li>
+  </ul>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/student_athlete_il/" target="_blank" rel="noopener" aria-label="SAI באינסטגרם">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/student-athletes-of-israel/" target="_blank" rel="noopener" aria-label="SAI בלינקדאין">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.27 2.36 4.27 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@sai.studentathleteisrael" target="_blank" rel="noopener" aria-label="SAI בטיקטוק"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.69a8.16 8.16 0 0 0 4.77 1.52V6.76a4.83 4.83 0 0 1-1.84-.07z"/></svg></a>
+  </div>
+  <div class="footer-copy">&copy; <span data-year>2026</span> סטודנטים ספורטאים בישראל. כל הזכויות שמורות.</div>
+</footer>
+<script src="sai.js"></script>
+
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
