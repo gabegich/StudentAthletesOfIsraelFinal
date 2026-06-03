@@ -128,6 +128,28 @@ nav {
   box-shadow: 0 6px 16px rgba(0,56,184,0.28);
 }
 
+/* Language toggle (EN / HE) — outlined pill paired with the Invest CTA */
+.nav-lang-toggle {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 700; font-size: 0.72rem; letter-spacing: 0.08em;
+  text-transform: uppercase; text-decoration: none;
+  color: var(--deep-navy);
+  background: transparent;
+  border: 1.5px solid var(--border);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 2.6rem;
+  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.nav-lang-toggle:hover {
+  color: var(--victory-gold);
+  border-color: var(--victory-gold);
+  background: rgba(212,162,74,0.08);
+  transform: translateY(-1px);
+}
+
 /* Hamburger (mobile) */
 .nav-hamburger {
   display: none;
@@ -164,7 +186,7 @@ nav {
 
 @media (max-width: 900px) {
   nav { padding: 0.9rem 1.25rem; }
-  .nav-links, .nav-cta { display: none; }
+  .nav-links, .nav-cta, .nav-lang-toggle { display: none; }
   .nav-hamburger { display: inline-flex; align-items: center; }
   .nav-mobile-menu { display: flex; }
 }
