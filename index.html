@@ -54,7 +54,7 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="sai.css?v=3" />
 <script type="application/ld+json">
 {
@@ -1517,6 +1517,53 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
     .btn-primary, .btn-outline { padding: 0.9rem 1.5rem; font-size: 0.85rem; }
     .section-title { font-size: clamp(2.2rem, 9vw, 3.5rem); }
   }
+
+  /* ===== #18 VIDEO/FOOTAGE BACKGROUND (drifting gradient stands in for hero-video.mp4) ===== */
+  .hero-footage{position:absolute; inset:0; z-index:0; overflow:hidden;
+    background:radial-gradient(60% 55% at 32% 30%,rgba(201,168,76,.30),transparent 60%),
+      linear-gradient(120deg,#001A5C,#0a2a6b,#1f4b86,#001A5C);
+    background-size:200% 200%,300% 300%; animation:heroFootage 16s ease-in-out infinite;}
+  .hero-footage video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  @keyframes heroFootage{0%{background-position:0% 50%,0% 50%}50%{background-position:100% 50%,100% 50%}100%{background-position:0% 50%,0% 50%}}
+  @media (prefers-reduced-motion: reduce){ .hero-footage{animation:none} }
+
+  /* ===== #18 KINETIC WORD-STACK HERO ===== */
+  #home .hero-content{ margin-top:10vh; }
+  .hero-roller{position:relative; width:100vw; max-width:100vw; align-self:center;
+    height:clamp(4.6rem,15vw,11.4rem); overflow:hidden;
+    display:flex; justify-content:center; margin-top:0.2rem; margin-bottom:0.1rem;}
+  .hero-word{position:absolute; left:0; right:0; top:0;
+    text-align:center; white-space:nowrap; padding:0 .3em;
+    font-family:'Barlow Condensed',sans-serif; font-weight:900; text-transform:uppercase;
+    font-size:clamp(3.4rem,13vw,10rem); line-height:1.12;
+    background:radial-gradient(70% 120% at 30% 20%,#e8c87a,transparent 60%),linear-gradient(120deg,#1f4b86,#2a63b8,#e8c87a,#12234a);
+    background-size:200% 200%,300% 300%;
+    -webkit-background-clip:text; background-clip:text;
+    color:transparent; -webkit-text-fill-color:transparent;
+    transform:translateY(110%); opacity:0;
+    animation:wordDrift 14s ease-in-out infinite;}
+  @keyframes wordDrift{0%{background-position:0% 50%,0% 50%}50%{background-position:100% 50%,100% 50%}100%{background-position:0% 50%,0% 50%}}
+  .hero-word.in{animation:wordDrift 14s ease-in-out infinite, heroRollIn .55s cubic-bezier(.2,.7,0,1) forwards;}
+  .hero-word.out{animation:wordDrift 14s ease-in-out infinite, heroRollOut .55s cubic-bezier(.6,0,.8,.3) forwards;}
+  @keyframes heroRollIn{from{transform:translateY(110%);opacity:0}to{transform:translateY(0);opacity:1}}
+  @keyframes heroRollOut{from{transform:translateY(0);opacity:1}to{transform:translateY(-110%);opacity:0}}
+  @media (prefers-reduced-motion: reduce){
+    .hero-word{transform:none;opacity:1;position:relative}
+    .hero-word:not(:last-child){display:none}
+  }
+
+  /* ===== TRANSPARENT NAV OVER THE HERO (goes solid navy on scroll) ===== */
+  nav{ background:transparent; -webkit-backdrop-filter:none; backdrop-filter:none;
+       border-bottom:1px solid rgba(255,255,255,0.12); transition:background .3s ease, border-color .3s ease; }
+  .nav-wordmark-sai{ color:#fff; }
+  .nav-wordmark-sub{ color:var(--gold); }
+  .nav-links a{ color:rgba(255,255,255,0.85); }
+  .nav-links a:hover, .nav-links a.active{ color:#fff; }
+  .nav-lang-toggle{ color:#fff; border-color:rgba(255,255,255,0.4); }
+  .nav-lang-toggle:hover{ color:var(--gold); border-color:var(--gold); background:rgba(212,162,74,0.10); }
+  .nav-hamburger{ color:#fff; border-color:rgba(255,255,255,0.4); }
+  nav.scrolled{ background:rgba(0,26,92,0.94); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+                border-bottom-color:rgba(212,162,74,0.28); }
 </style>
 </head>
 <body data-whatsapp="972548184327">
@@ -1536,7 +1583,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="skip-link" href="#main">Skip to content</a>
 <nav>
   <a class="nav-logo" href="index" aria-label="SAI home">
-    <img class="nav-logo-img" src="sai-logo-navy.png" alt="" width="36" height="36" decoding="async"><div class="nav-wordmark">
+    <img class="nav-logo-img" src="sai-logo-white.png" alt="" width="36" height="36" decoding="async"><div class="nav-wordmark">
       <span class="nav-wordmark-sai">SAI</span>
       <span class="nav-wordmark-sub">Student Athletes of Israel</span>
     </div>
@@ -1579,21 +1626,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero-frame f4" style="background-color:#001A5C"></div>
     <div class="hero-frame f5" style="background-color:#001A5C"></div>
   </div>
+  <div class="hero-footage" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto" poster="hero-bg.webp" onerror="this.remove()">
+      <source src="hero-video.webm" type="video/webm">
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-bg"></div>
   <div class="hero-vignette"></div>
   <div class="hero-content" style="position:relative; z-index:3;">
-    <div class="hero-eyebrow fade-up">Student Athletes of Israel</div>
-    <h1 class="hero-h1">
-      <span class="line1 fade-up delay-1">
-        <span class="kinetic" id="kinetic-top">Train.</span>
-      </span>
-      <span class="line2 fade-up delay-2">Study.</span>
-      <span class="line3 fade-up delay-3">
-        <span class="kinetic-italic" id="kinetic-bottom">Champion.</span>
-      </span>
-    </h1>
-    <p class="hero-sub fade-up delay-3">Israel's first structured framework supporting athletes in pursuing <em>both</em> elite sport and higher education.</p>
-    <div class="hero-actions fade-up delay-4">
+    <div class="hero-eyebrow">Student Athletes of Israel</div>
+    <div class="hero-roller" id="hero-roller" aria-label="Train. Study. Champion.">
+      <span class="hero-word">Train.</span>
+    </div>
+    <p class="hero-sub">Israel's first structured framework supporting athletes in pursuing <em>both</em> elite sport and higher education.</p>
+    <div class="hero-actions">
       <a class="btn-primary" href="donate">Invest in an Athlete</a>
       <a class="btn-primary" href="apply">I'm an Athlete</a>
     </div>
@@ -2043,63 +2090,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="sai.js"></script>
 
 <script>
-  // ── KINETIC TEXT ──
-  // "Sport. School." is fixed — only the third beat cycles
-  // First item is the initial HTML word and is never re-displayed by the cycle;
-  // last item is what the cycle settles on. We bookend with Champion.
-  const bottomWords = ['Champion.', 'Inspire.', 'Represent.', 'Lead.', 'Excel.', 'Compete.', 'Champion.'];
-  let bottomIdx = 0;
-  let bottomTimer = null;
-
-  function cycleWord(el, words, idx, onDone) {
-    el.classList.add('exit');
-    el.addEventListener('animationend', function handler() {
-      el.classList.remove('exit');
-      el.removeEventListener('animationend', handler);
-      el.textContent = words[idx];
-      el.classList.add('enter');
-      el.addEventListener('animationend', function h2() {
-        el.classList.remove('enter');
-        el.removeEventListener('animationend', h2);
-        onDone && onDone();
-      }, { once: true });
-    }, { once: true });
-  }
-
-  // Internal-nav / refresh users see the headline static — bail before cycling.
-  if (document.body.classList.contains('skip-intro')) {
-    const bottomEl = document.getElementById('kinetic-bottom');
-    if (bottomEl) bottomEl.textContent = bottomWords[bottomWords.length - 1]; // settle on "Champion."
-  } else
-  // Wait for initial fade-in then start cycling
-  setTimeout(() => {
-    const bottomEl = document.getElementById('kinetic-bottom');
-
-    function next() {
-      bottomIdx++;
-      if (bottomIdx >= bottomWords.length) return; // stop at last word ("Champion.")
-      cycleWord(bottomEl, bottomWords, bottomIdx, () => {
-        if (bottomIdx < bottomWords.length - 1) {
-          bottomTimer = setTimeout(next, 400);
-        }
-      });
+  // ── #18 KINETIC WORD-STACK: roll through the beats, settle on the last ──
+  (function(){
+    var roller=document.getElementById('hero-roller');
+    if(!roller) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var words=['Train.','Study.','Champion.'];
+    if(reduce){ roller.querySelector('.hero-word').textContent=words[words.length-1]; return; }
+    function run(){
+      var i=0, cur=roller.querySelector('.hero-word');
+      cur.textContent=words[0]; cur.classList.add('in');
+      var t=setInterval(function(){
+        i++;
+        var n=document.createElement('span');
+        n.className='hero-word'; n.textContent=words[i];
+        roller.appendChild(n); void n.offsetWidth;
+        cur.classList.remove('in'); cur.classList.add('out');
+        n.classList.add('in');
+        (function(leaving){ setTimeout(function(){ if(leaving&&leaving.parentNode) leaving.parentNode.removeChild(leaving); },650); })(cur);
+        cur=n;
+        if(i>=words.length-1) clearInterval(t);
+      },1500);
     }
+    if(document.body.classList.contains('intro-done')||document.body.classList.contains('skip-intro')){ run(); }
+    else {
+      var started=false;
+      var mo=new MutationObserver(function(){
+        if(!started && document.body.classList.contains('intro-done')){ started=true; mo.disconnect(); run(); }
+      });
+      mo.observe(document.body,{attributes:true,attributeFilter:['class']});
+      setTimeout(function(){ if(!started){ started=true; try{mo.disconnect();}catch(e){} run(); } }, 3200);
+    }
+  })();
 
-    bottomTimer = setTimeout(next, 400);
-  }, 800);
+  // ── #18 background video autoplay (muted + playsinline required) ──
+  var heroVid=document.querySelector('.hero-footage video');
+  if(heroVid){ heroVid.muted=true; var pv=heroVid.play&&heroVid.play(); if(pv&&pv.catch)pv.catch(function(){}); }
 
-  // ── NAV ACTIVE STATE ──
-  const sections = document.querySelectorAll('section[id], div[id]');
-  const links = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id;
-    });
-    links.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
-    });
-  });
+  // ── NAV: transparent over hero, solid navy once scrolled past it ──
+  var navEl=document.querySelector('nav');
+  function onScroll(){ if(navEl){ if(window.scrollY > window.innerHeight*0.85) navEl.classList.add('scrolled'); else navEl.classList.remove('scrolled'); } }
+  window.addEventListener('scroll', onScroll); onScroll();
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
