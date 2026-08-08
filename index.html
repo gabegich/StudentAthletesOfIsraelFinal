@@ -1564,6 +1564,33 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
   .nav-hamburger{ color:#fff; border-color:rgba(255,255,255,0.4); }
   nav.scrolled{ background:rgba(0,26,92,0.94); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
                 border-bottom-color:rgba(212,162,74,0.28); }
+
+  /* ===== DUOTONE KNOCKOUT SCROLL-OFF ===== */
+  .hero-scroll{position:relative;height:200vh}
+  #home{position:sticky;top:0;height:100vh;min-height:100vh}
+  .hero-duo-wash{position:absolute;inset:0;z-index:2;pointer-events:none;
+    background:linear-gradient(to top,rgba(6,10,22,.92),rgba(6,10,22,.5) 45%,rgba(6,10,22,.72));
+    opacity:calc(var(--p,0)*.72)}
+  .hero-word-track{position:absolute;inset:0;opacity:calc(1 - var(--p,0)*1.3)}
+  .hero-knock{position:absolute;inset:0;z-index:2;opacity:var(--p,0);
+    -webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%271300%27%20height%3D%27260%27%3E%3Cstyle%3Etext%7Bfont%3A900%20175px%20%27Arial%20Black%27%2CImpact%2Csans-serif%7D%3C%2Fstyle%3E%3Ctext%20x%3D%2750%25%27%20y%3D%2772%25%27%20text-anchor%3D%27middle%27%20fill%3D%27%23fff%27%3ECHAMPION.%3C%2Ftext%3E%3C%2Fsvg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%271300%27%20height%3D%27260%27%3E%3Cstyle%3Etext%7Bfont%3A900%20175px%20%27Arial%20Black%27%2CImpact%2Csans-serif%7D%3C%2Fstyle%3E%3Ctext%20x%3D%2750%25%27%20y%3D%2772%25%27%20text-anchor%3D%27middle%27%20fill%3D%27%23fff%27%3ECHAMPION.%3C%2Ftext%3E%3C%2Fsvg%3E") center/contain no-repeat;
+    -webkit-mask-mode:alpha;mask-mode:alpha}
+  .hero-knock-footage{position:absolute;inset:0;
+    background:radial-gradient(60% 55% at 32% 30%,rgba(201,168,76,.28),transparent 60%),linear-gradient(120deg,#0a0e1a,#12234a,#1f4b86,#0a0e1a);
+    background-size:200% 200%,300% 300%;animation:heroFootage 16s ease-in-out infinite;
+    filter:grayscale(1) contrast(1.08) brightness(.92)}
+  .hero-knock-footage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero-knock::before{content:'';position:absolute;inset:0;background:#0a1030;mix-blend-mode:color;opacity:.6}
+  .hero-knock::after{content:'';position:absolute;inset:0;background:linear-gradient(150deg,#0a1a3f,#c9a84c);mix-blend-mode:overlay;opacity:.85}
+  #home .hero-eyebrow{opacity:calc(1 - var(--p,0)*1.5)}
+  #home .hero-sub{opacity:calc(1 - var(--p,0)*1.6)}
+  #home .hero-actions{opacity:calc(1 - var(--p,0)*1.7)}
+  @media (prefers-reduced-motion: reduce){
+    #home{position:relative;height:auto;min-height:100vh}
+    .hero-scroll{height:auto}
+    .hero-knock,.hero-duo-wash{display:none}
+    .hero-word-track,#home .hero-eyebrow,#home .hero-sub,#home .hero-actions{opacity:1}
+  }
 </style>
 </head>
 <body data-whatsapp="972548184327">
@@ -1618,6 +1645,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <main id="main">
 
 <!-- HERO -->
+<div class="hero-scroll">
 <section id="home" style="max-width:100%;">
   <div class="hero-photo" aria-hidden="true">
     <div class="hero-frame f1 is-active" style="background-color:#001A5C"></div>
@@ -1634,10 +1662,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="hero-bg"></div>
   <div class="hero-vignette"></div>
+  <div class="hero-duo-wash" aria-hidden="true"></div>
   <div class="hero-content" style="position:relative; z-index:3;">
     <div class="hero-eyebrow">Student Athletes of Israel</div>
     <div class="hero-roller" id="hero-roller" aria-label="Train. Study. Champion.">
-      <span class="hero-word">Train.</span>
+      <div class="hero-word-track" id="hero-word-track">
+        <span class="hero-word">Train.</span>
+      </div>
+      <div class="hero-knock" aria-hidden="true">
+        <div class="hero-knock-footage">
+          <video autoplay muted loop playsinline preload="auto" poster="hero-bg.webp" onerror="this.remove()">
+            <source src="hero-video.webm" type="video/webm">
+            <source src="hero-video.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
     </div>
     <p class="hero-sub">Israel's first structured framework supporting athletes in pursuing <em>both</em> elite sport and higher education.</p>
     <div class="hero-actions">
@@ -1647,6 +1686,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
 </section>
+</div>
 
 <!-- TICKER -->
 <div class="full-bleed-divider">
@@ -2090,21 +2130,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="sai.js"></script>
 
 <script>
-  // ── #18 KINETIC WORD-STACK: roll through the beats, settle on the last ──
+  // ── #18 KINETIC WORD-STACK + DUOTONE SCROLL-OFF ──
   (function(){
-    var roller=document.getElementById('hero-roller');
-    if(!roller) return;
+    var track=document.getElementById('hero-word-track');
+    if(!track) return;
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var words=['Train.','Study.','Champion.'];
-    if(reduce){ roller.querySelector('.hero-word').textContent=words[words.length-1]; return; }
+    if(reduce){ track.querySelector('.hero-word').textContent=words[words.length-1]; return; }
     function run(){
-      var i=0, cur=roller.querySelector('.hero-word');
+      var i=0, cur=track.querySelector('.hero-word');
       cur.textContent=words[0]; cur.classList.add('in');
       var t=setInterval(function(){
         i++;
         var n=document.createElement('span');
         n.className='hero-word'; n.textContent=words[i];
-        roller.appendChild(n); void n.offsetWidth;
+        track.appendChild(n); void n.offsetWidth;
         cur.classList.remove('in'); cur.classList.add('out');
         n.classList.add('in');
         (function(leaving){ setTimeout(function(){ if(leaving&&leaving.parentNode) leaving.parentNode.removeChild(leaving); },650); })(cur);
@@ -2115,22 +2155,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if(document.body.classList.contains('intro-done')||document.body.classList.contains('skip-intro')){ run(); }
     else {
       var started=false;
-      var mo=new MutationObserver(function(){
-        if(!started && document.body.classList.contains('intro-done')){ started=true; mo.disconnect(); run(); }
-      });
+      var mo=new MutationObserver(function(){ if(!started && document.body.classList.contains('intro-done')){ started=true; mo.disconnect(); run(); } });
       mo.observe(document.body,{attributes:true,attributeFilter:['class']});
       setTimeout(function(){ if(!started){ started=true; try{mo.disconnect();}catch(e){} run(); } }, 3200);
     }
   })();
 
-  // ── #18 background video autoplay (muted + playsinline required) ──
-  var heroVid=document.querySelector('.hero-footage video');
-  if(heroVid){ heroVid.muted=true; var pv=heroVid.play&&heroVid.play(); if(pv&&pv.catch)pv.catch(function(){}); }
+  // background + knockout videos autoplay (muted + playsinline required)
+  document.querySelectorAll('.hero-footage video, .hero-knock-footage video').forEach(function(v){ v.muted=true; var p=v.play&&v.play(); if(p&&p.catch)p.catch(function(){}); });
 
-  // ── NAV: transparent over hero, solid navy once scrolled past it ──
+  // ── scroll-off progress (--p) + nav solid state ──
   var navEl=document.querySelector('nav');
-  function onScroll(){ if(navEl){ if(window.scrollY > window.innerHeight*0.85) navEl.classList.add('scrolled'); else navEl.classList.remove('scrolled'); } }
-  window.addEventListener('scroll', onScroll); onScroll();
+  var ticking=false;
+  function applyScroll(){
+    ticking=false;
+    var p = window.scrollY / window.innerHeight; p = p<0?0:p>1?1:p;
+    document.documentElement.style.setProperty('--p', p.toFixed(3));
+    if(navEl){ if(window.scrollY > window.innerHeight*0.9) navEl.classList.add('scrolled'); else navEl.classList.remove('scrolled'); }
+  }
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(applyScroll); } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', applyScroll);
+  applyScroll();
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
