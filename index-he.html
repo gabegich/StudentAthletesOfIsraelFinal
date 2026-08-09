@@ -1569,8 +1569,8 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
                 border-bottom-color:rgba(212,162,74,0.28); }
 
   /* ===== DUOTONE KNOCKOUT SCROLL-OFF ===== */
-  .hero-scroll{position:relative;height:200vh}
-  #home{position:sticky;top:0;height:100vh;min-height:100vh}
+  .hero-scroll{position:relative;height:200vh;height:200svh}
+  #home{position:sticky;top:0;height:100vh;height:100svh;min-height:100vh}
   .hero-duo-wash{position:absolute;inset:0;z-index:2;pointer-events:none;
     background:linear-gradient(to top,rgba(6,10,22,.92),rgba(6,10,22,.5) 45%,rgba(6,10,22,.72));
     opacity:calc(var(--p,0)*.72)}
@@ -1595,16 +1595,15 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
     .hero-word-track,#home .hero-eyebrow,#home .hero-sub,#home .hero-actions{opacity:1}
   }
 
-  /* ===== MOBILE: disable the sticky duotone scroll-off; show the static hero ===== */
+  /* the settled payload word — italicised (SAI wordmark accent) */
+  .hero-word.is-final{font-style:italic;filter:drop-shadow(0 3px 18px rgba(0,0,0,.55))}
+  /* ===== MOBILE: KEEP the duotone scroll-off, hardened for phones =====
+     solid-gold resting word (background-clip:text can render invisible on mobile),
+     width:100% (no RTL overflow); svh heights avoid the URL-bar jump. */
   @media (max-width: 900px){
-    .hero-scroll{height:auto}
-    #home{position:relative;height:auto;min-height:100vh}
-    .hero-knock,.hero-duo-wash{display:none}
     .hero-roller{width:100%;max-width:100%;align-self:center}
-    .hero-word-track{opacity:1}
     .hero-word{transform:none;opacity:1;animation:none;background:none;-webkit-background-clip:border-box;background-clip:border-box;-webkit-text-fill-color:#e8c87a;color:#e8c87a}
     .hero-word:not(:last-child){display:none}
-    #home .hero-eyebrow,#home .hero-sub,#home .hero-actions{opacity:1}
   }
 </style>
 </head>
@@ -2128,7 +2127,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var isMobile = window.matchMedia && window.matchMedia('(max-width: 900px)').matches;
     var words=['\u05dc\u05d4\u05ea\u05d0\u05de\u05df.','\u05dc\u05dc\u05de\u05d5\u05d3.','\u05dc\u05d4\u05e6\u05d8\u05d9\u05d9\u05df.'];
-    if(reduce || isMobile){ track.querySelector('.hero-word').textContent=words[words.length-1]; return; }
+    if(reduce || isMobile){ var _w=track.querySelector('.hero-word'); _w.textContent=words[words.length-1]; _w.classList.add('is-final'); return; }
     function run(){
       var i=0, cur=track.querySelector('.hero-word');
       cur.textContent=words[0]; cur.classList.add('in');
@@ -2141,7 +2140,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         n.classList.add('in');
         (function(leaving){ setTimeout(function(){ if(leaving&&leaving.parentNode) leaving.parentNode.removeChild(leaving); },650); })(cur);
         cur=n;
-        if(i>=words.length-1) clearInterval(t);
+        if(i>=words.length-1){ n.classList.add('is-final'); clearInterval(t); }
       },1500);
     }
     if(document.body.classList.contains('intro-done')||document.body.classList.contains('skip-intro')){ run(); }
