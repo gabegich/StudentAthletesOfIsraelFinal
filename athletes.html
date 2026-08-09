@@ -84,11 +84,11 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
   .cue{position:absolute;left:50%;bottom:1.1rem;transform:translateX(-50%);z-index:7;font-family:'Heebo',sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);opacity:calc(1 - var(--p)*2.4);animation:cuebob 2s ease-in-out infinite}
   @keyframes cuebob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
 
-  /* roster row */
-  .row{position:relative;z-index:2;display:flex;align-items:flex-end;width:100%;height:82%;padding:0 1vw 4vh;gap:.2vw}
-  .row.scrolls{overflow-x:auto;overflow-y:visible}
+  /* roster rows (two rows so athletes aren't squished) */
+  .rows{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;width:100%;height:100%;padding:0 1vw 3.5vh;gap:.6vh}
+  .row{display:flex;align-items:flex-end;width:100%;flex:1 1 0;min-height:0;gap:.6vw}
   .cell{position:relative;flex:1 1 0;min-width:96px;height:100%;cursor:pointer;transition:opacity .3s ease,filter .3s ease;outline:none}
-  .row:hover .cell:not(:hover),.row:focus-within .cell:not(:focus-within){opacity:.4;filter:brightness(.62) saturate(.55)}
+  .rows:hover .cell:not(:hover),.rows:focus-within .cell:not(:focus-within){opacity:.4;filter:brightness(.62) saturate(.55)}
   .spot{position:absolute;left:50%;top:2%;width:170%;height:82%;transform:translateX(-50%);z-index:0;pointer-events:none;background:radial-gradient(closest-side,rgba(232,200,122,.55),transparent 70%);filter:blur(10px);opacity:0;transition:opacity .35s ease}
   .cell:hover .spot,.cell:focus-within .spot{opacity:1}
   .floor-glow{position:absolute;left:50%;bottom:8%;width:80%;height:6%;transform:translateX(-50%);z-index:0;pointer-events:none;background:radial-gradient(closest-side,rgba(232,200,122,.6),transparent 72%);filter:blur(7px);opacity:0;transition:opacity .35s}
@@ -96,13 +96,13 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
 
   .cut{position:absolute;inset:0;z-index:1;transition:transform .38s cubic-bezier(0,0,.2,1);transform-origin:center bottom}
   .cell:hover,.cell:focus-within{z-index:30}
-  .cell:hover .cut,.cell:focus-within .cut{transform:translateY(-24px) scale(1.13)}
-  .cimg{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:74%;width:auto;object-fit:contain;transition:filter .3s ease;
+  .cell:hover .cut,.cell:focus-within .cut{transform:translateY(-18px) scale(1.1)}
+  .cimg{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:88%;width:auto;object-fit:contain;transition:filter .3s ease;
     filter:grayscale(var(--p)) sepia(var(--p)) saturate(calc(1 + var(--p)*1.35)) hue-rotate(calc(var(--p)*4deg)) brightness(calc(1 - var(--p)*.16)) contrast(calc(1 + var(--p)*.08))}
   .cell:hover .cimg,.cell:focus-within .cimg{filter:grayscale(0) saturate(1.1) brightness(1.06)}
   /* silhouette fallback */
   .cut.sil .cimg{display:none}
-  .csil{display:none;position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:52%;height:74%;-webkit-mask:var(--sil) center bottom/contain no-repeat;mask:var(--sil) center bottom/contain no-repeat;background:#12244d}
+  .csil{display:none;position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:52%;height:88%;-webkit-mask:var(--sil) center bottom/contain no-repeat;mask:var(--sil) center bottom/contain no-repeat;background:#12244d}
   .cut.sil .csil{display:block}
   .cemoji{display:none;position:absolute;left:50%;bottom:26%;transform:translateX(-50%);font-size:clamp(1.4rem,4vw,2.4rem);filter:drop-shadow(0 8px 14px rgba(0,0,0,.4))}
   .cut.sil .cemoji{display:block}
@@ -185,7 +185,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="scroll">
   <section class="stage" id="stage">
     <div class="footage"></div>
-    <div class="row" id="row"></div>
+    <div class="rows" id="rows"></div>
     <div class="floor"></div><div class="vig"></div><div class="grain"></div>
     <div class="intro" id="intro">
       <div class="scrim"></div>
@@ -241,8 +241,12 @@ const ATH=[
  {file:"ShaharTibi",first:"Shahar",last:"Tibi",sport:"Windsurfing · iQFoil",cat:"Windsurfing",deg:"Bar-Ilan",club:"Israel National Team",age:28,rank:8,medal:"🥇",goal:"LA 2028"}
 ];
 
-const row=document.getElementById('row');
-ATH.forEach(function(a){
+const rows=document.getElementById('rows');
+var r1=document.createElement('div'); r1.className='row';
+var r2=document.createElement('div'); r2.className='row';
+rows.appendChild(r1); rows.appendChild(r2);
+var split=Math.ceil(ATH.length/2);
+ATH.forEach(function(a,i){
   var src=a.file+"-Cutout.png", ic=ICON[a.cat]||"🏅";
   var cell=document.createElement('div'); cell.className='cell'; cell.tabIndex=0;
   cell.innerHTML=
@@ -262,7 +266,7 @@ ATH.forEach(function(a){
       '</div>'+
       '<div class="deg">🎓 '+a.deg+' &middot; '+a.club+'</div>'+
     '</div>';
-  row.appendChild(cell);
+  (i<split?r1:r2).appendChild(cell);
   var cut=cell.querySelector('.cut'), img=cell.querySelector('.cimg');
   cut.style.setProperty('--sil','url("'+SIL+'")');
   var im=new Image(); im.onload=function(){ img.src=src; cut.classList.remove('sil'); }; im.src=src;
