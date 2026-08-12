@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://studentathletes.org.il/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studentathletes.org.il/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://studentathletes.org.il/index-he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studentathletes.org.il/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://studentathletes.org.il/index-he</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studentathletes.org.il/"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://studentathletes.org.il/index-he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studentathletes.org.il/"/>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Athletes -->
+  <url>
+    <loc>https://studentathletes.org.il/athletes</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studentathletes.org.il/athletes"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://studentathletes.org.il/athletes-he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studentathletes.org.il/athletes"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://studentathletes.org.il/athletes-he</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studentathletes.org.il/athletes"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://studentathletes.org.il/athletes-he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studentathletes.org.il/athletes"/>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Apply -->
+  <url>
+    <loc>https://studentathletes.org.il/apply</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studentathletes.org.il/apply"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://studentathletes.org.il/apply-he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studentathletes.org.il/apply"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://studentathletes.org.il/apply-he</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studentathletes.org.il/apply"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://studentathletes.org.il/apply-he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studentathletes.org.il/apply"/>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Donate -->
+  <url>
+    <loc>https://studentathletes.org.il/donate</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studentathletes.org.il/donate"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://studentathletes.org.il/donate-he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studentathletes.org.il/donate"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://studentathletes.org.il/donate-he</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studentathletes.org.il/donate"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://studentathletes.org.il/donate-he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studentathletes.org.il/donate"/>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Press -->
+  <url>
+    <loc>https://studentathletes.org.il/press</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studentathletes.org.il/press"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://studentathletes.org.il/press-he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studentathletes.org.il/press"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://studentathletes.org.il/press-he</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studentathletes.org.il/press"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://studentathletes.org.il/press-he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studentathletes.org.il/press"/>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://studentathletes.org.il/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studentathletes.org.il/faq"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://studentathletes.org.il/faq-he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studentathletes.org.il/faq"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://studentathletes.org.il/faq-he</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://studentathletes.org.il/faq"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://studentathletes.org.il/faq-he"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://studentathletes.org.il/faq"/>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
