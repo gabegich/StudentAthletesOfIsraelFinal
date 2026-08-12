@@ -1606,8 +1606,247 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
     .hero-word:not(:last-child){display:none}
   }
 </style>
+<style id="hd-styles">
+
+  .hd{--navy:#001A5C;--ink:#0b1e4a;--ink2:#123068;--card:#16316a;--card2:#1a3878;--blue:#0038B8;--gold:#c9a84c;--gold-l:#e8c87a;--gold-d:#a07830;--off:#f5f3ee;--muted:rgba(245,243,238,.85);--faint:rgba(245,243,238,.55);--border:rgba(201,168,76,.26);--border-s:rgba(201,168,76,.4);--shadow:0 10px 34px rgba(2,8,26,.55);--glow:0 8px 40px rgba(201,168,76,.32)}
+  .hd *{box-sizing:border-box;margin:0;padding:0}
+  .hd{scroll-behavior:smooth}
+  /* ONE continuous world: a single royal-navy field behind every section */
+  .hd{color:var(--off);font-family:'Assistant',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden;
+    background:
+      radial-gradient(85% 48% at 50% -4%, rgba(0,56,184,.36), transparent 62%),
+      radial-gradient(75% 44% at 50% 104%, rgba(3,12,38,.74), transparent 60%),
+      radial-gradient(55% 38% at 84% 36%, rgba(0,56,184,.1), transparent 55%),
+      linear-gradient(180deg,#0a1c4e 0%,#0e2657 34%,#0b2050 60%,#081837 82%,#06122b 100%);
+    background-attachment:fixed;background-repeat:no-repeat}
+  .hd em{font-style:italic}
+  .hd .pagegrain{position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")}
+  .hd .wrap{max-width:1200px;margin:0 auto;padding:0 2rem}
+  .hd .eyebrow{display:inline-flex;gap:.7rem;align-items:center;font-family:'Heebo',sans-serif;font-weight:600;font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+  .hd .eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);opacity:.6}
+  .hd .eyebrow.c::after{content:'';width:28px;height:1px;background:var(--gold);opacity:.6}
+  .hd h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;line-height:.95;font-size:clamp(2.2rem,5vw,3.6rem);color:#fff;text-shadow:0 2px 22px rgba(2,8,26,.55)}
+  .hd h2 .pf{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;color:var(--gold);text-transform:none}
+  .hd .lead{color:var(--muted);font-size:1.06rem;line-height:1.8;font-weight:300}
+  .hd .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(0,0,.2,1)}
+  .hd .reveal.in{opacity:1;transform:none}
+
+  /* hero-bleed seam (represents bottom of the cinematic hero) */
+  .hd .herobleed{position:relative;height:64vh;min-height:440px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+  .hd .herobleed .fg{position:absolute;inset:0;z-index:0;background:radial-gradient(60% 55% at 50% 34%,rgba(201,168,76,.26),transparent 60%),linear-gradient(120deg,#001A5C,#0a2a6b,#1f4b86,#001A5C);background-size:200% 200%,300% 300%;animation:drift 18s ease-in-out infinite}
+  @keyframes drift{0%,100%{background-position:0% 50%,0% 50%}50%{background-position:100% 50%,100% 50%}}
+  .hd .herobleed .fade{position:absolute;left:0;right:0;bottom:0;height:55%;z-index:2;background:linear-gradient(0deg,#0c2258 4%,rgba(12,34,88,.55) 45%,transparent)}
+  .hd .herobleed .vig{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 90% 90% at 50% 46%,transparent 52%,rgba(0,10,30,.5) 100%)}
+  .hd .herobleed .in{position:relative;z-index:3}
+  .hd .herobleed .seal{width:56px;height:56px;object-fit:contain;margin-bottom:1rem;filter:drop-shadow(0 4px 14px rgba(0,0,0,.5))}
+  .hd .herobleed h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(3rem,8vw,6rem);line-height:.86;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+  .hd .herobleed h1 .pf{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;color:var(--gold)}
+  .hd .herobleed .note{margin-top:1rem;font-family:'Heebo',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+
+  /* MISSION (about) */
+  .hd .mission{position:relative;padding:6.5rem 0;overflow:hidden;background:transparent}
+  .hd .mission .bg{position:absolute;inset:0;z-index:0;background:url('mission-bg.webp') center/cover;filter:grayscale(.2) brightness(.62) saturate(.95);opacity:.7}
+  .hd .mission .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(9,22,58,.82) 0%,rgba(9,22,58,.5) 48%,rgba(9,22,58,.12) 100%)}
+  .hd .mission .grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center}
+  .hd .mission .body p{color:var(--muted);font-size:1.02rem;line-height:1.85;font-weight:300;margin-top:1.1rem}
+  .hd .mission h2{margin-top:.7rem}
+  .hd .mission .visual{position:relative;border:1px solid var(--border-s);border-radius:8px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--shadow)}
+  .hd .mission .visual::before{content:'';position:absolute;inset:0;background:url('press-athlete-portrait.webp') center/cover;filter:saturate(.9) contrast(1.02)}
+  .hd .mission .visual::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,10,22,.7),transparent 55%),radial-gradient(80% 60% at 50% 30%,rgba(201,168,76,.12),transparent 60%)}
+  .hd .mission .badge{position:absolute;left:1rem;bottom:1rem;z-index:2;font-family:'Heebo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:.45rem .8rem;border-radius:2px}
+  .hd .mission .vtop{position:absolute;top:0;left:0;right:0;height:3px;z-index:2;background:linear-gradient(90deg,var(--gold-l),var(--gold-d))}
+
+  /* TWO PATHS */
+  .hd .paths{padding:6.5rem 0 7rem;background:transparent}
+  .hd .paths .head{text-align:center;max-width:680px;margin:0 auto 3.6rem}
+  .hd .paths .head .lead{margin:1rem auto 0}
+  .hd .tgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+  .hd .tcard{position:relative;border-radius:8px;overflow:hidden;padding:2.6rem;min-height:520px;background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .hd .tcard .bg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;filter:grayscale(.28) brightness(.66) saturate(.92);opacity:.6}
+  .hd .tcard .bg.a{background-image:url('tracka.png')}.hd .tcard .bg.b{background-image:url('trackb.png')}
+  .hd .tcard .scr{position:absolute;inset:0;z-index:1;background:linear-gradient(160deg,rgba(11,24,56,.42),rgba(9,20,50,.82))}
+  .hd .tcard.feat{border-color:var(--gold);box-shadow:var(--glow),0 0 0 1px var(--gold)}
+  .hd .tcard .top{position:absolute;top:0;left:0;right:0;height:4px;z-index:3}
+  .hd .tcard.feat .top{background:linear-gradient(90deg,var(--gold-l),var(--gold-d))}
+  .hd .tcard.b .top{background:linear-gradient(90deg,var(--blue),rgba(0,56,184,.3))}
+  .hd .tcard>*{position:relative;z-index:2}
+  .hd .tbadge{display:inline-flex;align-items:center;gap:.5rem;font-family:'Heebo',sans-serif;font-weight:800;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;padding:.32rem .85rem;border-radius:2px;margin-bottom:1.6rem;width:fit-content}
+  .hd .tbadge.a{background:var(--gold);color:var(--navy)}
+  .hd .tbadge.b{background:rgba(0,56,184,.35);color:#cfe0ff;border:1px solid rgba(96,150,255,.5)}
+  .hd .tcard h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.1rem;text-transform:uppercase;line-height:.95;color:#fff;margin-bottom:.5rem}
+  .hd .tcard .kick{font-family:'Heebo',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem}
+  .hd .tcard .desc{color:var(--muted);font-size:.95rem;line-height:1.8;font-weight:300;margin-bottom:1.7rem}
+  .hd .tlist{display:flex;flex-direction:column;gap:.75rem;margin-top:auto}
+  .hd .tlist div{display:flex;gap:.7rem;align-items:flex-start;font-size:.9rem;color:var(--muted)}
+  .hd .tlist div::before{content:'✦';color:var(--gold);flex-shrink:0;font-size:.7rem;margin-top:.28rem}
+  .hd .paths .foot{text-align:center;margin-top:3rem;font-size:.9rem;color:var(--faint);font-style:italic}
+
+  @media(max-width:900px){.hd .mission .grid,.hd .tgrid{grid-template-columns:1fr}.hd .mission .visual{aspect-ratio:16/10}}
+
+  /* ===== animations ===== */
+  .hd .herobleed h1 .pf{background:linear-gradient(100deg,#c9a84c,#f2e0a8 45%,#e8c87a 60%,#c9a84c);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shine 6.5s linear infinite}
+  @keyframes shine{to{background-position:250% 0}}
+  .hd .herobleed .in{animation:hfloat 8s ease-in-out infinite}
+  @keyframes hfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .hd .stagger>*{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s cubic-bezier(0,0,.2,1)}
+  .hd .stagger.in>*{opacity:1;transform:none}
+  .hd .eyebrow::before,.hd .eyebrow.c::after{width:0;transition:width .7s ease .25s}
+  .hd .stagger.in .eyebrow::before,.hd .reveal.in .eyebrow::before,.hd .stagger.in .eyebrow.c::after{width:28px}
+  .hd .mission .bg{scale:1.12;will-change:translate}
+  .hd .mission .visual{animation:vfloat 7.5s ease-in-out infinite}
+  @keyframes vfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  .hd .tcard{transition:transform .4s cubic-bezier(0,0,.2,1),box-shadow .4s ease,border-color .4s ease}
+  .hd .tcard .bg{transition:scale 1.3s ease}
+  .hd .tcard:hover{transform:translateY(-7px)}
+  .hd .tcard:hover .bg{scale:1.07}
+  .hd .tcard.feat:hover{box-shadow:0 18px 52px rgba(201,168,76,.42),0 0 0 1px var(--gold)}
+  .hd .tcard.b:hover{border-color:rgba(96,150,255,.45);box-shadow:0 18px 52px rgba(0,0,0,.55)}
+  @media(prefers-reduced-motion:reduce){.hd .herobleed h1 .pf,.hd .herobleed .in,.hd .mission .visual,.hd .mission .bg{animation:none}.hd .stagger>*{opacity:1;transform:none}}
+
+  /* ===== OUR PROGRESS (timeline runner) ===== */
+  .hd .progress{position:relative;padding:6.5rem 0 7rem;background:transparent}
+  .hd .progress .head{text-align:center;max-width:680px;margin:0 auto 3.6rem}
+  .hd .tl{position:relative;max-width:920px;margin:0 auto}
+  .hd .tl .rail{position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);background:rgba(201,168,76,.14)}
+  .hd .tl .fill{position:absolute;left:50%;top:0;width:2px;height:0;transform:translateX(-50%);background:linear-gradient(180deg,var(--gold-l),var(--gold-d));box-shadow:0 0 14px rgba(201,168,76,.5)}
+  .hd .tl .runner{position:absolute;left:50%;top:0;width:14px;height:14px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#fff,var(--gold) 55%,transparent 72%);box-shadow:0 0 16px rgba(232,200,122,.9);z-index:4}
+  .hd .tl .node{position:relative;display:grid;grid-template-columns:1fr 1fr;column-gap:3rem;margin-bottom:2.2rem}
+  .hd .tl .dot{position:absolute;left:50%;top:1.5rem;width:13px;height:13px;border-radius:50%;transform:translateX(-50%);background:#26324e;box-shadow:0 0 0 4px rgba(255,255,255,.05);z-index:3;transition:background .3s,box-shadow .3s}
+  .hd .tl .dot.lit{background:var(--gold);box-shadow:0 0 0 4px rgba(201,168,76,.18),0 0 14px rgba(201,168,76,.6)}
+  .hd .tcardp{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.3rem 1.5rem;box-shadow:var(--shadow);position:relative}
+  .hd .tl .node.l .tcardp{grid-column:1;text-align:right}
+  .hd .tl .node.r .tcardp{grid-column:2}
+  .hd .tcardp .t{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.25rem;text-transform:uppercase;color:#fff;line-height:1}
+  .hd .tcardp .b{color:var(--muted);font-size:.9rem;line-height:1.65;font-weight:300;margin:.4rem 0 .7rem}
+  .hd .tbadge2{display:inline-block;font-family:'Heebo',sans-serif;font-weight:700;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:.24rem .6rem;border-radius:2px;background:rgba(201,168,76,.16);color:var(--gold);border:1px solid var(--border-s)}
+  .hd .tbadge2.up{background:rgba(255,255,255,.05);color:var(--faint);border-color:rgba(255,255,255,.12)}
+  .hd .tl .ends{display:flex;justify-content:space-between;max-width:920px;margin:.4rem auto 0;font-family:'Heebo',sans-serif;font-weight:800;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+
+  /* ===== PARTNERS ===== */
+  .hd .partners{padding:6.5rem 0;background:transparent}
+  .hd .partners .head{text-align:center;max-width:700px;margin:0 auto 3.4rem}
+  .hd .pwall{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:1.4rem;align-items:stretch}
+  .hd .pfeat{position:relative;background:var(--card);border:1px solid var(--gold);border-radius:8px;padding:2.2rem;box-shadow:var(--glow);display:flex;flex-direction:column;gap:1rem}
+  .hd .pfeat .st{font-family:'Heebo',sans-serif;font-weight:700;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:.34rem .7rem;border-radius:2px;width:fit-content}
+  .hd .pfeat .frame{background:#fff;border-radius:6px;padding:1.6rem;display:flex;align-items:center;justify-content:center}
+  .hd .pfeat .frame img{max-width:100%;height:auto;max-height:88px;object-fit:contain}
+  .hd .pmeta{display:flex;flex-direction:column;gap:.5rem}
+  .hd .pmeta .row{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--border);padding-bottom:.45rem;font-size:.85rem}
+  .hd .pmeta .k{font-family:'Heebo',sans-serif;font-weight:700;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .hd .pmeta .v{color:var(--muted);text-align:right}
+  .hd .pfeat .note{font-family:'Heebo',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
+  .hd .pslot{border:1px dashed var(--border-s);border-radius:8px;padding:2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1rem;background:rgba(255,255,255,.015);transition:border-color .3s,background .3s}
+  .hd .pslot:hover{border-color:var(--gold);background:rgba(201,168,76,.05)}
+  .hd .pslot .ic{width:44px;height:44px;color:var(--gold);opacity:.7}
+  .hd .pslot .lb{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.15rem;text-transform:uppercase;color:var(--muted);line-height:1}
+  .hd .pslot .cta{font-family:'Heebo',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--border-s);padding:.5rem .9rem;border-radius:999px;transition:.2s}
+  .hd .pslot .cta:hover{background:rgba(201,168,76,.1);border-color:var(--gold)}
+  .hd .partners .pnote{text-align:center;margin-top:2.4rem;font-size:.9rem;color:var(--faint)}
+  .hd .partners .pnote b{color:var(--gold)}.hd .partners .pnote a{color:var(--gold)}
+
+  /* ===== VOICES ===== */
+  .hd .voices{padding:6.5rem 0;background:transparent}
+  .hd .voices .head{text-align:center;max-width:680px;margin:0 auto 3.4rem}
+  .hd .qgrid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:1.4rem}
+  .hd .qcard{position:relative;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:2rem;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+  .hd .qcard.feat{border-color:var(--border-s);background:linear-gradient(160deg,rgba(0,56,184,.22),var(--card))}
+  .hd .qmark{font-family:'Playfair Display',serif;font-style:italic;font-size:3.4rem;line-height:.5;color:var(--gold);opacity:.5;margin-bottom:.6rem}
+  .hd .qtext{color:var(--off);font-size:.95rem;line-height:1.7;font-weight:300;margin-bottom:1.2rem}
+  .hd .qcard.feat .qtext{font-size:1.02rem}
+  .hd .qdiv{width:40px;height:2px;background:var(--border-s);margin-bottom:1rem}
+  .hd .qcard.feat .qdiv{background:var(--gold);width:48px}
+  .hd .qby{display:flex;align-items:center;gap:.9rem;margin-top:auto}
+  .hd .qby img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);flex-shrink:0}
+  .hd .qnm{font-family:'Heebo',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.03em;font-size:.9rem;color:#fff}
+  .hd .qrl{font-size:.78rem;color:var(--gold)}
+
+  /* ===== CONTACT / CLOSE ===== */
+  .hd .contact{position:relative;padding:6.5rem 0 7rem;overflow:hidden;background:transparent}
+  .hd .contact .glow{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(60% 70% at 50% 0%,rgba(201,168,76,.14),transparent 60%)}
+  .hd .cgrid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.1fr;gap:3.4rem;align-items:start}
+  .hd .cinfo h2{margin:.6rem 0 1rem}
+  .hd .cinfo>p{color:var(--muted);font-size:1rem;line-height:1.8;font-weight:300;max-width:440px}
+  .hd .citems{margin-top:1.8rem;display:flex;flex-direction:column;gap:1.2rem}
+  .hd .citem{display:flex;gap:1rem;align-items:flex-start}
+  .hd .citem .ic{width:38px;height:38px;flex-shrink:0;display:grid;place-items:center;border:1px solid var(--border-s);border-radius:50%;color:var(--gold)}
+  .hd .citem .tx strong{display:block;font-family:'Heebo',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:.2rem}
+  .hd .citem .tx,.hd .citem .tx a{color:var(--muted);font-size:.92rem}.hd .citem .tx a{color:var(--gold)}
+  .hd .cform{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:2rem}
+  .hd .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .hd .fg{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+  .hd .fg label{font-family:'Heebo',sans-serif;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.66rem;color:var(--faint)}
+  .hd .fg input,.hd .fg select,.hd .fg textarea{background:rgba(10,14,26,.7);border:1px solid var(--border);border-radius:4px;padding:.8rem 1rem;color:var(--off);font-family:'Assistant',sans-serif;font-size:.95rem;outline:none;transition:border-color .2s}
+  .hd .fg input:focus,.hd .fg select:focus,.hd .fg textarea:focus{border-color:var(--gold)}
+  .hd .fg textarea{resize:vertical;min-height:96px}
+  .hd .csend{width:100%;font-family:'Heebo',sans-serif;font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.85rem;background:linear-gradient(180deg,var(--gold-l),var(--gold-d));color:var(--navy);border:none;padding:1rem;border-radius:4px;cursor:pointer;transition:transform .2s}
+  .hd .csend:hover{transform:translateY(-2px)}
+
+  @media(max-width:900px){.hd .pwall,.hd .qgrid,.hd .cgrid{grid-template-columns:1fr}.hd .tl .node{grid-template-columns:1fr;column-gap:0}.hd .tl .rail,.hd .tl .fill,.hd .tl .runner,.hd .tl .dot{left:14px}.hd .tl .node .tcardp{grid-column:1!important;text-align:left!important;margin-left:2.2rem}.hd .frow{grid-template-columns:1fr}}
+
+
+  /* ===== MEET COHORT 1 (links to /athletes) ===== */
+  .hd .cohort{position:relative;padding:5.5rem 0 0;background:transparent;text-align:center;overflow:hidden}
+  .hd .cohort .head{max-width:640px;margin:0 auto}
+  .hd .crow{position:relative;display:flex;justify-content:center;align-items:flex-end;gap:.15rem;margin-top:2rem;height:300px;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+  .hd .cfig{position:relative;height:100%;flex:0 0 auto}
+  .hd .cfig img{height:100%;width:auto;object-fit:contain;object-position:bottom;filter:grayscale(.4) sepia(.2) saturate(1) brightness(.82);transition:filter .35s ease,transform .35s ease}
+  .hd .cfig img:hover{filter:grayscale(0) brightness(1.05) saturate(1.08);transform:translateY(-10px) scale(1.03)}
+  .hd .cfloor{position:absolute;left:0;right:0;bottom:0;height:42%;z-index:2;pointer-events:none;background:linear-gradient(0deg,rgba(8,18,44,.9) 6%,rgba(8,18,44,.32) 55%,transparent)}
+  .hd .cbtnwrap{position:relative;z-index:3;margin-top:-1.4rem;padding-bottom:.5rem}
+  .hd .cbtn{display:inline-block;font-family:'Heebo',sans-serif;font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;background:var(--gold);color:var(--navy);padding:.9rem 1.9rem;border-radius:999px;box-shadow:0 8px 22px rgba(201,168,76,.3);transition:.2s}
+  .hd .cbtn:hover{background:var(--gold-l);transform:translateY(-2px)}
+  /* ===== contact bg video ===== */
+  .hd .contact .cvid{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;filter:brightness(.82) saturate(1) contrast(1.04)}
+  .hd .contact .cscrim{position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(8,18,44,.28),rgba(8,18,44,.42) 60%,rgba(6,14,36,.6))}
+  /* left-side legibility wash so the cinfo copy stays readable over footage */
+  .hd .contact::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,rgba(6,14,36,.72) 0%,rgba(6,14,36,.28) 44%,transparent 66%)}
+
+  /* ===== SEAMLESS CONNECTIVE ANIMATIONS ===== */
+  .hd{position:relative}
+  .hd section{position:relative;z-index:1}         /* sit above the seams */
+  /* scroll-bloom seams — richer light band + hairline that blooms across the fold */
+  .hd .seam{position:absolute;left:0;right:0;height:380px;margin-top:-190px;z-index:60;pointer-events:none;opacity:0;mix-blend-mode:screen;will-change:opacity;
+    background:radial-gradient(50% 100% at 50% 50%,rgba(201,168,76,.42),rgba(90,140,255,.16) 40%,transparent 72%)}
+  .hd .seam::after{content:"";position:absolute;left:10%;right:10%;top:50%;height:2px;transform:translateY(-1px);border-radius:2px;
+    background:linear-gradient(90deg,transparent,rgba(232,200,122,.5) 30%,rgba(255,249,230,.82) 50%,rgba(232,200,122,.5) 70%,transparent);
+    box-shadow:0 0 26px rgba(232,200,122,.5)}
+  /* cohort cutouts fan in (center-out) */
+  .hd .crow .cfig{opacity:0;transform:translateY(54px) scale(.955);transition:opacity .7s ease,transform .9s cubic-bezier(.18,.75,.2,1)}
+  .hd .crow.in .cfig{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.hd .seam{display:none}.hd .crow .cfig{opacity:1;transform:none}}
+
+
+
+/* ===== integration overrides ===== */
+.hd{position:relative}
+body.homedark{background:#071531}
+.homedark footer{background:#071531;border-top:1px solid rgba(201,168,76,.22)}
+.homedark footer .footer-wordmark,.homedark footer .footer-sub,.homedark footer .footer-copy{color:#f5f3ee}
+.homedark footer .footer-links a{color:rgba(245,243,238,.82)}
+.homedark footer .footer-links a:hover{color:#e8c87a}
+.homedark footer .footer-social a{color:rgba(245,243,238,.82)}
+.homedark footer .footer-social a:hover{color:#e8c87a}
+/* existing contact form, dark-skinned inside .hd */
+.hd .contact-form{position:relative;z-index:1;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:2rem}
+.hd .contact-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.hd .contact-form .form-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+.hd .contact-form label{font-family:'Heebo',sans-serif;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.66rem;color:var(--faint)}
+.hd .contact-form input,.hd .contact-form select,.hd .contact-form textarea{background:rgba(6,12,30,.7);border:1px solid var(--border);border-radius:4px;padding:.8rem 1rem;color:var(--off);font-family:'Assistant',sans-serif;font-size:.95rem;outline:none;transition:border-color .2s}
+.hd .contact-form input:focus,.hd .contact-form select:focus,.hd .contact-form textarea:focus{border-color:var(--gold)}
+.hd .contact-form textarea{resize:vertical;min-height:96px}
+.hd .contact-form .form-submit{width:100%;font-family:'Heebo',sans-serif;font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.85rem;background:linear-gradient(180deg,var(--gold-l),var(--gold-d));color:var(--navy);border:none;padding:1rem;border-radius:4px;cursor:pointer;transition:transform .2s}
+.hd .contact-form .form-submit:hover{transform:translateY(-2px)}
+.hd .contact-form .form-status{margin-top:.8rem;font-size:.85rem;color:var(--gold)}
+.hd .contact-form .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:900px){.hd .contact-form .form-row{grid-template-columns:1fr}}
+/* tone the gold ticker into the dark theme */
+.homedark .full-bleed-divider{background:#0b1e4a;border-top:1px solid rgba(201,168,76,.22);border-bottom:1px solid rgba(201,168,76,.22)}
+.homedark .full-bleed-divider .ticker-half{color:#c9a84c}
+.homedark .full-bleed-divider .ticker-sep{color:rgba(201,168,76,.45)}
+
+</style>
 </head>
-<body data-whatsapp="972548184327">
+<body data-whatsapp="972548184327" class="homedark">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXVNR69S"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1728,320 +1967,161 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<!-- MISSION + ABOUT COMBINED -->
-<section id="about">
-  <div class="mission-bg-layer"></div>
-  <div class="about-grid">
-    <div>
-      <div class="section-tag">המשימה שלנו</div>
-      <h2 class="section-title">להגדיר מחדש את מה שישראל יכולה <em>להשיג</em></h2>
-      <div class="about-body">
-        <p>לישראל יש את הכישרון. מה שחסר לה זו המערכת. שנים ארוכות, מיטב הספורטאים שלנו נאלצו לסטות מהדרך אל הגדולה — לא בגלל המתחרים, אלא בגלל תרבות שאילצה אותם לבחור בין ספורט לבין השכלה.</p>
-        <p>SAI קיימת כדי לשנות זאת לתמיד. אנחנו בונים את התשתית הלאומית שתהפוך את ישראל לכוח בזירות הספורט הגדולות בעולם — על ידי מתן תמיכה, משאבים וגיבוי מוסדי לכל ספורטאי עילי, כדי שיתחרה ללא פשרות.</p>
-        <p>זה לא רק עניין של מלגות. זה עניין של שינוי משמעות הספורט הישראלי — בעיני הספורטאים שלנו, בעיני הנוער שלנו ובעיני העולם שצופה בנו מתחרים.</p>
-      </div>
+<div class="hd">
+<!-- MISSION -->
+<section class="mission" id="about">
+  <div class="bg" data-par="0.13"></div><div class="scrim"></div>
+  <div class="wrap grid">
+    <div class="body stagger">
+      <span class="eyebrow">המשימה שלנו</span>
+      <h2>להגדיר מחדש את מה שישראל יכולה <span class="pf">להשיג</span></h2>
+      <p>לישראל יש את הכישרון. מה שחסר לה זו המערכת. שנים ארוכות, מיטב הספורטאים שלנו נאלצו לסטות מהדרך אל הגדולה — לא בגלל המתחרים, אלא בגלל תרבות שאילצה אותם לבחור בין ספורט לבין השכלה.</p>
+      <p>SAI קיימת כדי לשנות זאת לתמיד. אנחנו בונים את התשתית הלאומית שתהפוך את ישראל לכוח בזירות הספורט הגדולות בעולם — על ידי מתן תמיכה, משאבים וגיבוי מוסדי לכל ספורטאי עילי, כדי שיתחרה ללא פשרות.</p>
+      <p>זה לא רק עניין של מלגות. זה עניין של שינוי משמעות הספורט הישראלי — בעיני הספורטאים שלנו, בעיני הנוער שלנו ובעיני העולם שצופה בנו מתחרים.</p>
     </div>
-    <div class="about-visual">
-      <div class="about-visual-inner"></div>
-      <div class="about-badge">מזכר הבנות נחתם · אוניברסיטת בר-אילן</div>
-    </div>
+    <div class="visual reveal" data-par="0.09"><div class="vtop"></div><div class="badge">מזכר הבנות נחתם · אוניברסיטת בר-אילן</div></div>
   </div>
 </section>
 
 <!-- TWO PATHS -->
-<section id="two-paths" style="border-top: 1px solid var(--border); background: var(--navy2); padding: 0; max-width: 100%;">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 7rem 4rem;">
-    <div style="text-align: center; max-width: 680px; margin: 0 auto 5rem;">
-      <div class="section-tag" style="justify-content:center; display:flex;">מסגרת SAI</div>
-      <h2 class="section-title">שני מסלולים. משימה <em>אחת.</em></h2>
-      <p style="font-size:1.05rem; color:rgba(26,26,26,0.65); line-height:1.8; margin-top:1rem;">SAI בנויה סביב שני מסלולים שונים — כל אחד מהם מותאם לנקודה שבה הספורטאי נמצא בקריירה שלו, ולא מודל אחד שמתאים לכולם.</p>
+<section class="paths" id="two-paths">
+  <div class="wrap">
+    <div class="head stagger">
+      <span class="eyebrow c">מסגרת SAI</span>
+      <h2 style="margin-top:.6rem">שני מסלולים. משימה <span class="pf">אחת.</span></h2>
+      <p class="lead">SAI בנויה סביב שני מסלולים שונים — כל אחד מהם מותאם לנקודה שבה הספורטאי נמצא בקריירה שלו, ולא מודל אחד שמתאים לכולם.</p>
     </div>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-
-      <!-- TRACK A: OLYMPIC/PARALYMPIC -->
-      <div style="background-image: linear-gradient(160deg, rgba(244,241,236,0.78) 0%, rgba(244,241,236,0.88) 60%, rgba(244,241,236,0.95) 100%), url('track-a.webp'); background-size: cover; background-position: center center; border: 1px solid var(--gold); border-radius: 6px; padding: 3rem; position: relative; overflow: hidden; min-height: 540px;">
-        <div style="position:absolute; top:0; left:0; right:0; height:4px; background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));"></div>
-        <div style="display:inline-flex; align-items:center; gap:0.5rem; background:var(--gold); color:var(--navy); font-family:'Heebo',sans-serif; font-weight:800; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:2px; margin-bottom:1.8rem;">
-          <svg class="icon icon-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="14" r="7"/><path d="M9 21l3-2 3 2-1-5"/><path d="M7 4h10l-3 6h-4z"/></svg> מסלול א'
-        </div>
-        <h3 style="font-family:'Heebo',sans-serif; font-weight:900; font-size:2rem; text-transform:uppercase; line-height:0.95; color:var(--deep-navy); margin-bottom:0.6rem;">ספורטאים אולימפיים<br>ופאראלימפיים</h3>
-        <p style="font-size:0.9rem; color:var(--gold); font-family:'Heebo',sans-serif; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1.5rem;">מתחרים ברמה לאומית ובינלאומית</p>
-        <p style="font-size:0.95rem; color:rgba(26,26,26,0.7); line-height:1.8; margin-bottom:2rem;">לספורטאים המתחרים באופן פעיל ברמת נבחרת לאומית ומעלה. המסלול נבנה סביב הדרישות של לוחות זמני אימון עיליים, לוחות תחרויות בינלאומיים וקריירת ספורט ארוכת טווח.</p>
-        <div style="display:flex; flex-direction:column; gap:0.8rem;">
-          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
-            <span style="color:var(--gold); flex-shrink:0; margin-top:2px;">✦</span>
-            הקלות אקדמיות סביב אימונים ותחרויות
-          </div>
-          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
-            <span style="color:var(--gold); flex-shrink:0; margin-top:2px;">✦</span>
-            רכז אקדמי ייעודי של SAI לניהול הקשר מול האוניברסיטה
-          </div>
-          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
-            <span style="color:var(--gold); flex-shrink:0; margin-top:2px;">✦</span>
-            מורה פרטי ייעודי להשלמת חומר לאחר נסיעות ובלוקי אימונים
-          </div>
-          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
-            <span style="color:var(--gold); flex-shrink:0; margin-top:2px;">✦</span>
-            תמיכה במלגה
-          </div>
+    <div class="tgrid stagger">
+      <div class="tcard feat a">
+        <div class="bg a" data-par="0.11"></div><div class="scr"></div><div class="top"></div>
+        <span class="tbadge a">★ מסלול א׳</span>
+        <h3>ספורטאים אולימפיים<br>ופאראלימפיים</h3>
+        <div class="kick">מתחרים ברמה לאומית ובינלאומית</div>
+        <div class="desc">לספורטאים המתחרים באופן פעיל ברמת נבחרת לאומית ומעלה. המסלול נבנה סביב לוחות זמני אימון עיליים, לוחות תחרויות בינלאומיים וקריירת ספורט ארוכת טווח.</div>
+        <div class="tlist stagger">
+          <div>הקלות אקדמיות סביב אימונים ותחרויות</div>
+          <div>רכז אקדמי ייעודי של SAI לניהול הקשר מול האוניברסיטה</div>
+          <div>מורה פרטי ייעודי להשלמת חומר לאחר נסיעות ובלוקי אימונים</div>
+          <div>תמיכה במלגה</div>
         </div>
       </div>
-
-      <!-- TRACK B: HIGH PERFORMANCE -->
-      <div style="background-image: linear-gradient(160deg, rgba(244,241,236,0.82) 0%, rgba(244,241,236,0.9) 60%, rgba(244,241,236,0.96) 100%), url('track-b.webp'); background-size: cover; background-position: center center; border: 1px solid var(--border); border-radius: 6px; padding: 3rem; position: relative; overflow: hidden; min-height: 540px;">
-        <div style="position:absolute; top:0; left:0; right:0; height:4px; background: linear-gradient(90deg, var(--blue), rgba(0,56,184,0.4));"></div>
-        <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(0,56,184,0.5); color:#FFFFFF; border:1px solid rgba(0,56,184,0.8); font-family:'Heebo',sans-serif; font-weight:800; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:2px; margin-bottom:1.8rem;">
-          <svg class="icon icon-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="15" r="6"/><path d="M9 9l-3-7h12l-3 7"/></svg> מסלול ב'
-        </div>
-        <h3 style="font-family:'Heebo',sans-serif; font-weight:900; font-size:2rem; text-transform:uppercase; line-height:0.95; color:var(--deep-navy); margin-bottom:0.6rem;">ספורטאים<br>בעלי ביצועים גבוהים</h3>
-        <p style="font-size:0.9rem; color:rgba(26,26,26,0.5); font-family:'Heebo',sans-serif; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1.5rem;">מתחרים עולים ורמה לאומית</p>
-        <p style="font-size:0.95rem; color:rgba(26,26,26,0.7); line-height:1.8; margin-bottom:2rem;">לספורטאים המתחרים ברצינות ברמה לאומית גבוהה ובונים את עצמם לקראת מעמד עילי. המסלול מספק תמיכה מאורגנת לפיתוח הפוטנציאל הספורטיבי והאקדמי במקביל.</p>
-        <div style="display:flex; flex-direction:column; gap:0.8rem;">
-          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
-            <span style="color:rgba(212,162,74,0.6); flex-shrink:0; margin-top:2px;">✦</span>
-            הקלות אקדמיות סביב אימונים ותחרויות
-          </div>
-          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
-            <span style="color:rgba(212,162,74,0.6); flex-shrink:0; margin-top:2px;">✦</span>
-            רכז אקדמי ייעודי של SAI לניהול הקשר מול האוניברסיטה
-          </div>
-          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
-            <span style="color:rgba(212,162,74,0.6); flex-shrink:0; margin-top:2px;">✦</span>
-            מורה פרטי ייעודי להשלמת חומר לאחר נסיעות ובלוקי אימונים
-          </div>
-          <div style="display:flex; gap:0.8rem; align-items:flex-start; font-size:0.88rem; color:rgba(26,26,26,0.75);">
-            <span style="color:rgba(212,162,74,0.6); flex-shrink:0; margin-top:2px;">✦</span>
-            מסלול מעבר למסלול א' אם רמת התחרות עולה
-          </div>
+      <div class="tcard b">
+        <div class="bg b" data-par="0.11"></div><div class="scr"></div><div class="top"></div>
+        <span class="tbadge b">◆ מסלול ב׳</span>
+        <h3>ספורטאים<br>בעלי ביצועים גבוהים</h3>
+        <div class="kick" style="color:#9cc0ff">מתחרים עולים ורמה לאומית</div>
+        <div class="desc">לספורטאים המתחרים ברצינות ברמה לאומית גבוהה ובונים את עצמם לקראת מעמד עילי. המסלול מספק תמיכה מאורגנת לפיתוח הפוטנציאל הספורטיבי והאקדמי במקביל.</div>
+        <div class="tlist stagger">
+          <div>הקלות אקדמיות סביב אימונים ותחרויות</div>
+          <div>רכז אקדמי ייעודי של SAI לניהול הקשר מול האוניברסיטה</div>
+          <div>מורה פרטי ייעודי להשלמת חומר לאחר נסיעות ובלוקי אימונים</div>
+          <div>מסלול מעבר למסלול א׳ אם רמת התחרות עולה</div>
         </div>
       </div>
-
     </div>
-    <p style="text-align:center; margin-top:3rem; font-size:0.9rem; color:var(--grey); font-style:italic;">השיבוץ למסלול נקבע בשיתוף הספורטאי, המאמן שלו וועדת המיון של SAI.</p>
+    <p class="foot reveal">השיבוץ למסלול נקבע בשיתוף הספורטאי, המאמן שלו וועדת המיון של SAI.</p>
   </div>
 </section>
 
-<!-- OUR PROGRESS (TIMELINE) -->
-<section id="timeline">
-  <div class="timeline-intro">
-    <div class="section-tag">ההתקדמות שלנו</div>
-    <h2 class="section-title">מרעיון <em>לתנועה</em></h2>
-    <p style="font-size:1.05rem; color:rgba(26,26,26,0.7); line-height:1.8; margin-top:1rem;">מקונספט למסגרת לאומית — אבני הדרך שהביאו את SAI לחיים, והדרך הצפויה.</p>
-  </div>
 
-  <div class="timeline-desktop">
-  <div class="track-container">
-    <div class="track-spacer-top"></div>
-    <div class="track-rail">
-      <div class="track-lane-dashes"></div>
-      <div class="track-start"></div>
-      <div class="track-start-label">התחלה</div>
-      <div class="track-finish"></div>
-      <div class="track-finish-label">2030</div>
-      <div class="track-nodes">
-        <div class="track-node node-above">
-          <div class="track-dot"></div>
-          <div class="track-connector"></div>
-          <div class="track-card">
-            <div class="track-card-title">זיהוי הבעיה</div>
-            <div class="track-card-body">SAI נוסדה כדי לסיים את הבחירה הבלתי אפשרית שעומדת בפני ספורטאים ישראלים.</div>
-            <span class="track-card-badge">הקמה</span>
-          </div>
-        </div>
-        <div class="track-node node-below">
-          <div class="track-card">
-            <div class="track-card-title">בניית המסגרת</div>
-            <div class="track-card-body">ממשל, מודל דו-מסלולי ומבנה מלגות הוקמו. תורם מייסד אובטח.</div>
-            <span class="track-card-badge">תפעול</span>
-          </div>
-          <div class="track-connector"></div>
-          <div class="track-dot"></div>
-        </div>
-        <div class="track-node node-above">
-          <div class="track-dot"></div>
-          <div class="track-connector"></div>
-          <div class="track-card">
-            <div class="track-card-title">חתימת מזכר הבנות עם בר-אילן</div>
-            <div class="track-card-body">מסגרת ההקלות הפורמלית הראשונה בישראל לספורטאים עיליים, נוצרה בשיתוף עם אוניברסיטת בר-אילן.</div>
-            <span class="track-card-badge">אבן דרך ✦</span>
-          </div>
-        </div>
-        <div class="track-node node-below">
-          <div class="track-card">
-            <div class="track-card-title">השקת מחזור 1</div>
-            <div class="track-card-body">10 ספורטאים מייסדים מגויסים. תוכנית מנטורינג פעילה. סמסטר סתיו 2026 נפתח.</div>
-            <span class="track-card-badge">בתהליך</span>
-          </div>
-          <div class="track-connector"></div>
-          <div class="track-dot"></div>
-        </div>
-        <div class="track-node node-above">
-          <div class="track-dot future"></div>
-          <div class="track-connector"></div>
-          <div class="track-card">
-            <div class="track-card-title">הרחבה לאוניברסיטה השנייה</div>
-            <div class="track-card-body">שכפול באוניברסיטה העברית, אוניברסיטת תל אביב או הטכניון. 30+ ספורטאים בשני קמפוסים.</div>
-            <span class="track-card-badge upcoming">מתוכנן</span>
-          </div>
-        </div>
-        <div class="track-node node-below">
-          <div class="track-card">
-            <div class="track-card-title">100+ ספורטאים</div>
-            <div class="track-card-body">4+ אוניברסיטאות. קרן הוקמה. הנבחרת האולימפית המוסמכת ביותר של ישראל אי פעם.</div>
-            <span class="track-card-badge upcoming">חזון</span>
-          </div>
-          <div class="track-connector"></div>
-          <div class="track-dot future"></div>
-        </div>
-      </div>
-    </div>
-    <div class="track-spacer-bot"></div>
-  </div>
-  </div>
 
-  <!-- MOBILE TIMELINE -->
-  <div class="timeline-mobile">
-    <div class="tl-item">
-      <div class="tl-line"><div class="tl-dot"></div><div class="tl-connector"></div></div>
-      <div class="tl-content">
-        <div class="tl-title">השקת מחזור 1</div>
-        <div class="tl-body">10 ספורטאים מייסדים מגויסים. תוכנית מנטורינג פעילה. סמסטר סתיו 2026 נפתח.</div>
-        <span class="tl-badge">בתהליך</span>
+<!-- OUR PROGRESS -->
+<section class="progress" id="timeline">
+  <div class="wrap head stagger">
+    <span class="eyebrow c">ההתקדמות שלנו</span>
+    <h2 style="margin-top:.6rem">מרעיון <span class="pf">לתנועה</span></h2>
+    <p class="lead" style="margin:1rem auto 0">מקונספט למסגרת לאומית — אבני הדרך שהביאו את SAI לחיים, והדרך הצפויה.</p>
+  </div>
+  <div class="wrap"><div class="tl" id="tl">
+    <div class="rail"></div><div class="fill" id="tlfill"></div><div class="runner" id="tlrun"></div>
+    <div class="node r"><div class="dot"></div><div class="tcardp reveal"><div class="t">זיהוי הבעיה</div><div class="b">SAI נוסדה כדי לסיים את הבחירה הבלתי אפשרית שעומדת בפני ספורטאים ישראלים.</div><span class="tbadge2">הקמה</span></div></div>
+    <div class="node l"><div class="dot"></div><div class="tcardp reveal"><div class="t">בניית המסגרת</div><div class="b">ממשל, מודל דו-מסלולי ומבנה מלגות הוקמו. תורם מייסד אובטח.</div><span class="tbadge2">תפעול</span></div></div>
+    <div class="node r"><div class="dot"></div><div class="tcardp reveal"><div class="t">חתימת מזכר הבנות עם בר-אילן</div><div class="b">מסגרת ההקלות הפורמלית הראשונה בישראל לספורטאים עיליים, נוצרה בשיתוף עם אוניברסיטת בר-אילן.</div><span class="tbadge2">אבן דרך ✦</span></div></div>
+    <div class="node l"><div class="dot"></div><div class="tcardp reveal"><div class="t">השקת מחזור 1</div><div class="b">10 ספורטאים מייסדים מגויסים. תוכנית מנטורינג פעילה. סמסטר סתיו 2026 נפתח.</div><span class="tbadge2">בתהליך</span></div></div>
+    <div class="node r"><div class="dot"></div><div class="tcardp reveal"><div class="t">הרחבה לאוניברסיטה השנייה</div><div class="b">שכפול באוניברסיטה העברית, אוניברסיטת תל אביב או הטכניון. 30+ ספורטאים בשני קמפוסים.</div><span class="tbadge2 up">מתוכנן</span></div></div>
+    <div class="node l"><div class="dot"></div><div class="tcardp reveal"><div class="t">100+ ספורטאים</div><div class="b">4+ אוניברסיטאות. קרן הוקמה. הנבחרת האולימפית המוסמכת ביותר של ישראל אי פעם.</div><span class="tbadge2 up">חזון</span></div></div>
+  </div><div class="ends"><span>התחלה</span><span>2030</span></div></div>
+</section>
+
+<!-- MEET COHORT 1 -->
+<section class="cohort">
+  <div class="wrap head stagger">
+    <span class="eyebrow c">מחזור 1 · סתיו 2026</span>
+    <h2 style="margin-top:.6rem">הכירו את <span class="pf">הסגל</span></h2>
+    <p class="lead" style="margin:1rem auto 0">תשעה ספורטאים במסלול אולימפי ופאראלימפי — מתאמנים לפודיום בזמן שהם רוכשים תואר בבר-אילן.</p>
+  </div>
+  <div class="crow" id="crow" data-par="0.08"><div class="cfig"><img src="GaliMeltzerRog-Cutout.png" alt="" onerror="this.parentNode.style.display='none'"></div><div class="cfig"><img src="ToharTamir-Cutout.png" alt="" onerror="this.parentNode.style.display='none'"></div><div class="cfig"><img src="AlmaIfergan-Cutout.png" alt="" onerror="this.parentNode.style.display='none'"></div><div class="cfig"><img src="YuvalYitzhaki-Cutout.png" alt="" onerror="this.parentNode.style.display='none'"></div><div class="cfig"><img src="EylonElazar-Cutout.png" alt="" onerror="this.parentNode.style.display='none'"></div><div class="cfig"><img src="ShakedAmichai-Cutout.png" alt="" onerror="this.parentNode.style.display='none'"></div><div class="cfig"><img src="InbalShemesh-Cutout.png" alt="" onerror="this.parentNode.style.display='none'"></div><div class="cfig"><img src="NitaiHasson-Cutout.png" alt="" onerror="this.parentNode.style.display='none'"></div><div class="cfig"><img src="ShaharTibi-Cutout.png" alt="" onerror="this.parentNode.style.display='none'"></div><div class="cfloor"></div></div>
+  <div class="cbtnwrap"><a class="cbtn" href="athletes-he">הכירו את הספורטאים ←</a></div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners" id="partners">
+  <div class="wrap head stagger">
+    <span class="eyebrow c">שותפות אקדמיות</span>
+    <h2 style="margin-top:.6rem">כאן לומדים <span class="pf">אלופים</span></h2>
+    <p class="lead" style="margin:1rem auto 0">SAI בונה רשת לאומית של אוניברסיטאות הערוכות לתמוך בספורטאים עיליים. כל קמפוס שותף חדש מרחיב את מספר הספורטאים שאנו יכולים לשרת — ואת תרבות הספורט שאנו יכולים לשנות.</p>
+  </div>
+  <div class="wrap"><div class="pwall stagger">
+    <div class="pfeat">
+      <span class="st">שותף פעיל · סתיו 2026</span>
+      <div class="frame"><img src="bar-ilan-university-logo.webp" alt="Bar-Ilan University"></div>
+      <div class="pmeta">
+        <div class="row"><span class="k">מיקום</span><span class="v">רמת גן, ישראל</span></div>
+        <div class="row"><span class="k">נוסדה</span><span class="v">1955</span></div>
+        <div class="row"><span class="k">עובדה מעניינת</span><span class="v">20,000+ סטודנטים — האוניברסיטה השנייה בגודלה בישראל</span></div>
       </div>
+      <div class="note">✦ שותף מייסד של SAI</div>
     </div>
-    <div class="tl-item">
-      <div class="tl-line"><div class="tl-dot future"></div><div class="tl-connector"></div></div>
-      <div class="tl-content">
-        <div class="tl-title">הרחבה לאוניברסיטה השנייה</div>
-        <div class="tl-body">שכפול באוניברסיטה העברית, אוניברסיטת תל אביב או הטכניון. 30+ ספורטאים בשני קמפוסים.</div>
-        <span class="tl-badge upcoming">מתוכנן</span>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-line"><div class="tl-dot future"></div></div>
-      <div class="tl-content">
-        <div class="tl-title">100+ ספורטאים</div>
-        <div class="tl-body">4+ אוניברסיטאות. קרן הוקמה. הנבחרת האולימפית המוסמכת ביותר של ישראל אי פעם.</div>
-        <span class="tl-badge upcoming">חזון</span>
-      </div>
-    </div>
+    <div class="pslot"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg><div class="lb">האוניברסיטה<br>השותפה הבאה</div><a class="cta" href="donate-he">עזרו לנו להרחיב ←</a></div>
+    <div class="pslot"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg><div class="lb">האוניברסיטה<br>השותפה הבאה</div><a class="cta" href="donate-he">עזרו לנו להרחיב ←</a></div>
+  </div>
+  <p class="pnote">כל שותפות אוניברסיטאית חדשה דורשת <b>השקעה מייסדת של 250–500 אלף דולר</b>. מעוניינים להביא את SAI לקמפוס? <a href="#contact">צרו קשר ←</a></p>
   </div>
 </section>
 
-<!-- OUR ATHLETES — section removed for now -->
-<!-- UNIVERSITY PARTNERS -->
-<section id="partners">
-  <div class="partners-intro">
-    <div class="section-tag">שותפות אקדמיות</div>
-    <h2 class="section-title">כאן לומדים <em>אלופים</em></h2>
-    <p style="font-size:1.05rem; color:rgba(26,26,26,0.7); line-height:1.8; margin-top:1rem;">SAI בונה רשת לאומית של אוניברסיטאות הערוכות לתמוך בספורטאים עיליים. כל קמפוס שותף חדש מרחיב את מספר הספורטאים שאנו יכולים לשרת — ואת תרבות הספורט שאנו יכולים לשנות.</p>
+<!-- VOICES -->
+<section class="voices">
+  <div class="wrap head stagger">
+    <span class="eyebrow c">קולות</span>
+    <h2 style="margin-top:.6rem">למה <span class="pf">זה</span> חשוב</h2>
+    <p class="lead" style="margin:1rem auto 0">מהספורטאים שחיו את הבחירה הבלתי אפשרית, ועד לשותפים שבונים את הפתרון.</p>
   </div>
-  <div class="partners-wall">
-    <div class="partner-featured">
-      <span class="partner-status-badge">שותף פעיל · סתיו 2026</span>
-      <div class="partner-logo-frame">
-        <picture>
-          <source srcset="bar-ilan-university-logo.webp" type="image/webp">
-          <img class="partner-uni-logo" src="bar-ilan-university-logo.png" alt="אוניברסיטת בר-אילן" width="600" height="267" loading="lazy" decoding="async">
-        </picture>
-      </div>
-      <div class="partner-meta">
-        <div class="partner-meta-row"><span class="partner-meta-label">מיקום</span><span class="partner-meta-value">רמת גן, ישראל</span></div>
-        <div class="partner-meta-row"><span class="partner-meta-label">נוסדה</span><span class="partner-meta-value">1955</span></div>
-        <div class="partner-meta-row"><span class="partner-meta-label">עובדה מעניינת</span><span class="partner-meta-value">20,000+ סטודנטים &mdash; האוניברסיטה השנייה בגודלה בישראל</span></div>
-      </div>
-      <div class="partner-mou-note">✦ שותף מייסד של SAI</div>
+  <div class="wrap"><div class="qgrid stagger">
+    <div class="qcard feat">
+      <span class="qmark">"</span>
+      <p class="qtext">בזכות התוכנית הזו, ספורטאים מקצועיים כמוני יקבלו סוף-סוף הזדמנות אמיתית לרכוש השכלה לצד ספורט עילי. ישראל תקבל ספורטאים חזקים ומצליחים יותר — ותרחיב את הייצוג שלנו בזירות הספורט הגדולות בעולם.</p>
+      <div class="qdiv"></div>
+      <div class="qby"><img src="shahar.webp" alt="שחר מילפלדר"><div><div class="qnm">שחר מילפלדר</div><div class="qrl">חותרת פאראלימפית · מדליית ארד, פריז 2024</div></div></div>
     </div>
-    <div class="partner-slot">
-      <div class="partner-slot-icon"><svg class="icon icon-gold" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-      <div class="partner-slot-label">האוניברסיטה<br>השותפה הבאה</div>
-      <a class="partner-slot-cta" href="donate-he">עזרו לנו להרחיב ←</a>
+    <div class="qcard">
+      <span class="qmark">"</span>
+      <p class="qtext">מסגרת ההקלות ש-SAI סגרה עם בר-אילן היא פריצת דרך אמיתית. לראשונה, האוניברסיטה מתאימה את עצמה ללוח הזמנים של הספורטאי — ולא להפך.</p>
+      <div class="qdiv"></div>
+      <div class="qby"><div><div class="qnm">נציג שותף אקדמי</div><div class="qrl">אוניברסיטת בר-אילן</div></div></div>
     </div>
-    <div class="partner-slot">
-      <div class="partner-slot-icon"><svg class="icon icon-gold" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-      <div class="partner-slot-label">האוניברסיטה<br>השותפה הבאה</div>
-      <a class="partner-slot-cta" href="donate-he">עזרו לנו להרחיב ←</a>
+    <div class="qcard">
+      <span class="qmark">"</span>
+      <p class="qtext">כתורם, תמכתי במטרות רבות. אבל SAI ייחודית — היא בונה תשתית שמצטברת לאורך זמן. כל ספורטאי שאנחנו תומכים בו משדר לדור הבא שלמצוינות אין תקרה.</p>
+      <div class="qdiv"></div>
+      <div class="qby"><div><div class="qnm">תורם מייסד</div><div class="qrl">תומך מחזור 1 של SAI</div></div></div>
     </div>
-    </div>
-  <p class="partners-note">כל שותפות אוניברסיטאית חדשה דורשת <strong style="color:var(--deep-navy); font-weight:600;">השקעה מייסדת של 250–500 אלף דולר</strong>. מעוניינים להביא את SAI לקמפוס? <a href="#contact">צרו קשר ←</a></p>
+  </div></div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="testimonials-intro">
-    <div class="section-tag">קולות</div>
-    <h2 class="section-title">למה <em>זה</em> חשוב</h2>
-    <p style="font-size:1.05rem; color:rgba(26,26,26,0.7); line-height:1.8; margin-top:1rem;">מהספורטאים שחיו את הבחירה הבלתי אפשרית, ועד לשותפים שבונים את הפתרון.</p>
-  </div>
-  <div class="quotes-grid">
-    <div class="quote-card" style="border-color: rgba(212,162,74,0.5); background: linear-gradient(135deg, rgba(0,56,184,0.25), var(--card-bg));">
-      <span class="quote-mark">"</span>
-      <p class="quote-text">בזכות התוכנית הזו, ספורטאים מקצועיים כמוני יקבלו סוף-סוף הזדמנות אמיתית לרכוש השכלה לצד ספורט עילי. ישראל תקבל ספורטאים חזקים ומצליחים יותר — ותרחיב את הייצוג שלנו בזירות הספורט הגדולות בעולם.</p>
-      <div class="quote-divider" style="width:48px; background: var(--gold); opacity:0.8;"></div>
-      <div style="display:flex; align-items:center; gap:1rem; margin-top:0.5rem;">
-        <picture><source srcset="shahar.webp" type="image/webp"><img src="shahar.png" alt="שחר מילפלדר" style="width:64px; height:64px; border-radius:50%; object-fit:cover; border:2px solid var(--gold); flex-shrink:0;" loading="lazy" decoding="async"></picture>
-        <div>
-          <div class="quote-author">שחר מילפלדר</div>
-          <div class="quote-role">חותרת פאראלימפית &nbsp;·&nbsp; <svg class="icon icon-gold" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.15em"><circle cx="12" cy="15" r="6"/><path d="M9 9l-3-7h12l-3 7"/></svg> מדליית ארד, פריז 2024</div>
-        </div>
-      </div>
-    </div>
-    <div class="quote-card">
-      <span class="quote-mark">"</span>
-      <p class="quote-text">מסגרת ההקלות ש-SAI סגרה עם בר-אילן היא פריצת דרך אמיתית. לראשונה, האוניברסיטה מתאימה את עצמה ללוח הזמנים של הספורטאי — ולא להפך.</p>
-      <div class="quote-divider"></div>
-      <div class="quote-author">נציג שותף אקדמי</div>
-      <div class="quote-role">אוניברסיטת בר-אילן</div>
-    </div>
-    <div class="quote-card">
-      <span class="quote-mark">"</span>
-      <p class="quote-text">כתורם, תמכתי במטרות רבות. אבל SAI ייחודית — היא בונה תשתית שמצטברת לאורך זמן. כל ספורטאי שאנחנו תומכים בו משדר לדור הבא שלמצוינות אין תקרה.</p>
-      <div class="quote-divider"></div>
-      <div class="quote-author">תורם מייסד</div>
-      <div class="quote-role">תומך מחזור 1 של SAI</div>
-    </div>
-  </div>
-</section>
-
-<!-- DONOR CTA -->
-<div style="background: linear-gradient(135deg, var(--blue) 0%, rgba(0,56,184,0.4) 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 6rem 4rem; text-align: center;">
-  <div style="max-width: 700px; margin: 0 auto;">
-    <div class="section-tag" style="justify-content: center; display: flex;">לתורמים ולמשקיעים</div>
-    <h2 style="font-family: 'Heebo', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; line-height: 0.95; margin: 1rem 0 1.5rem;">מוכנים לבנות את <em style="font-family: 'Heebo', sans-serif; font-style: italic; color: var(--gold); font-size: 0.9em;">העתיד האולימפי</em> של ישראל?</h2>
-    <p style="font-size: 1.05rem; color: rgba(26,26,26,0.7); line-height: 1.8; max-width: 520px; margin: 0 auto 2.5rem;">ההשקעה שלכם לא רק תומכת בספורטאי אחד — היא בונה את התשתית שתתמוך בדורות של כישרון אולימפי ופאראלימפי ישראלי.</p>
-    <a class="btn-primary" href="donate-he" style="font-size: 1rem; padding: 1.1rem 3rem;">גלו הזדמנויות השקעה ←</a>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-grid">
-    <div class="contact-info">
-      <div class="section-tag">צור קשר</div>
-      <h2 class="section-title">בואו <em>נדבר</em></h2>
+<!-- CONTACT / CLOSE -->
+<section class="contact" id="contact">
+  <video class="cvid" autoplay muted loop playsinline preload="auto" onerror="this.style.display='none'"><source src="contact_bg.mp4" type="video/mp4"></video>
+  <div class="cscrim"></div>
+  <div class="glow"></div>
+  <div class="wrap cgrid">
+    <div class="cinfo reveal">
+      <span class="eyebrow">צור קשר</span>
+      <h2>בואו <span class="pf">נדבר</span></h2>
       <p>בין אם אתם ספורטאים שמוכנים להגיש מועמדות, תורמים שבוחנים הזדמנויות, או שותפים אקדמיים שמתעניינים במודל — נשמח לשמוע מכם.</p>
-      <div class="contact-detail">
-        <div class="contact-item">
-          <div class="contact-item-icon"><svg class="icon icon-gold" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div class="contact-item-text">
-            <strong>מיקום</strong>
-            ישראל (שותפות אוניברסיטת בר-אילן)
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-icon"><svg class="icon icon-gold" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
-          <div class="contact-item-text">
-            <strong>אימייל</strong>
-            <a href="mailto:info@studentathletes.org.il">info@studentathletes.org.il</a>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-icon"><svg class="icon icon-gold" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
-          <div class="contact-item-text">
-            <strong>השקה</strong>
-            סתיו 2026 · אוניברסיטת בר-אילן
-          </div>
-        </div>
+      <div class="citems">
+        <div class="citem"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><div class="tx"><strong>מיקום</strong>ישראל · שותפות עם אוניברסיטת בר-אילן</div></div>
+        <div class="citem"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div class="tx"><strong>אימייל</strong><a href="mailto:info@studentathletes.org.il">info@studentathletes.org.il</a></div></div>
+        <div class="citem"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div class="tx"><strong>השקה</strong>סתיו 2026 · אוניברסיטת בר-אילן</div></div>
       </div>
     </div>
     <form class="contact-form" id="contact-form">
@@ -2090,11 +2170,60 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<script>
+var REDUCE=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.16});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+document.querySelectorAll('.stagger').forEach(function(c){Array.prototype.forEach.call(c.children,function(ch,i){ch.style.transitionDelay=(i*0.09)+'s';});io.observe(c);});
+// #5 cohort cutouts fan in center-out
+var crow=document.getElementById('crow');
+if(crow){var figs=[].slice.call(crow.querySelectorAll('.cfig')),mid=(figs.length-1)/2;
+  figs.forEach(function(f,i){f.style.transitionDelay=(Math.abs(i-mid)*0.085).toFixed(3)+'s';});
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){crow.classList.add('in');cio.disconnect();}});},{threshold:.25});
+  cio.observe(crow);}
+
+var tick=false;
+var tl=document.getElementById('tl'),tlfill=document.getElementById('tlfill'),tlrun=document.getElementById('tlrun'),tldots=tl?[].slice.call(tl.querySelectorAll('.dot')):[];
+var pars=[].slice.call(document.querySelectorAll('[data-par]'));
+
+// scroll-bloom seams — one glow band at every section boundary; positions read live so they never drift
+var seams=[];
+function build(){
+  if(REDUCE)return;
+  seams.forEach(function(s){s.el.remove();});seams=[];
+  ['.mission','.paths','.progress','.cohort','.partners','.voices','.contact'].forEach(function(sel){
+    var sec=document.querySelector(sel);if(!sec)return;
+    var div=document.createElement('div');div.className='seam';document.body.appendChild(div);seams.push({el:div,sec:sec});});
+}
+function px(){tick=false;var vh=window.innerHeight,vc=window.pageYOffset+vh/2;
+  // depth parallax (individual translate → composes with scale/keyframes)
+  for(var i=0;i<pars.length;i++){var el=pars[i],r=el.getBoundingClientRect(),c=r.top+r.height/2,sp=parseFloat(el.getAttribute('data-par'));
+    el.style.translate='0 '+((vh/2-c)*sp).toFixed(1)+'px';}
+  // timeline runner
+  if(tl){var rr=tl.getBoundingClientRect();var m=vh*0.55;var pg=Math.max(0,Math.min(1,(m-rr.top)/rr.height));var h=pg*tl.offsetHeight;tlfill.style.height=h+'px';if(tlrun)tlrun.style.top=h+'px';tldots.forEach(function(dd){if(dd.offsetTop<=h+4)dd.classList.add('lit');else dd.classList.remove('lit');});}
+  // bloom the seams as they cross the viewport centre (offsetTop read live → always in sync)
+  for(var j=0;j<seams.length;j++){var y=seams[j].sec.offsetTop;seams[j].el.style.top=y+'px';var dY=Math.abs(y-vc);seams[j].el.style.opacity=Math.max(0,1-dY/440).toFixed(3);}
+}
+if(!REDUCE){
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(px);}},{passive:true});
+  window.addEventListener('resize',function(){build();px();});
+  window.addEventListener('load',function(){build();px();});
+  build();px();
+}
+// contact bg video: force play (autoplay can be held) + gentle slow-mo
+(function(){var cv=document.querySelector('.cvid');if(!cv||cv.tagName!=='VIDEO')return;
+  function slow(){try{cv.playbackRate=0.7;}catch(e){}}
+  cv.addEventListener('loadedmetadata',slow);cv.addEventListener('play',slow);
+  var pr=cv.play();if(pr&&pr.catch)pr.catch(function(){/* blocked until interaction */});
+})();
+</script>
+</div>
+
 <!-- FOOTER -->
 </main>
 
 <footer>
-  <img class="footer-seal" src="sai-logo-navy.png" alt="סטודנטים ספורטאים בישראל" width="120" height="120" loading="lazy" decoding="async">
+  <img class="footer-seal" src="sai-logo-white.png" alt="סטודנטים ספורטאים בישראל" width="120" height="120" loading="lazy" decoding="async">
   <div class="footer-wordmark">סטודנטים ספורטאים בישראל</div>
   <div class="footer-wordmark" lang="en" dir="ltr" style="font-size:1rem;color:var(--tekhelet);margin-bottom:.6rem;letter-spacing:0">Student Athletes of Israel</div>
   <div class="footer-sub">להתאמן &middot; ללמוד &middot; להצטיין</div>
@@ -2273,5 +2402,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script src="hero-flash.js" defer></script>
 
+<script>
+(function(){
+
+var REDUCE=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.16});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+document.querySelectorAll('.stagger').forEach(function(c){Array.prototype.forEach.call(c.children,function(ch,i){ch.style.transitionDelay=(i*0.09)+'s';});io.observe(c);});
+// #5 cohort cutouts fan in center-out
+var crow=document.getElementById('crow');
+if(crow){var figs=[].slice.call(crow.querySelectorAll('.cfig')),mid=(figs.length-1)/2;
+  figs.forEach(function(f,i){f.style.transitionDelay=(Math.abs(i-mid)*0.085).toFixed(3)+'s';});
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){crow.classList.add('in');cio.disconnect();}});},{threshold:.25});
+  cio.observe(crow);}
+
+var tick=false;
+var tl=document.getElementById('tl'),tlfill=document.getElementById('tlfill'),tlrun=document.getElementById('tlrun'),tldots=tl?[].slice.call(tl.querySelectorAll('.dot')):[];
+var pars=[].slice.call(document.querySelectorAll('[data-par]'));
+
+// scroll-bloom seams — one glow band at every section boundary; positions read live so they never drift
+var seams=[];
+function build(){
+  if(REDUCE)return;
+  seams.forEach(function(s){s.el.remove();});seams=[];
+  ['.mission','.paths','.progress','.cohort','.partners','.voices','.contact'].forEach(function(sel){
+    var sec=document.querySelector(sel);if(!sec)return;
+    var div=document.createElement('div');div.className='seam';(document.querySelector('.hd')||document.body).appendChild(div);seams.push({el:div,sec:sec});});
+}
+function px(){tick=false;var vh=window.innerHeight,vc=window.pageYOffset+vh/2;
+  // depth parallax (individual translate → composes with scale/keyframes)
+  for(var i=0;i<pars.length;i++){var el=pars[i],r=el.getBoundingClientRect(),c=r.top+r.height/2,sp=parseFloat(el.getAttribute('data-par'));
+    el.style.translate='0 '+((vh/2-c)*sp).toFixed(1)+'px';}
+  // timeline runner
+  if(tl){var rr=tl.getBoundingClientRect();var m=vh*0.55;var pg=Math.max(0,Math.min(1,(m-rr.top)/rr.height));var h=pg*tl.offsetHeight;tlfill.style.height=h+'px';if(tlrun)tlrun.style.top=h+'px';tldots.forEach(function(dd){if(dd.offsetTop<=h+4)dd.classList.add('lit');else dd.classList.remove('lit');});}
+  // bloom the seams as they cross the viewport centre (offsetTop read live → always in sync)
+  for(var j=0;j<seams.length;j++){var y=seams[j].sec.offsetTop;seams[j].el.style.top=y+'px';var dY=Math.abs(y-vc);seams[j].el.style.opacity=Math.max(0,1-dY/440).toFixed(3);}
+}
+if(!REDUCE){
+  window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(px);}},{passive:true});
+  window.addEventListener('resize',function(){build();px();});
+  window.addEventListener('load',function(){build();px();});
+  build();px();
+}
+// contact bg video: force play (autoplay can be held) + gentle slow-mo
+(function(){var cv=document.querySelector('.cvid');if(!cv||cv.tagName!=='VIDEO')return;
+  function slow(){try{cv.playbackRate=0.7;}catch(e){}}
+  cv.addEventListener('loadedmetadata',slow);cv.addEventListener('play',slow);
+  var pr=cv.play();if(pr&&pr.catch)pr.catch(function(){/* blocked until interaction */});
+})();
+
+})();
+</script>
 </body>
 </html>
