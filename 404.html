@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Page Not Found — Student Athletes of Israel</title>
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#001A5C" />
+<link rel="icon" type="image/png" href="/sai-logo-navy.png" />
+<link rel="apple-touch-icon" href="/sai-logo-navy.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Assistant:wght@300;400;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#001A5C; --navy-deep:#000d2e; --gold:#D4A24A; --gold-light:#E8C588;
+    --cream:#F4F1EC;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    background:radial-gradient(120% 120% at 50% 0%, #032a6b 0%, var(--navy) 45%, var(--navy-deep) 100%);
+    color:var(--cream);
+    font-family:'Assistant',system-ui,sans-serif;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:2rem; min-height:100vh;
+  }
+  .wrap{max-width:640px;}
+  .logo{width:76px;height:auto;margin:0 auto 2.2rem;display:block;opacity:.95;}
+  .eyebrow{
+    font-family:'Barlow Condensed',sans-serif; font-weight:600;
+    letter-spacing:.24em; text-transform:uppercase;
+    color:var(--gold); font-size:.82rem; margin-bottom:1.1rem;
+  }
+  .code{
+    font-family:'Barlow Condensed',sans-serif; font-weight:900;
+    font-size:clamp(5rem,20vw,9rem); line-height:.92; letter-spacing:.02em;
+    color:var(--cream); margin-bottom:.4rem;
+  }
+  h1{
+    font-family:'Barlow Condensed',sans-serif; font-weight:800;
+    text-transform:uppercase; letter-spacing:.02em;
+    font-size:clamp(1.5rem,5vw,2.4rem); line-height:1.05; margin-bottom:1.1rem;
+  }
+  h1 em{
+    font-family:'Playfair Display',serif; font-style:italic; font-weight:700;
+    color:var(--gold); text-transform:none; font-size:.9em;
+  }
+  p{
+    font-weight:300; font-size:1.05rem; line-height:1.6;
+    color:rgba(244,241,236,.72); margin:0 auto 2rem; max-width:30rem;
+  }
+  .actions{display:flex; gap:.9rem; justify-content:center; flex-wrap:wrap;}
+  .btn{
+    font-family:'Barlow Condensed',sans-serif; font-weight:700;
+    text-transform:uppercase; letter-spacing:.06em; font-size:1rem;
+    text-decoration:none; padding:.85rem 1.8rem; border-radius:2px;
+    transition:transform .18s cubic-bezier(0,0,.2,1), background .18s, box-shadow .18s;
+    display:inline-block;
+  }
+  .btn-primary{
+    background:linear-gradient(180deg,var(--gold-light),var(--gold));
+    color:var(--navy-deep);
+    box-shadow:0 8px 30px rgba(212,162,74,.28);
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-ghost{
+    color:var(--cream); border:1px solid rgba(212,162,74,.45); background:transparent;
+  }
+  .btn-ghost:hover{transform:translateY(-2px); border-color:var(--gold);}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <img class="logo" src="/sai-logo-white.png" alt="Student Athletes of Israel" width="76" height="76" />
+    <div class="eyebrow">Error 404 — Page Not Found</div>
+    <div class="code">404</div>
+    <h1>This path led <em>nowhere</em>.</h1>
+    <p>The page you're looking for has moved, been renamed, or never existed. Every champion takes a wrong turn — here's the way back.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/">Back to Home</a>
+      <a class="btn btn-ghost" href="/athletes">Meet the Athletes</a>
+    </div>
+  </main>
+</body>
+</html>
