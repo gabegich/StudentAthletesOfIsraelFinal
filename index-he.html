@@ -1819,6 +1819,9 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
 
 /* ===== integration overrides ===== */
 .hd{position:relative}
+/* neutralise the site's global `section{max-width:1200px;margin:0 auto}` so our
+   sections go full-bleed; the inner .wrap keeps content centred at 1200 */
+.hd section{max-width:none;margin-left:0;margin-right:0;width:100%}
 body.homedark{background:#071531}
 .homedark footer{background:#071531;border-top:1px solid rgba(201,168,76,.22)}
 .homedark footer .footer-wordmark,.homedark footer .footer-sub,.homedark footer .footer-copy{color:#f5f3ee}
