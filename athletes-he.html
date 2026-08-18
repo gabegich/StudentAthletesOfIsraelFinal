@@ -75,7 +75,7 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
   .floor{position:absolute;left:0;right:0;bottom:0;height:30%;z-index:3;pointer-events:none;background:linear-gradient(0deg,var(--ink) 6%,rgba(10,14,26,.35) 55%,transparent)}
 
   /* strip / coverflow */
-  .strip{position:absolute;bottom:0;left:0;z-index:2;height:88%;display:flex;align-items:flex-end;opacity:0;will-change:transform,opacity}
+  .strip{position:absolute;bottom:0;left:0;z-index:2;height:88%;display:flex;direction:ltr;align-items:flex-end;opacity:0;will-change:transform,opacity}
   .dots{transition:opacity .3s ease}
   .cell{position:relative;height:100%;flex:0 0 auto;transform-origin:center bottom;will-change:transform,opacity,filter;backface-visibility:hidden}
   .spot{position:absolute;left:50%;top:0;width:120%;height:96%;transform:translateX(-50%);z-index:0;pointer-events:none;background:radial-gradient(closest-side,rgba(232,200,122,.42),transparent 72%);filter:blur(14px);opacity:0}
@@ -89,7 +89,7 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
   .cut.sil .cemoji{display:block}
 
   /* name + stats plate (driven by scroll focus, not hover) */
-  .plate{position:absolute;left:50%;bottom:7%;transform:translateX(-50%) translateY(14px);z-index:5;width:min(400px,90vw);opacity:0;text-align:center;background:linear-gradient(0deg,rgba(4,6,12,.98),rgba(7,12,28,.95));border:1px solid var(--border-s,rgba(201,168,76,.4));border-radius:14px;padding:1.25rem 1.5rem 1.35rem;box-shadow:0 22px 60px rgba(0,0,0,.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+  .plate{position:absolute;left:50%;bottom:7%;transform:translateX(-50%) translateY(14px);z-index:5;width:min(400px,90vw);opacity:0;text-align:center;direction:rtl;background:linear-gradient(0deg,rgba(4,6,12,.98),rgba(7,12,28,.95));border:1px solid var(--border-s,rgba(201,168,76,.4));border-radius:14px;padding:1.25rem 1.5rem 1.35rem;box-shadow:0 22px 60px rgba(0,0,0,.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
   .plate .kick{font-family:'Heebo',sans-serif;font-weight:800;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-l);margin-bottom:.45rem}
   .plate .nm{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.5rem;line-height:.92;text-transform:uppercase;letter-spacing:.01em;color:#fff}
   .plate .nm b{color:var(--gold)}
@@ -122,7 +122,7 @@ src="https://www.facebook.com/tr?id=1016762097524610&ev=PageView&noscript=1"
   .btn.g{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}.btn.g:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
 
   /* progress dots */
-  .dots{position:absolute;left:50%;bottom:1.4rem;transform:translateX(-50%);z-index:7;display:flex;gap:.5rem}
+  .dots{position:absolute;left:50%;bottom:1.4rem;transform:translateX(-50%);z-index:7;display:flex;direction:ltr;gap:.5rem}
   .dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .25s,transform .25s}
   .dots i.on{background:var(--gold);transform:scale(1.35)}
 
