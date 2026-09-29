@@ -191,6 +191,17 @@ nav {
   .nav-mobile-menu { display: flex; }
 }
 
+/* Hebrew nav labels run much longer than their English equivalents and
+   overflow the bar well past 900px (up to ~1960px wide) — fall back to the
+   hamburger menu at a much wider breakpoint on RTL pages so nothing renders
+   off-screen. */
+@media (max-width: 2200px) {
+  html[dir="rtl"] nav { padding: 0.9rem 1.25rem; }
+  html[dir="rtl"] .nav-links, html[dir="rtl"] .nav-cta, html[dir="rtl"] .nav-lang-toggle { display: none; }
+  html[dir="rtl"] .nav-hamburger { display: inline-flex; align-items: center; }
+  html[dir="rtl"] .nav-mobile-menu { display: flex; }
+}
+
 /* ── BUTTONS — pill-shaped, brand-book spec ──────────────── */
 .btn-primary {
   font-family: 'Heebo', sans-serif;
